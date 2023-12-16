@@ -1,0 +1,47 @@
+:root {
+  background-color: #fff;
+  color: #000;
+  font-family: 'Noto Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1;
+  text-rendering: optimizelegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  background-color: #f6f6f6;
+  color: #444;
+  font-size: 1rem;
+  place-items: center;
+}
+
+// Links
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+
+  &:hover {
+    color: #015ecb;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: purple; /* Цвет посещенных ссылок */
+  }
+}

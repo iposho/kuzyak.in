@@ -1,0 +1,30 @@
+.home {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.main {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 1rem 0;
+
+  .description {
+    display: flex;
+    width: 100%;
+    max-width: 66ch;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+
+    p {
+      display: flex;
+      width: 100%;
+      margin: 0 0 .75rem;
+      font-size: 1.375rem;
+      line-height: 1.5;
+    }
+  }
+}

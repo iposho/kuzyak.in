@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  width: 100%;
+  max-width: 728px;
+  justify-content: space-between;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid rgb(204 204 204 / 33%);
+  margin-top: 2rem;
+
+  .copyrights {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      margin-bottom: .75rem;
+      color: #777;
+    }
+  }
+
+  .version {
+    color: #888;
+    font-family: Courier, monospace;
+    font-size: .75rem;
+  }
+}

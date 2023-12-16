@@ -1,24 +1,44 @@
 {
   "name": "kuzyak.in",
-  "version": "0.1.0",
+  "version": "4.0.0",
+  "author": " Pavel Kuzyakin <pavel@kuzyak.in> (kuzyak.in)",
+  "description": "My personal website",
+  "homepage": "https://github.com/iposho/kuzyak.in#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iposho/kuzyak.in.git"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint && npm run stylelint",
+    "stylelint": "npx stylelint \"**/*.+(css|scss)\" --fix"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-next": "14.0.4",
+    "sass": "^1.69.5",
+    "stylelint": "^16.0.2",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-config-standard": "^35.0.0",
+    "stylelint-config-standard-scss": "^12.0.0",
+    "typescript": "^5"
   }
 }
