@@ -10,39 +10,35 @@ import {
 import css from './social.module.scss';
 
 export default function Social() {
+  const socialData = [
+    {
+      id: 1, icon: faFacebook, link: 'https://facebook.com/pashakuzyakin', label: 'Фейсбук',
+    },
+    {
+      id: 2, icon: faLinkedin, link: 'https://www.linkedin.com/in/pavelkuzyakin/', label: 'Линкедин',
+    },
+    {
+      id: 3, icon: faTwitter, link: 'https://twitter.com/pavelkuzyakin', label: 'Твиттер',
+    },
+    {
+      id: 4, icon: faGithub, link: 'https://github.com/iposho', label: 'Гитхаб',
+    },
+    {
+      id: 5, icon: faTelegram, link: 'https://t.me/mrPosho', label: 'Телеграм',
+    },
+  ];
+
   return (
     <div className={css.social}>
       <ul className={css.links}>
-        <li>
-          <a href="https://facebook.com/pashakuzyakin">
-            <FontAwesomeIcon icon={faFacebook} />
-            Фейсбук
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/pavelkuzyakin/">
-            <FontAwesomeIcon icon={faLinkedin} />
-            Линкедин
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/pavelkuzyakin">
-            <FontAwesomeIcon icon={faTwitter} />
-            Твиттер
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/iposho">
-            <FontAwesomeIcon icon={faGithub} />
-            Гитхаб
-          </a>
-        </li>
-        <li>
-          <a href="https://t.me/mrPosho">
-            <FontAwesomeIcon icon={faTelegram} />
-            Телеграм
-          </a>
-        </li>
+        {socialData.map((socialItem) => (
+          <li key={socialItem.id}>
+            <a href={socialItem.link}>
+              <FontAwesomeIcon icon={socialItem.icon} />
+              {socialItem.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );
