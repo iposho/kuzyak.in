@@ -43,5 +43,17 @@
     "stylelint-config-standard": "^35.0.0",
     "stylelint-config-standard-scss": "^12.0.0",
     "typescript": "^5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -2,21 +2,23 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Noto_Sans } from 'next/font/google';
 
+import {
+  METADATA_BASE, METADATA_DESCRIPTION, METADATA_SITE_NAME, METADATA_TITLE,
+} from '@/app/constants/metadata';
+
 import './styles/globals.scss';
 
-const notoSans = Noto_Sans({ subsets: ['latin'] });
+const notoSans = Noto_Sans({ subsets: ['latin', 'cyrillic'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kuzyak.in'),
-  title: 'Павел Кузякин',
-  description: 'Фронтенд-разработчик c опытом руководства командами и направлением',
+  metadataBase: METADATA_BASE,
+  title: METADATA_TITLE,
+  description: METADATA_DESCRIPTION,
   openGraph: {
-    title: 'Павел Кузякин',
-    description: 'Фронтенд-разработчик c опытом руководства командами и направлением',
-    url: 'https://kuzyak.in',
-    siteName: 'kuzyak.in',
+    url: METADATA_BASE,
+    siteName: METADATA_SITE_NAME,
     locale: 'ru_RU',
-    images: './opengraph-image.png',
+    images: './opengraph-image.tsx',
     type: 'website',
   },
 };

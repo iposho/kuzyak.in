@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { METADATA_DESCRIPTION, METADATA_SITE_NAME, METADATA_TITLE } from '@/app/constants/metadata';
 
 export const runtime = 'edge';
 
@@ -22,7 +23,7 @@ export default async function GET() {
       <div
         style={{
           fontSize: 54,
-          background: 'linear-gradient(60deg, rgba(0,0,0,1) 0%, rgba(34,34,34,1) 100%)',
+          background: 'linear-gradient(60deg, rgba(0,0,0,1) 0%, #111 35%, #000 70%)',
           color: '#fff',
           width: '100%',
           height: '100%',
@@ -55,33 +56,34 @@ export default async function GET() {
           />
           <h1
             style={{
-              fontSize: 54,
+              fontSize: 72,
               margin: 0,
-              fontWeight: 'bold',
+              fontWeight: 'bolder',
             }}
           >
-            Павел Кузякин
+            {METADATA_TITLE}
           </h1>
         </div>
         <h2
           style={{
-            fontSize: 36,
+            fontSize: 48,
             margin: '12px 0',
             width: '100%',
-            maxWidth: '600px',
+            color: '#f6f6f6',
+            maxWidth: '900px',
             textAlign: 'center',
           }}
         >
-          Фронтенд-разработчик c опытом руководства командами и направлением
+          {METADATA_DESCRIPTION}
         </h2>
         <h3
           style={{
-            fontSize: 36,
+            fontSize: 40,
             margin: 0,
             color: 'lightskyblue',
           }}
         >
-          kuzyak.in
+          {METADATA_SITE_NAME}
         </h3>
       </div>
     ),
