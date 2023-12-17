@@ -11,6 +11,9 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": [
+    "next.config.js"
+  ],
   "rules":{
     "indent":[
       "error",
