@@ -30,15 +30,15 @@
 }
 
 .swu {
-  left: -80px;
-  top: 20px;
-  transform: rotate(135deg);
-  background: linear-gradient(-180deg, #ffd500 50%, #005bbb 50%);
-  cursor: pointer;
-  width: 300px;
-  height: 60px;
   position: fixed;
   z-index: 999;
+  top: 20px;
+  left: -80px;
+  width: 300px;
+  height: 60px;
+  background: linear-gradient(-180deg, #ffd500 50%, #005bbb 50%);
+  cursor: pointer;
+  transform: rotate(135deg);
 
   a {
     display: block;

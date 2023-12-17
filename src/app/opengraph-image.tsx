@@ -23,8 +23,8 @@ export default async function GET() {
       <div
         style={{
           fontSize: 54,
-          background: 'linear-gradient(60deg, rgba(0,0,0,1) 0%, #111 35%, #000 70%)',
-          color: '#fff',
+          background: 'linear-gradient(60deg, #222 0%, #111 33%, #222 80%)',
+          color: '#FFFFFFD9',
           width: '100%',
           height: '100%',
           display: 'flex',
