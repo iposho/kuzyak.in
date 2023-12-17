@@ -1,9 +1,5 @@
 import { ImageResponse } from 'next/og';
-import Image from 'next/image';
 
-import profilePic from '../../public/me.webp';
-
-// Route segment config
 export const runtime = 'edge';
 
 export const alt = 'Павел Кузякин';
