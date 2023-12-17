@@ -22,6 +22,12 @@ export default function Home() {
         </div>
         <Social />
       </main>
+      <div
+        className={css.swu}
+        title="We support Ukraine Help Provide Aid to Ukraine"
+      >
+        <a href="https://crisisrelief.un.org/t/ukraine">{' '}</a>
+      </div>
       <Footer />
     </div>
   );
