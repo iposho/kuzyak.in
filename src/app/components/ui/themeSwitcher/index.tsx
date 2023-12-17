@@ -19,13 +19,20 @@ export default function ThemeSwitcher() {
     return null;
   }
 
+  const isChecked = theme === 'light';
+  const getTheme = isChecked ? 'dark' : 'light';
+
   return (
-    <div className={css.switcher}>
+    <div
+      className={css.switcher}
+      title={`Switch to ${getTheme} theme`}
+    >
       <DarkModeSwitch
-        checked={theme === 'light'}
-        moonColor="peru"
-        sunColor="orange"
-        onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        checked={isChecked}
+        moonColor="#C3C1A1"
+        sunColor="#f6f6f6"
+        onChange={() => setTheme(getTheme)}
+        title={`Switch to ${theme} theme`}
         size={32}
       />
     </div>

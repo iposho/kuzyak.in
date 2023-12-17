@@ -1,6 +1,6 @@
 {
   "name": "kuzyak.in",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "author": " Pavel Kuzyakin <pavel@kuzyak.in> (kuzyak.in)",
   "description": "My personal website",
   "homepage": "https://github.com/iposho/kuzyak.in#readme",
@@ -30,6 +30,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-toggle-dark-mode": "^1.1.1",
+    "react-yandex-metrika": "^2.6.0",
     "sharp": "^0.33.0"
   },
   "devDependencies": {
