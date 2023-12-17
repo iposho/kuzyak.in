@@ -9,10 +9,10 @@ const notoSans = Noto_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://kuzyak.in'),
   title: 'Павел Кузякин',
-  description: 'Фронтенд-разработчик и тимлид',
+  description: 'Фронтенд-разработчик c опытом руководства командами и направлением',
   openGraph: {
     title: 'Павел Кузякин',
-    description: 'Фронтенд-разработчик и тимлид',
+    description: 'Фронтенд-разработчик c опытом руководства командами и направлением',
     url: 'https://kuzyak.in',
     siteName: 'kuzyak.in',
     locale: 'ru_RU',

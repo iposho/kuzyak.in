@@ -22,4 +22,16 @@
     font-family: Courier, monospace;
     font-size: .75rem;
   }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.5rem;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      margin-right: .5rem;
+    }
+  }
 }
