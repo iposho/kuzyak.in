@@ -28,3 +28,21 @@
     }
   }
 }
+
+.swu {
+  left: -80px;
+  top: 20px;
+  transform: rotate(135deg);
+  background: linear-gradient(-180deg, #ffd500 50%, #005bbb 50%);
+  cursor: pointer;
+  width: 300px;
+  height: 60px;
+  position: fixed;
+  z-index: 999;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

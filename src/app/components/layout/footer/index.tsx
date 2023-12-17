@@ -20,7 +20,9 @@ export default function Footer() {
           pavel@kuzyak.in
         </a>
       </div>
-      <div className={css.version}>{`☕ ${pjson.version}`}</div>
+      <div className={css.version}>
+        {`☕ ${pjson.version}`}
+      </div>
     </footer>
   );
 }
