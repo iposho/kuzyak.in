@@ -5,6 +5,7 @@ import {
   METADATA_BASE, METADATA_DESCRIPTION, METADATA_SITE_NAME, METADATA_TITLE,
 } from '@/app/constants/metadata';
 
+import YandexMetrika from '@/app/components/analytics/YandexMetrika';
 import ThemeProvider from './theme-provider';
 import ThemeSwitcher from './components/ui/themeSwitcher';
 
@@ -38,6 +39,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
+      <YandexMetrika />
     </html>
   );
 }
