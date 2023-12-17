@@ -13,7 +13,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint && npm run stylelint",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "next lint",
     "stylelint": "npx stylelint \"**/*.+(css|scss)\" --fix"
   },
   "dependencies": {
@@ -25,7 +26,8 @@
     "@vercel/og": "^0.6.1",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sharp": "^0.33.0"
   },
   "devDependencies": {
     "@types/node": "^20",
