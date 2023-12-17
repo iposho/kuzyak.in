@@ -1,3 +1,5 @@
+<img src="./public/me.webp" width="100px" alt="Logo of the project" align="right" />
+
 ![Vercel Deploy](https://therealsujitk-vercel-badge.vercel.app/?app=kuzyak-in)
 ![UptimeRobot](https://img.shields.io/uptimerobot/ratio/7/m791492049-6dbfea544e7e89bf7b42eae3)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/iposho/kuzyak.in)
@@ -5,7 +7,6 @@
 ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/iposho/kuzyak.in)
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/iposho/kuzyak.in/main)
 
-<img src="./preview.webp" alt="Logo of the project" />
 
 # kuzyak.in
 

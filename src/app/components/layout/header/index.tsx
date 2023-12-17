@@ -8,8 +8,8 @@ export default function Header() {
       <Image
         src="/me.webp"
         alt="Павел Кузякин"
-        width={100}
-        height={100}
+        width={150}
+        height={150}
         className={css.logo}
         priority
       />

@@ -1,8 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-
-import pjson from '../../../../../package.json';
-
 import css from './footer.module.scss';
 
 export default function Footer() {
@@ -11,18 +6,14 @@ export default function Footer() {
   return (
     <footer className={css.footer}>
       <div className={css.copyrights}>
-        <span>{`© 2014...${currentYear}`}</span>
-        <a
-          className={css.emailLink}
-          href="mailto:pavel@kuzyak.in"
-        >
-          <FontAwesomeIcon icon={faEnvelope} />
-          pavel@kuzyak.in
-        </a>
+        <span>{`☕ 2014...${currentYear}`}</span>
       </div>
-      <div className={css.version}>
-        {`☕ ${pjson.version}`}
-      </div>
+      <a
+        className={css.emailLink}
+        href="mailto:pavel@kuzyak.in"
+      >
+        pavel@kuzyak.in
+      </a>
     </footer>
   );
 }
