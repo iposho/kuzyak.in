@@ -1,8 +1,8 @@
 :root {
-  font-family: 'Noto Sans', sans-serif;
-  color-scheme: light dark;
+  background-color: #fff;
   color: #213547;
-  background-color: #ffffff;
+  color-scheme: light dark;
+  font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-synthesis: none;
@@ -47,14 +47,14 @@ a {
 
 @media (prefers-color-scheme: dark) {
   html.dark {
-    color: rgba(255, 255, 255, 0.87);
     background-color: #242424;
+    color: rgb(255 255 255 / 87%);
   }
 }
 
 @media (prefers-color-scheme: light) {
   html.light {
+    background-color: rgb(255 255 255 / 87%);
     color: #242424;
-    background-color: rgba(255, 255, 255, 0.87);
   }
 }
