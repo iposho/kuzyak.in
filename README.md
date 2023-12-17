@@ -1,4 +1,4 @@
-<img src="./public/me.webp" width="100px" alt="Logo of the project" align="right" />
+<img src="./public/og.png" width="100px" alt="Logo of the project" align="right" />
 
 ![Vercel Deploy](https://therealsujitk-vercel-badge.vercel.app/?app=kuzyak-in)
 ![UptimeRobot](https://img.shields.io/uptimerobot/ratio/7/m791492049-6dbfea544e7e89bf7b42eae3)

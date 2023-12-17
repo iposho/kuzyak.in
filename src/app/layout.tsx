@@ -8,7 +8,7 @@ import {
 
 import './styles/globals.scss';
 
-const notoSans = Noto_Sans({ subsets: ['latin', 'cyrillic'] });
+const notoSans = Noto_Sans({ subsets: ['latin', 'cyrillic'], display: 'swap' });
 
 export const metadata: Metadata = {
   metadataBase: METADATA_BASE,
