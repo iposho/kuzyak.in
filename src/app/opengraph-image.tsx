@@ -32,7 +32,6 @@ export default async function GET() {
           flexDirection: 'column',
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <div
           style={{
             display: 'flex',
@@ -41,6 +40,7 @@ export default async function GET() {
             marginBottom: '12px',
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt=""
             src={dataUrl}
