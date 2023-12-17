@@ -38,7 +38,7 @@ export default function Social() {
           </a>
         </li>
         <li>
-          <a href="https://t.me/pashakuzyakin">
+          <a href="https://t.me/mrPosho">
             <FontAwesomeIcon icon={faTelegram} />
             Телеграм
           </a>
