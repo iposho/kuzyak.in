@@ -45,28 +45,50 @@ export default async function GET() {
           <img
             alt=""
             src={dataUrl}
-            width={100}
-            height={100}
+            width={175}
+            height={175}
             style={{
               borderRadius: '50%',
               backgroundColor: '#4682b4',
               boxShadow: '8px 8px 45px -15px #000',
-              marginRight: '16px',
+              marginRight: '32px',
             }}
           />
-          <h1
-            style={{
-              fontSize: 72,
-              margin: 0,
-              fontWeight: 'bolder',
-            }}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+          }}
           >
-            {METADATA_TITLE}
-          </h1>
+            <h1
+              style={{
+                fontSize: 72,
+                margin: 0,
+                color: 'lightskyblue',
+              }}
+            >
+              {METADATA_SITE_NAME}
+            </h1>
+            <h1
+              style={{
+                fontSize: 72,
+                margin: 0,
+                fontWeight: 'bolder',
+              }}
+            >
+              {METADATA_TITLE}
+            </h1>
+          </div>
         </div>
+        <hr
+          style={{
+            border: 'none',
+            borderTop: '1px solid #444',
+            width: '80%',
+          }}
+        />
         <h2
           style={{
-            fontSize: 48,
+            fontSize: 54,
             margin: '12px 0',
             width: '100%',
             color: '#f6f6f6',
@@ -76,15 +98,6 @@ export default async function GET() {
         >
           {METADATA_DESCRIPTION}
         </h2>
-        <h3
-          style={{
-            fontSize: 40,
-            margin: 0,
-            color: 'lightskyblue',
-          }}
-        >
-          {METADATA_SITE_NAME}
-        </h3>
       </div>
     ),
     {
