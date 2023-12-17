@@ -5,11 +5,24 @@
   flex-direction: column;
   align-items: center;
 
+  .image {
+    position: relative;
+  }
+
   .logo {
     border-radius: 50%;
     margin-bottom: .25rem;
     background-color: steelblue;
     box-shadow: 8px 8px 45px -15px rgb(153 153 153 / 100%);
+  }
+
+  .hat {
+    color: transparent;
+    position: absolute;
+    top: -32px;
+    left: calc(50% - 44px);
+    width: 120px;
+    height: 120px;
   }
 
   .title {
