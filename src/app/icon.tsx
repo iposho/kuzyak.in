@@ -17,17 +17,16 @@ export default async function Icon() {
 
   return new ImageResponse(
     (
-      // ImageResponse JSX element
       <div
         style={{
           fontSize: 24,
-          background: 'transparent',
+          backgroundColor: 'transparent',
           width: '100%',
           height: '100%',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'white',
+          color: 'transparent',
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -37,7 +36,8 @@ export default async function Icon() {
           width={32}
           height={32}
           style={{
-            backgroundColor: 'transparent',
+            borderRadius: '50%',
+            backgroundColor: '#4682b4',
             boxShadow: '8px 8px 45px -15px #000',
           }}
         />
