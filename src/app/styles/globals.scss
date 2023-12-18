@@ -1,15 +1,13 @@
 :root {
-  --bg-color-light: #ffffff;
-  --text-color-light: #333333;
+  --bg-color-light: #fff;
+  --text-color-light: #333;
   --link-color-light: #0070f3;
   --link-hover-color-light: #015ecb;
-
   --bg-color-dark: #1a1a1a;
-  --text-color-dark: #ffffff;
+  --text-color-dark: #fff;
   --link-color-dark: #4fa3d1;
   --link-hover-color-dark: #68b8e7;
 
-  color-scheme: light dark;
   font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,6 +15,7 @@
   font-weight: 400;
   line-height: 1;
   text-rendering: optimizelegibility;
+  transition: background-color .25s, color .25s;
 }
 
 * {
@@ -35,7 +34,7 @@ body {
   margin: 0;
   font-size: 1rem;
   place-items: center;
-  transition: background-color .5s, color .5s;
+  transition: background-color .25s, color .25s;
 }
 
 /* Links */

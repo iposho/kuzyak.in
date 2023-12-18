@@ -4,7 +4,7 @@
   max-width: 728px;
   justify-content: space-between;
   padding: 1.5rem 0 0;
-  border-top: 1px solid rgb(204 204 204 / 33%);
+  border-top: 1px solid rgb(204 204 204 / 25%);
   margin-top: 2rem;
 
   .copyrights {
@@ -24,6 +24,18 @@
       width: 16px;
       height: 16px;
       margin-right: .5rem;
+    }
+  }
+}
+
+[data-theme="dark"] {
+  .footer {
+    border-top: 1px solid rgb(204 204 204 / 10%);
+
+    .copyrights {
+      span {
+        color: #888;
+      }
     }
   }
 }

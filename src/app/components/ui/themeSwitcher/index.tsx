@@ -31,9 +31,8 @@ export default function ThemeSwitcher() {
         className={css.switch}
         checked={isChecked}
         moonColor="#C3C1A1"
-        sunColor="wheat"
+        sunColor="#F28C38"
         onChange={() => setTheme(getTheme)}
-        title={`Switch to ${theme} theme`}
         size={32}
       />
     </div>
