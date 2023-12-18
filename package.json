@@ -30,7 +30,6 @@
     "react": "^18",
     "react-dom": "^18",
     "react-toggle-dark-mode": "^1.1.1",
-    "react-yandex-metrika": "^2.6.0",
     "sharp": "^0.33.0"
   },
   "devDependencies": {
