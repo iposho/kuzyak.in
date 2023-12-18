@@ -5,7 +5,6 @@ import {
   METADATA_BASE, METADATA_DESCRIPTION, METADATA_SITE_NAME, METADATA_TITLE,
 } from '@/app/constants/metadata';
 
-import YandexMetrika from '@/app/components/analytics/YandexMetrika';
 import ThemeProvider from './theme-provider';
 import ThemeSwitcher from './components/ui/themeSwitcher';
 
@@ -34,12 +33,15 @@ export default function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body className={notoSans.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+        >
           <ThemeSwitcher />
           {children}
         </ThemeProvider>
       </body>
-      <YandexMetrika />
     </html>
   );
 }

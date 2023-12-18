@@ -1,6 +1,14 @@
 :root {
-  background-color: #fff;
-  color: #213547;
+  --bg-color-light: #ffffff;
+  --text-color-light: #333333;
+  --link-color-light: #0070f3;
+  --link-hover-color-light: #015ecb;
+
+  --bg-color-dark: #1a1a1a;
+  --text-color-dark: #ffffff;
+  --link-color-dark: #4fa3d1;
+  --link-hover-color-dark: #68b8e7;
+
   color-scheme: light dark;
   font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,34 +35,29 @@ body {
   margin: 0;
   font-size: 1rem;
   place-items: center;
+  transition: background-color .5s, color .5s;
 }
 
-// Links
+/* Links */
 
 a {
-  color: #0070f3;
+  color: var(--link-color-light);
   text-decoration: none;
 
   &:hover {
-    color: #015ecb;
+    color: var(--link-hover-color-light);
     text-decoration: underline;
   }
 
   &:visited {
-    color: purple; /* Цвет посещенных ссылок */
+    color: purple;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  html.dark {
-    background-color: #242424;
-    color: rgb(255 255 255 / 87%);
-  }
-}
+  [data-theme="dark"] & {
+    color: var(--link-color-dark);
 
-@media (prefers-color-scheme: light) {
-  html.light {
-    background-color: rgb(255 255 255 / 87%);
-    color: #242424;
+    &:hover {
+      color: var(--link-hover-color-dark);
+    }
   }
 }

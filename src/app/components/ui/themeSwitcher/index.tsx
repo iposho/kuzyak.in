@@ -28,9 +28,10 @@ export default function ThemeSwitcher() {
       title={`Switch to ${getTheme} theme`}
     >
       <DarkModeSwitch
+        className={css.switch}
         checked={isChecked}
         moonColor="#C3C1A1"
-        sunColor="#f6f6f6"
+        sunColor="wheat"
         onChange={() => setTheme(getTheme)}
         title={`Switch to ${theme} theme`}
         size={32}
