@@ -2,29 +2,16 @@
   position: absolute;
   z-index: 1;
   top: 1.5rem;
-  right: 1rem;
+  right: 1.5rem;
   border: 0;
   background: transparent;
   cursor: pointer;
+  filter: sepia(1);
   transition: all ease-in .25s;
-}
 
-[data-theme="dark"] {
-
-  .switch {
-    &:hover {
-      color: silver;
-      transition: all ease-in .25s;
-    }
-  }
-}
-
-[data-theme="light"] {
-  .switch {
-    &:hover {
-      color: #444;
-      transition: all ease-in .25s;
-    }
+  &:hover {
+    filter: sepia(0);
+    transition: all ease-in .25s;
   }
 }
 

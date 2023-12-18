@@ -31,7 +31,10 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html
+      lang="ru"
+      suppressHydrationWarning
+    >
       <body className={notoSans.className}>
         <ThemeProvider
           attribute="data-theme"
