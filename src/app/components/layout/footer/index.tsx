@@ -1,6 +1,8 @@
+import { ReactElement } from 'react';
+
 import css from './footer.module.scss';
 
-export default function Footer() {
+export default function Footer():ReactElement {
   const currentYear = new Date().getFullYear();
 
   return (

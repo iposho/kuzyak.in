@@ -3,12 +3,11 @@
   "version": "4.1.0",
   "author": " Pavel Kuzyakin <pavel@kuzyak.in> (kuzyak.in)",
   "description": "My personal website",
-  "homepage": "https://github.com/iposho/kuzyak.in#readme",
+  "homepage": "https://kuzyak.in",
   "repository": {
     "type": "git",
     "url": "https://github.com/iposho/kuzyak.in.git"
   },
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -18,6 +17,7 @@
     "stylelint": "npx stylelint \"**/*.+(css|scss)\" --fix"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-common-types": "^6.5.1",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-regular-svg-icons": "^6.5.1",

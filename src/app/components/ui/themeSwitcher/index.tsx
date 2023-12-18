@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactElement } from 'react';
 import { useTheme } from 'next-themes';
 
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
 import css from './themeSwitcher.module.scss';
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher():ReactElement | null {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
