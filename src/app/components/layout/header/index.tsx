@@ -1,8 +1,10 @@
+import { ReactElement } from 'react';
+
 import Image from 'next/image';
 
 import css from './header.module.scss';
 
-export default function Header() {
+export default function Header():ReactElement {
   return (
     <header className={css.header}>
       <div className={css.image}>
