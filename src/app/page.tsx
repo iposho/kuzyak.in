@@ -13,11 +13,16 @@ export default function Home():ReactElement {
       <main className={css.main}>
         <div className={css.description}>
           <p>
-            Я фронтенд-разработчик, а еще тимлид и руководитель направления. В коммерческой разработке с 2015 года.
+            Я&nbsp;фронтенд-разработчик, а&nbsp;еще тимлид и&nbsp;руководитель направления.
+            В&nbsp;коммерческой разработке с&nbsp;2015 года.
           </p>
           <p>
-            Люблю создавать сложные веб-сайты и приложения, а также нанимать, обучать и развивать людей.
-            Подробнее&nbsp;—&nbsp;в&nbsp;
+            Люблю создавать сложные веб-сайты
+            и&nbsp;приложения, а&nbsp;также нанимать, обучать и&nbsp;развивать людей.
+          </p>
+          <p>
+            Подробнее&nbsp;—
+            в&nbsp;
             <a href="https://drive.google.com/file/d/1w-mjHmk12TKkxUON1qABRV8dlLA4Yf77/view?usp=sharing">резюме</a>
             .
           </p>
