@@ -7,6 +7,9 @@ import {
 } from '@/app/constants/metadata';
 
 import { ReactElement } from 'react';
+
+import logo from '../../../public/og.png';
+
 import css from './qr.module.scss';
 
 const setWidth = () => {
@@ -25,10 +28,17 @@ const setWidth = () => {
 
 export default function Page():ReactElement {
   const { Canvas } = useQRCode();
+
   return (
     <div className={css.qr}>
       <Canvas
         text={METADATA_BASE.toString()}
+        logo={{
+          src: logo.src,
+          options: {
+            width: setWidth() / 4,
+          },
+        }}
         options={{
           errorCorrectionLevel: 'M',
           margin: 3,
