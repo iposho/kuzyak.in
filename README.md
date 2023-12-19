@@ -23,6 +23,7 @@ Demo is here: https://kuzyak.in.
 $ git clone https://github.com/iposho/kuzyak.in.git
 $ cd kuzyak.in/
 $ npm i
+$ echo "YANDEX_METRIKA_ID=YOUR_YANDEX_METRIKA_ID" >> .env.local
 [...]
 $ npm run dev
 ```
