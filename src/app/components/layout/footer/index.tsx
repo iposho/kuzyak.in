@@ -7,15 +7,20 @@ export default function Footer():ReactElement {
 
   return (
     <footer className={css.footer}>
-      <div className={css.copyrights}>
-        <span>{`☕ 2014...${currentYear}`}</span>
+      <div>
+        <p
+          className={css.copyright}
+        >
+          {`© 2014...${currentYear}`}
+        </p>
+        <p className={css.email}>
+          <a
+            href="mailto:pavel@kuzyak.in"
+          >
+            pavel@kuzyak.in
+          </a>
+        </p>
       </div>
-      <a
-        className={css.emailLink}
-        href="mailto:pavel@kuzyak.in"
-      >
-        pavel@kuzyak.in
-      </a>
     </footer>
   );
 }

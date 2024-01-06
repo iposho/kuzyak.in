@@ -7,9 +7,6 @@ import {
 
 import Script from 'next/script';
 
-import ThemeProvider from './theme-provider';
-import ThemeSwitcher from './components/ui/themeSwitcher';
-
 import './styles/globals.scss';
 
 const notoSans = Noto_Sans({ subsets: ['latin', 'cyrillic'], display: 'swap' });
@@ -64,13 +61,7 @@ export default function RootLayout({
             </Script>
           )
         }
-        <ThemeProvider
-          attribute="data-theme"
-          enableSystem
-        >
-          <ThemeSwitcher />
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

@@ -1,33 +1,29 @@
 .header {
   display: flex;
   width: 100%;
-  max-width: 728px;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-
-  .image {
-    position: relative;
-  }
+  justify-content: space-between;
+  padding: 1.75rem 6% 1.5rem;
 
   .logo {
+    position: relative;
+    display: flex;
     border-radius: 50%;
-    margin-bottom: .25rem;
-    background-color: steelblue;
-    box-shadow: 8px 8px 45px -15px rgb(0 0 0 / 50%);
-  }
+    background-color: var( --bg-logo-color);
+    box-shadow: 8px 8px 45px -15px rgb(0 0 0 / 75%);
 
-  .hat {
-    position: absolute;
-    top: -32px;
-    left: calc(50% - 44px);
-    width: 120px;
-    height: 120px;
-    color: transparent;
-  }
+    .avatar {
+      width: 100%;
+      max-width: 64px;
+      height: auto;
+      border-radius: 50%;
+    }
 
-  .title {
-    margin: 0 0 .5rem;
-    font-size: 1.75rem;
-    line-height: 1.5;
+    .hat {
+      position: absolute;
+      top: -10px;
+      left: 15px;
+    }
   }
 }

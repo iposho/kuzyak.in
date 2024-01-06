@@ -6,11 +6,3 @@
   align-items: center;
   justify-content: center;
 }
-
-[data-theme="dark"] {
-  .qr {
-    canvas {
-      filter: invert(1);
-    }
-  }
-}
