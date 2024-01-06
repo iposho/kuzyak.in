@@ -1,12 +1,11 @@
 :root {
   --bg-color-light: #fff;
   --text-color-light: #333;
-  --link-color-light: #0070f3;
-  --link-hover-color-light: #015ecb;
-  --bg-color-dark: #1a1a1a;
-  --text-color-dark: #fff;
-  --link-color-dark: #4fa3d1;
-  --link-hover-color-dark: #68b8e7;
+  --link-color-light: #0064a8;
+  --link-hover-color-light: #a03000;
+  --link-color-dark: #1a1a1a;
+  --link-hover-color-dark: rgb(226 0 22);
+  --link-border-alpha: 0.45;
 
   font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,7 +14,6 @@
   font-weight: 400;
   line-height: 1;
   text-rendering: optimizelegibility;
-  transition: background-color .25s, color .25s;
 }
 
 * {
@@ -34,29 +32,23 @@ body {
   margin: 0;
   font-size: 1rem;
   place-items: center;
-  transition: background-color .25s, color .25s;
 }
 
 /* Links */
 
 a {
+  border-bottom: 1px solid rgb(from var(--link-color-light) r g b / 50%);
   color: var(--link-color-light);
   text-decoration: none;
+  transition: border-bottom-color .25s ease-out;
 
   &:hover {
+    border-bottom-color: rgb(from var(--link-hover-color-light) r g b / 50%);
     color: var(--link-hover-color-light);
-    text-decoration: underline;
+    transition: border-bottom-color .25s ease-out;
   }
 
   &:visited {
     color: purple;
-  }
-
-  [data-theme="dark"] & {
-    color: var(--link-color-dark);
-
-    &:hover {
-      color: var(--link-hover-color-dark);
-    }
   }
 }

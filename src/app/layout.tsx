@@ -64,13 +64,7 @@ export default function RootLayout({
             </Script>
           )
         }
-        <ThemeProvider
-          attribute="data-theme"
-          enableSystem
-        >
-          <ThemeSwitcher />
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

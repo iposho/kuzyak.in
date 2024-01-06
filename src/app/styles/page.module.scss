@@ -1,48 +1,34 @@
 .home {
   display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 1rem 2rem;
-}
-
-.main {
-  display: flex;
   width: 100%;
-  flex-direction: column;
-  padding: 1rem 0;
+  padding: 1.5rem;
 
   .description {
     display: flex;
     width: 100%;
-    max-width: 66ch;
+    max-width: 768px;
     flex-direction: column;
-    margin-bottom: 1rem;
+    margin: 0 auto;
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: 4rem;
+      font-weight: 500;
+      line-height: 1.125;
+    }
+
+    h2 {
+      margin: 0 0 1.5rem;
+      font-size: 3.25rem;
+      font-weight: 400;
+    }
 
     p {
-      display: inline-block;
-      width: 100%;
-      margin: 0 0 .75rem;
-      font-size: 1.375rem;
+      margin: 0 0 0.75rem;
+      font-size: 1.25rem;
       line-height: 1.5;
+      width: 100%;
+      max-width: 700px;
     }
-  }
-}
-
-.swu {
-  position: fixed;
-  z-index: 999;
-  top: 20px;
-  left: -80px;
-  width: 300px;
-  height: 60px;
-  background: linear-gradient(-180deg, #ffd500 50%, #005bbb 50%);
-  cursor: pointer;
-  transform: rotate(135deg);
-
-  a {
-    display: block;
-    width: 100%;
-    height: 100%;
   }
 }
