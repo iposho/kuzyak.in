@@ -8,6 +8,8 @@ import {
 import Script from 'next/script';
 
 import '@/styles/globals.scss';
+import Header from '../components/layout/Header';
+import Footer from '../components/layout/Footer';
 
 const notoSans = Noto_Sans({ subsets: ['latin', 'cyrillic'], display: 'swap' });
 
@@ -61,7 +63,9 @@ export default function RootLayout({
             </Script>
           )
         }
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -9,17 +9,7 @@
     list-style-type: none;
 
     li {
-      a {
-        border-bottom-color: transparent;
-        color: var(--link-color-light);
-        font-size: 1.25rem;
-        font-weight: 400;
 
-        &:hover {
-          border-bottom-color: rgb(from var(--link-hover-color-light) r g b / var(--link-border-alpha));
-          color: var(--link-hover-color-light);
-        }
-      }
     }
   }
 }

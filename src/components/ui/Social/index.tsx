@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { SOCIAL_LINKS, ISocialLink } from '@/constants/social';
 
-import css from './social.module.scss';
+import css from './Social.module.scss';
 
 export default function Social():ReactElement {
   return (

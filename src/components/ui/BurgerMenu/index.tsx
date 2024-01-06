@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import css from './burgerMenu.module.scss';
+import css from './BurgerMenu.module.scss';
 
 interface BurgerMenuProps {
   isOpen: boolean;

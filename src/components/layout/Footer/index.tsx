@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 
-import Social from '../../ui/social';
+import Social from '../../ui/Social';
 
-import css from './footer.module.scss';
+import css from './Footer.module.scss';
 
 export default function Footer():ReactElement {
   const currentYear = new Date().getFullYear();
