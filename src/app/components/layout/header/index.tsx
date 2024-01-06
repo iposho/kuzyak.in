@@ -33,7 +33,7 @@ export default function Header():ReactElement {
           priority
         />
         {
-          (new Date() <= new Date('2024-01-07'))
+          (new Date() <= new Date('2024-01-14'))
           && (
             <Image
               className={css.hat}

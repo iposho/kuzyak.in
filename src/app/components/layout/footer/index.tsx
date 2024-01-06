@@ -1,5 +1,7 @@
 import { ReactElement } from 'react';
 
+import Social from '../../ui/social';
+
 import css from './footer.module.scss';
 
 export default function Footer():ReactElement {
@@ -20,6 +22,9 @@ export default function Footer():ReactElement {
             pavel@kuzyak.in
           </a>
         </p>
+      </div>
+      <div>
+        <Social />
       </div>
     </footer>
   );

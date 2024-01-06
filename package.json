@@ -27,10 +27,8 @@
     "@vercel/og": "^0.6.1",
     "next": "14.0.4",
     "next-qrcode": "^2.5.1",
-    "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-toggle-dark-mode": "^1.1.1",
     "sharp": "^0.33.0"
   },
   "devDependencies": {

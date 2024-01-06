@@ -28,3 +28,12 @@
     }
   }
 }
+
+@media only screen and (width <= 768px) {
+  .footer {
+    flex-direction: column-reverse;
+    padding-top: 2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}

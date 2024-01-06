@@ -1,12 +1,20 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 
 import Link from 'next/link';
+
+import BurgerMenu from '@/app/components/ui/burgerMenu';
 
 import css from './navigation.module.scss';
 
 export default function Navigation():ReactElement {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className={css.navigation}>
+    <nav className={`${css.navigation} ${isOpen ? css.open : ''}`}>
       <ul>
         <li>
           <Link href="/cv">
@@ -24,6 +32,10 @@ export default function Navigation():ReactElement {
           </Link>
         </li>
       </ul>
+      <BurgerMenu
+        isOpen={isOpen}
+        onClick={toggleMenu}
+      />
     </nav>
   );
 }

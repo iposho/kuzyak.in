@@ -14,7 +14,6 @@ export default function Social():ReactElement {
           <li key={socialItem.id}>
             <a href={socialItem.link}>
               <FontAwesomeIcon icon={socialItem.icon} />
-              {socialItem.label}
             </a>
           </li>
         ))}
