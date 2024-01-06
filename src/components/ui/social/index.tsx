@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { SOCIAL_LINKS, ISocialLink } from '@/app/constants/social';
+import { SOCIAL_LINKS, ISocialLink } from '@/constants/social';
 
 import css from './social.module.scss';
 
@@ -12,7 +12,7 @@ export default function Social():ReactElement {
       <ul className={css.links}>
         {SOCIAL_LINKS.map((socialItem: ISocialLink) => (
           <li key={socialItem.id}>
-            <a href={socialItem.link}>
+            <a aria-label={socialItem.label} href={socialItem.link}>
               <FontAwesomeIcon icon={socialItem.icon} />
             </a>
           </li>

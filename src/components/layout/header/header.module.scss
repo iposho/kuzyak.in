@@ -2,7 +2,6 @@
   display: flex;
   width: 100%;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
   padding: 1.75rem 6% 1.5rem;
 
@@ -32,5 +31,11 @@
   .header {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
+  }
+}
+
+@media only screen and (width <= 320px) {
+  .header {
+    align-items: center;
   }
 }

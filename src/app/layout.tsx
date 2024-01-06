@@ -3,11 +3,11 @@ import { ReactNode } from 'react';
 import { Noto_Sans } from 'next/font/google';
 import {
   METADATA_BASE, METADATA_DESCRIPTION, METADATA_SITE_NAME, METADATA_TITLE,
-} from '@/app/constants/metadata';
+} from '@/constants/metadata';
 
 import Script from 'next/script';
 
-import './styles/globals.scss';
+import '@/styles/globals.scss';
 
 const notoSans = Noto_Sans({ subsets: ['latin', 'cyrillic'], display: 'swap' });
 

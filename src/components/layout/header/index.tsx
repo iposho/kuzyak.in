@@ -4,9 +4,9 @@ import { ReactElement, useState } from 'react';
 
 import Image from 'next/image';
 
-import Navigation from '@/app/components/layout/navigation';
+import Navigation from '@/components/layout/navigation';
 
-import generateRandomColor from '@/app/helpers/generateRandomColor';
+import generateRandomColor from '@/helpers/generateRandomColor';
 
 import css from './header.module.scss';
 

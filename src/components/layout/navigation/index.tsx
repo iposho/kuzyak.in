@@ -2,7 +2,7 @@ import { ReactElement, useState } from 'react';
 
 import Link from 'next/link';
 
-import BurgerMenu from '@/app/components/ui/burgerMenu';
+import BurgerMenu from '@/components/ui/burgerMenu';
 
 import css from './navigation.module.scss';
 

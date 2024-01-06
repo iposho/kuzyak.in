@@ -12,6 +12,7 @@
     margin: 0;
     gap: .5rem 1rem;
     list-style-type: none;
+    transition: all .25s ease-out;
 
     li {
       a {
@@ -23,6 +24,7 @@
 
         &:hover {
           filter: brightness(.5);
+          transform: scale(1.5);
         }
 
         &[href*="facebook"] {

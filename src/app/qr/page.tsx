@@ -4,7 +4,7 @@ import { useQRCode } from 'next-qrcode';
 
 import {
   METADATA_BASE,
-} from '@/app/constants/metadata';
+} from '@/constants/metadata';
 
 import { ReactElement } from 'react';
 

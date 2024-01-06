@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og';
-import { METADATA_DESCRIPTION, METADATA_SITE_NAME, METADATA_TITLE } from '@/app/constants/metadata';
+import { METADATA_DESCRIPTION, METADATA_SITE_NAME, METADATA_TITLE } from '@/constants/metadata';
 
 export const runtime = 'edge';
 
