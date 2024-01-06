@@ -1,5 +1,6 @@
 :root {
   --bg-color-light: #fff;
+  --bg-logo-color: #4682b4;
   --text-color-light: #333;
   --link-color-light: #0064a8;
   --link-hover-color-light: #a03000;
@@ -21,6 +22,7 @@
 }
 
 html {
+  background-color: #f6f6f6;
   font-size: 16px;
 }
 
@@ -30,6 +32,9 @@ body {
   min-height: 100vh;
   flex-direction: column;
   margin: 0;
+
+  // background: radial-gradient(circle at left top, #3F51B5, #E91E63, #e91e63ad, #da00ffbf, transparent 75%) no-repeat;
+  // background-size: 85%;
   font-size: 1rem;
   place-items: center;
 }

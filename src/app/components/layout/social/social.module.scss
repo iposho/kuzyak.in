@@ -1,6 +1,9 @@
 .social {
   display: flex;
   width: 100%;
+  max-width: 768px;
+  padding-top: 1.5rem;
+  margin: 0 auto;
 
   .links {
     display: inline-flex;
@@ -8,17 +11,20 @@
     flex-wrap: wrap;
     padding: 0;
     margin: 0;
+    gap: .5rem 1rem;
     list-style-type: none;
 
     li {
-      margin-right: 1rem;
-      margin-bottom: .5rem;
-
       a {
         display: inline-flex;
         align-items: center;
-        font-size: 1.375rem;
+        border: none;
+        font-size: 1.25rem;
         line-height: 1.5;
+
+        &:hover {
+          filter: brightness(.5);
+        }
 
         &[href*="facebook"] {
           color: #3b5998;

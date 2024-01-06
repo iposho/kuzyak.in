@@ -10,8 +10,8 @@
     position: relative;
     display: flex;
     border-radius: 50%;
-    background-color: #4682b4;
-    box-shadow: 8px 8px 45px -15px rgb(0 0 0 / 50%);
+    background-color: var( --bg-logo-color);
+    box-shadow: 8px 8px 45px -15px rgb(0 0 0 / 75%);
 
     .avatar {
       width: 100%;
@@ -41,7 +41,7 @@
         a {
           border-bottom: 1px solid rgb(from var(--link-color-dark) r g b / 45%);
           color: var(--link-color-dark);
-          font-size: 1.5rem;
+          font-size: 1.25rem;
 
           &:hover {
             border-bottom-color: rgb(from var(--link-hover-color-dark) r g b / 45%);
