@@ -1,6 +1,7 @@
 .footer {
   display: flex;
   width: 100%;
+  justify-content: space-between;
   padding: 3rem 6% 1.5rem;
 
   div {
@@ -9,17 +10,18 @@
 
     p {
       margin: 0 0 .75rem;
+      color: #777;
 
       &.email {
         margin: 0;
 
         a {
-          border-bottom: 1px solid rgb(from var(--link-color-dark) r g b / 45%);
-          color: var(--link-color-dark);
+          border-bottom: 1px solid rgb(68 68 68 / 45%);
+          color: #777;
 
           &:hover {
-            border-bottom-color: rgb(from var(--link-hover-color-dark) r g b / 45%);
-            color: var(--link-hover-color-dark);
+            border-bottom-color: rgb(from var(--link-hover-color-light) r g b / var(--link-border-alpha));
+            color: var(--link-hover-color-light);
           }
         }
       }

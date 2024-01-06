@@ -26,29 +26,4 @@
       left: 15px;
     }
   }
-
-  .navigation {
-    display: flex;
-
-    ul {
-      display: inline-flex;
-      padding: 0;
-      margin: 0;
-      gap: 0.875rem;
-      list-style-type: none;
-
-      li {
-        a {
-          border-bottom: 1px solid rgb(from var(--link-color-dark) r g b / 45%);
-          color: var(--link-color-dark);
-          font-size: 1.25rem;
-
-          &:hover {
-            border-bottom-color: rgb(from var(--link-hover-color-dark) r g b / 45%);
-            color: var(--link-hover-color-dark);
-          }
-        }
-      }
-    }
-  }
 }

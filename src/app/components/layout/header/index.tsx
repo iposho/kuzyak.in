@@ -3,7 +3,8 @@
 import { ReactElement, useState } from 'react';
 
 import Image from 'next/image';
-import Link from 'next/link';
+
+import Navigation from '@/app/components/layout/navigation';
 
 import generateRandomColor from '@/app/helpers/generateRandomColor';
 
@@ -44,25 +45,7 @@ export default function Header():ReactElement {
           )
         }
       </div>
-      <nav className={css.navigation}>
-        <ul>
-          <li>
-            <Link href="/cv">
-              Резюме
-            </Link>
-          </li>
-          <li>
-            <Link href="/projects">
-              Проекты
-            </Link>
-          </li>
-          <li>
-            <Link href="/blog">
-              Блог
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Navigation />
     </header>
   );
 }

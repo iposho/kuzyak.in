@@ -1,14 +1,16 @@
 :root {
   --bg-color-light: #fff;
   --bg-logo-color: #4682b4;
-  --text-color-light: #333;
-  --link-color-light: #0064a8;
+  --text-color-light: #1a1a1a;
+
+  // --link-color-light: #0064a8;
+  --link-color-light: #015ecb;
   --link-hover-color-light: #a03000;
-  --link-color-dark: #1a1a1a;
-  --link-hover-color-dark: rgb(226 0 22);
+  --link-color-visited: #800080FF;
+  --link-color-dark: #000;
+  --link-hover-color-dark: rgb(26 26 26 / 50%);
   --link-border-alpha: 0.45;
 
-  font-family: 'Noto Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-synthesis: none;
@@ -32,9 +34,8 @@ body {
   min-height: 100vh;
   flex-direction: column;
   margin: 0;
-
-  // background: radial-gradient(circle at left top, #3F51B5, #E91E63, #e91e63ad, #da00ffbf, transparent 75%) no-repeat;
-  // background-size: 85%;
+  color: var(--text-color-light);
+  font-family: 'Noto Sans', sans-serif;
   font-size: 1rem;
   place-items: center;
 }
@@ -42,18 +43,23 @@ body {
 /* Links */
 
 a {
-  border-bottom: 1px solid rgb(from var(--link-color-light) r g b / 50%);
+  border-bottom: 1px solid rgb(from var(--link-color-light) r g b / var(--link-border-alpha));
   color: var(--link-color-light);
   text-decoration: none;
   transition: border-bottom-color .25s ease-out;
 
   &:hover {
-    border-bottom-color: rgb(from var(--link-hover-color-light) r g b / 50%);
+    border-bottom-color: rgb(from var(--link-hover-color-light) r g b / var(--link-border-alpha));
     color: var(--link-hover-color-light);
-    transition: border-bottom-color .25s ease-out;
   }
 
   &:visited {
-    color: purple;
+    border-bottom-color: rgb(from var(--link-color-visited) r g b / var(--link-border-alpha));
+    color: var(--link-color-visited);
+
+    &:hover {
+      border-bottom-color: rgb(from var(--link-hover-color-light) r g b / var(--link-border-alpha));
+      color: var(--link-hover-color-light);
+    }
   }
 }
