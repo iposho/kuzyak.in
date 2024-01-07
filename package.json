@@ -25,6 +25,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vercel/og": "^0.6.1",
+    "luxon": "^3.4.4",
     "next": "14.0.4",
     "next-qrcode": "^2.5.1",
     "react": "^18",
@@ -32,6 +33,7 @@
     "sharp": "^0.33.0"
   },
   "devDependencies": {
+    "@types/luxon": "^3.4.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

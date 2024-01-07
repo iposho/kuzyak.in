@@ -1,0 +1,27 @@
+.position {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.6rem;
+
+  h2 {
+    margin: 0 0 .5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .company {
+    margin: 0 0 1rem 0;
+
+    .range {
+      font-style: italic;
+    }
+
+    .diff {
+      color: #959799;
+    }
+
+    .icon {
+      margin-right: .25rem;
+    }
+  }
+}
