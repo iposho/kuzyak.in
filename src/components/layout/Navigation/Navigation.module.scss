@@ -7,33 +7,29 @@
     margin: 0;
     gap: 0.875rem;
     list-style-type: none;
-
-    li {
-
-    }
   }
 }
 
 @media (width <= 320px) {
   .navigation {
     ul {
-      display: inline-flex;
-      flex-direction: column;
       position: absolute;
+      z-index: -1;
       top: 1.5rem;
       left: 33%;
+      display: inline-flex;
+      flex-direction: column;
       padding: 0 1.5rem;
       opacity: 0;
-      z-index: -1;
       transform: scale(0);
       transition: all .2s ease-in-out;
     }
 
     &.open {
       ul {
+        z-index: 1;
         opacity: 1;
         transform: scale(1);
-        z-index: 1;
       }
     }
   }

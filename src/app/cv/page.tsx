@@ -1,5 +1,7 @@
 import CV_POSITIONS from '@/constants/cv';
+
 import Position from '@/components/ui/Position';
+
 import css from './cv.module.scss';
 
 export default function Cv() {
@@ -7,6 +9,7 @@ export default function Cv() {
     <main className={css.cv}>
       <section className={css.primary}>
         <div className={css.description}>
+          <h2>В трех абзацах</h2>
           <p>
             Начинал с&nbsp;азов HTML и&nbsp;CSS и&nbsp;позиции верстальщика,
             в&nbsp;последствии, транзитом через изучение JQuery и&nbsp;ванильного JavaScript,
@@ -27,17 +30,12 @@ export default function Cv() {
           </p>
         </div>
         <div className={css.experience}>
+          <h2>Опыт работы</h2>
           {
             CV_POSITIONS.map((position) => (
               <Position
                 key={position.id}
-                company={position.company}
-                title={position.title}
-                startDate={position.startDate}
-                endDate={position.endDate}
-                summary={position.summary}
-                image={position.image}
-                link={position.link}
+                {...position}
               />
             ))
           }
