@@ -17,11 +17,7 @@ Welcome to my personal website. Made for myself, usually at night with an incred
 Production version is here: https://kuzyak.in.
 
 ## Technologies
-<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-007ACC.svg?logo=typescript&logoColor=white" />
-<img alt="React" src="https://img.shields.io/badge/React-20232a.svg?logo=react&logoColor=%2361DAFB" />
-<img alt="Next.js" src="https://img.shields.io/badge/NextJS-000000.svg?logo=Next.js&logoColor=white" />
-<img alt="SASS" src="https://img.shields.io/badge/Sass-hotpink.svg?logo=SASS&logoColor=white">
-<img alt="Vercel" src="https://img.shields.io/badge/Vercel-444444?logo=vercel&logoColor=white" />
+<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-007ACC.svg?logo=typescript&logoColor=white" /> <img alt="React" src="https://img.shields.io/badge/React-20232a.svg?logo=react&logoColor=%2361DAFB" /> <img alt="Next.js" src="https://img.shields.io/badge/NextJS-000000.svg?logo=Next.js&logoColor=white" /> <img alt="SASS" src="https://img.shields.io/badge/Sass-hotpink.svg?logo=SASS&logoColor=white"> <img alt="Vercel" src="https://img.shields.io/badge/Vercel-444444?logo=vercel&logoColor=white" />
 
 ## Getting started
 
