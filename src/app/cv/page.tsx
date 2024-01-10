@@ -2,9 +2,14 @@ import CV_POSITIONS from '@/constants/cv';
 
 import Position from '@/components/ui/Position';
 
+import { calculateDuration } from '@/helpers/dates';
+
 import css from './cv.module.scss';
 
 export default function Cv() {
+  const currentDate = new Date().toLocaleDateString('ru-RU');
+  const overallExperienceValue = calculateDuration('01.12.2014', currentDate);
+
   return (
     <main className={css.cv}>
       <section className={css.primary}>
@@ -30,7 +35,7 @@ export default function Cv() {
           </p>
         </div>
         <div className={css.experience}>
-          <h2>Опыт работы</h2>
+          <h2>{`В разработке: ${overallExperienceValue}`}</h2>
           {
             CV_POSITIONS.map((position) => (
               <Position

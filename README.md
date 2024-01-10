@@ -10,23 +10,31 @@
 
 # kuzyak.in
 
-My personal website.
+<img src="./preview.webp" alt="kuzyak.in homepage">
 
-Made for myself, usually at night with an incredible amount of ☕.
+Welcome to my personal website. Made for myself, usually at night with an incredible amount of ☕.
 
-Demo is here: https://kuzyak.in.
+Production version is here: https://kuzyak.in.
 
-## Installing / Getting started
+## Technologies
+* Typescript
+* Next.js
+* SCSS
+* Vercel
+* ...and more
 
+## Getting started
 
 ```shell
 $ git clone https://github.com/iposho/kuzyak.in.git
 $ cd kuzyak.in/
 $ npm i
-$ echo "YANDEX_METRIKA_ID=YOUR_YANDEX_METRIKA_ID" >> .env.local
 [...]
 $ npm run dev
 ```
+
+## Contributions
+If you have suggestions for improving the code or functionality, please create an issue or pull request.
 
 ## Licensing
 

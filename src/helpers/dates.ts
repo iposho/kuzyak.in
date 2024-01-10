@@ -1,13 +1,32 @@
 import { DateTime } from 'luxon';
 import pluralize from '@/helpers/pluralize';
 
+/**
+ * The format string for date.
+ *
+ * @type {string}
+ */
 export const FORMAT = 'dd.MM.yyyy';
 
-export function formatLuxonDate(date: string, locale = 'ru') {
+/**
+ * Formats the given Luxon date string into specified format and locale.
+ *
+ * @param {string} date - The Luxon date string to be formatted.
+ * @param {string} [locale='ru'] - The locale to be used for formatting (default: 'ru').
+ * @return {string} - The formatted date in the format 'LLLL yyyy'.
+ */
+export function formatLuxonDate(date: string, locale: string = 'ru'): string {
   return DateTime.fromFormat(date, FORMAT).setLocale(locale).toFormat('LLLL yyyy');
 }
 
-export function calculateDuration(startDate: string, endDate: string) {
+/**
+ * Calculates the duration between two given dates.
+ *
+ * @param {string} startDate - The start date in the format 'YYYY-MM-DD'.
+ * @param {string} endDate - The end date in the format 'YYYY-MM-DD'.
+ * @return {string} The formatted duration in years and months.
+ */
+export function calculateDuration(startDate: string, endDate: string): string {
   const end = DateTime.fromFormat(endDate, FORMAT);
   const start = DateTime.fromFormat(startDate, FORMAT);
 
@@ -20,7 +39,7 @@ export function calculateDuration(startDate: string, endDate: string) {
     : '';
 
   const formattedMonths = months
-    ? `${Math.floor(months)} ${pluralize(months, ['месяц', 'месяца', 'месяцев'])}`
+    ? `${Math.floor(months)} ${pluralize(Math.floor(months), ['месяц', 'месяца', 'месяцев'])}`
     : '';
 
   return `${formattedYears}${formattedMonths}`;

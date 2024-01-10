@@ -13,11 +13,11 @@ interface INavLinkProps {
 }
 
 const NavLink: FC<INavLinkProps> = ({ href, children }) => {
-  const isActive = href === usePathname();
+  const isCurrentPage = href === usePathname();
 
   return (
     <>
-      {isActive ? (
+      {isCurrentPage ? (
         <span className={`${css.navLink} ${css.disabled}`}>
           {children}
         </span>
