@@ -2,8 +2,8 @@ import { ReactElement, useState } from 'react';
 
 import NAV_LINKS from '@/constants/links';
 
-import BurgerMenu from '../../ui/BurgerMenu';
-import NavLink from '../../ui/NavLink';
+import BurgerMenu from '@/components/ui/BurgerMenu';
+import NavLink from '@/components/ui/NavLink';
 
 import css from './Navigation.module.scss';
 

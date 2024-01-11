@@ -7,11 +7,15 @@ interface BurgerMenuProps {
   onClick: () => void;
 }
 
+function getBurgerIconClasses(isOpen: boolean) {
+  return `${css.burgerIcon} ${isOpen ? css.open : ''}`;
+}
+
 export default function BurgerMenu({
   isOpen,
   onClick,
 }: BurgerMenuProps): ReactElement {
-  const burgerIconClasses = `${css.burgerIcon} ${isOpen ? css.open : ''}`;
+  const burgerIconClasses = getBurgerIconClasses(isOpen);
 
   return (
     <button

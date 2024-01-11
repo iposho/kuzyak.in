@@ -1,12 +1,14 @@
 import { ReactElement } from 'react';
-import Social from '../../ui/Social';
+
+import Social from '@/components/ui/Social';
+
 import css from './Footer.module.scss';
 
 const COPYRIGHT_START_YEAR = 2014;
 const CONTACT_EMAIL = 'mailto:pavel@kuzyak.in';
 
 export default function Footer(): ReactElement {
-  const currentYear = new Date().getFullYear() - COPYRIGHT_START_YEAR;
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className={css.footer}>
