@@ -1,0 +1,61 @@
+.cv {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 6%;
+
+  .primary {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 2.5rem;
+
+    h1 {
+      margin: 0 0 1.5rem;
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      margin: 0 0 .75rem;
+    }
+  }
+
+  .description {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    p {
+      width: 100%;
+      max-width: 64ch;
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+
+  .experience {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (width <= 768px) {
+  .cv {
+    padding: 0 1.5rem;
+
+    .primary {
+      flex-direction: column;
+    }
+  }
+}
+
+@media only screen and (width <= 992px) {
+  .cv {
+    .primary {
+      flex-direction: column;
+    }
+  }
+}

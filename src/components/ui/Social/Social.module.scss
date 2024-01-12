@@ -1,0 +1,73 @@
+.social {
+  display: flex;
+
+  .links {
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    gap: .5rem 1rem;
+    list-style-type: none;
+    transition: all .25s ease-out;
+
+    li {
+      a {
+        display: inline-flex;
+        align-items: center;
+        border: none;
+        font-size: 1.25rem;
+        line-height: 1.5;
+
+        &:hover {
+          filter: brightness(.5);
+          transform: scale(1.5);
+        }
+
+        &[href*="facebook"] {
+          color: #3b5998;
+        }
+
+        &[href*="linkedin"] {
+          color: #0077b5;
+        }
+
+        &[href*="twitter"] {
+          color: #1da1f2;
+        }
+
+        &[href*="github"] {
+          color: #333;
+        }
+
+        &[href*="t.me"] {
+          color: #08c;
+        }
+
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (width <= 768px) {
+  .social {
+    margin-bottom: 1.5rem;
+
+    .links {
+      justify-content: space-between;
+
+      li {
+        a {
+          svg {
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+:root {
+  --bg-color-light: #fff;
+  --bg-logo-color: #4682b4;
+  --text-color-light: #1a1a1a;
+
+  // --link-color-light: #0064a8;
+  --link-color-light: #015ecb;
+  --link-hover-color-light: #a03000;
+  --link-color-visited: #800080FF;
+  --link-color-dark: #000;
+  --link-hover-color-dark: rgb(26 26 26 / 50%);
+  --link-border-alpha: 0.45;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1;
+  text-rendering: optimizelegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #f6f6f6;
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  color: var(--text-color-light);
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1rem;
+  place-items: center;
+}
+
+/* Links */
+
+a {
+  border-bottom: 1px solid rgb(from var(--link-color-light) r g b / var(--link-border-alpha));
+  color: var(--link-color-light);
+  text-decoration: none;
+  transition: border-bottom-color .25s ease-out;
+
+  &:hover {
+    border-bottom-color: rgb(from var(--link-hover-color-light) r g b / var(--link-border-alpha));
+    color: var(--link-hover-color-light);
+  }
+
+  &:visited {
+    border-bottom-color: rgb(from var(--link-color-visited) r g b / var(--link-border-alpha));
+    color: var(--link-color-visited);
+
+    &:hover {
+      border-bottom-color: rgb(from var(--link-hover-color-light) r g b / var(--link-border-alpha));
+      color: var(--link-hover-color-light);
+    }
+  }
+}
+
+/* Typography */
+
+p {
+  width: 100%;
+  max-width: 64ch;
+  margin: 0 0 .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}

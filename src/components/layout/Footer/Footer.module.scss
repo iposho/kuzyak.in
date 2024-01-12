@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 3rem 6% 1.5rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 0 0 .125rem;
+      color: #777;
+
+      &.email {
+        margin: 0;
+
+        a {
+          border-bottom: 1px solid rgb(68 68 68 / 45%);
+          color: #777;
+
+          &:hover {
+            border-bottom-color: rgb(from var(--link-hover-color-light) r g b / var(--link-border-alpha));
+            color: var(--link-hover-color-light);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (width <= 768px) {
+  .footer {
+    flex-direction: column-reverse;
+    padding-top: 2rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}

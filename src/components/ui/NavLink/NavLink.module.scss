@@ -1,0 +1,21 @@
+.navLink {
+  border-bottom-color: transparent;
+  color: var(--link-color-light);
+  font-size: 1.25rem;
+  font-weight: 400;
+
+  &:hover {
+    border-bottom-color: rgb(from var(--link-hover-color-light) r g b / var(--link-border-alpha));
+    color: var(--link-hover-color-light);
+  }
+
+  &.disabled {
+    color: rgb(255 80 32);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &:visited {
+    color: var(--link-color-light);
+  }
+}

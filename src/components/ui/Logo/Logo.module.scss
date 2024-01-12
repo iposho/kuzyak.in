@@ -1,0 +1,25 @@
+.logo {
+  position: relative;
+  display: flex;
+  border-radius: 50%;
+  background-color: var( --bg-logo-color);
+  box-shadow: 8px 8px 45px -15px rgb(0 0 0 / 75%);
+
+  .avatar {
+    width: 100%;
+    max-width: 64px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .hat {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+  }
+
+  .link {
+    display: flex;
+    border: none;
+  }
+}
