@@ -1,12 +1,12 @@
-import { DateTime } from 'luxon';
-import pluralize from '@/helpers/pluralize';
+import { DateTime } from 'luxon'
+import pluralize from '@/helpers/pluralize'
 
 /**
  * The format string for date.
  *
  * @type {string}
  */
-export const FORMAT = 'dd.MM.yyyy';
+export const FORMAT = 'dd.MM.yyyy'
 
 /**
  * Formats the given Luxon date string into specified format and locale.
@@ -16,7 +16,9 @@ export const FORMAT = 'dd.MM.yyyy';
  * @return {string} - The formatted date in the format 'LLLL yyyy'.
  */
 export function formatLuxonDate(date: string, locale: string = 'ru'): string {
-  return DateTime.fromFormat(date, FORMAT).setLocale(locale).toFormat('LLLL yyyy');
+  return DateTime.fromFormat(date, FORMAT)
+    .setLocale(locale)
+    .toFormat('LLLL yyyy')
 }
 
 /**
@@ -24,23 +26,32 @@ export function formatLuxonDate(date: string, locale: string = 'ru'): string {
  *
  * @param {string} startDate - The start date in the format 'YYYY-MM-DD'.
  * @param {string} endDate - The end date in the format 'YYYY-MM-DD'.
- * @return {string} The formatted duration in years and months.
+ * @param {string} separator - The separator between years and months.
+ * @return {string} - The formatted duration in years and months.
  */
-export function calculateDuration(startDate: string, endDate: string): string {
-  const end = DateTime.fromFormat(endDate, FORMAT);
-  const start = DateTime.fromFormat(startDate, FORMAT);
+export function calculateDuration(
+  startDate: string,
+  endDate: string,
+  separator: string = ''
+): string {
+  const end = DateTime.fromFormat(endDate, FORMAT)
+  const start = DateTime.fromFormat(startDate, FORMAT)
 
-  const diffInMonths = end.diff(start, ['years', 'months']);
+  const diffInMonths = end.diff(start, ['years', 'months'])
 
-  const { years, months } = diffInMonths.toObject();
+  const { years, months } = diffInMonths.toObject()
 
   const formattedYears = years
     ? `${years} ${pluralize(years, ['год', 'года', 'лет'])} `
-    : '';
+    : ''
 
   const formattedMonths = months
-    ? `${Math.floor(months)} ${pluralize(Math.floor(months), ['месяц', 'месяца', 'месяцев'])}`
-    : '';
+    ? `${Math.floor(months)} ${pluralize(Math.floor(months), [
+      'месяц',
+      'месяца',
+      'месяцев',
+    ])}`
+    : ''
 
-  return `${formattedYears}${formattedMonths}`;
+  return `${formattedYears}${separator}${formattedMonths}`
 }

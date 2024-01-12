@@ -1,26 +1,26 @@
-import { ReactElement } from 'react';
+import { ReactElement } from 'react'
 
-import Image from 'next/image';
+import Image from 'next/image'
 
-import { calculateDuration, formatLuxonDate } from '@/helpers/dates';
+import { calculateDuration, formatLuxonDate } from '@/helpers/dates'
 
-import css from './Postion.module.scss';
+import css from './Postion.module.scss'
 
 export interface IPosition {
-  company: string;
-  link?: string;
-  image: string;
-  startDate: string;
-  endDate: string;
-  title: string;
-  summary: string;
+  company: string
+  link?: string
+  image: string
+  startDate: string
+  endDate: string
+  title: string
+  summary: string
 }
 
 const getDateString = (startDate: string, endDate: string): string => {
-  const startDt = formatLuxonDate(startDate);
-  const endDt = endDate ? formatLuxonDate(endDate) : '...';
-  return `${startDt} — ${endDt}`;
-};
+  const startDt = formatLuxonDate(startDate)
+  const endDt = endDate ? formatLuxonDate(endDate) : '...'
+  return `${startDt} — ${endDt}`
+}
 
 const ImageTitle = ({
   title,
@@ -28,10 +28,10 @@ const ImageTitle = ({
   image,
   company,
 }: {
-  title: string;
-  link: string;
-  image: string;
-  company: string;
+  title: string
+  link: string
+  image: string
+  company: string
 }): ReactElement => (
   <h2>
     {title}
@@ -40,14 +40,14 @@ const ImageTitle = ({
       <Image
         src={image}
         alt={title}
-        width={12}
-        height={12}
+        width={16}
+        height={16}
         className={css.icon}
       />
       {company}
     </a>
   </h2>
-);
+)
 
 export default function Position({
   company,
@@ -58,20 +58,21 @@ export default function Position({
   endDate,
   title,
 }: IPosition) {
-  const duration = calculateDuration(startDate, endDate);
-  const dateString = getDateString(startDate, endDate);
+  const duration = calculateDuration(startDate, endDate)
+  const dateString = getDateString(startDate, endDate)
 
   return (
     <div className={css.position}>
       <ImageTitle title={title} link={link} image={image} company={company} />
       <div className={css.date}>
-        <span className={css.range}><i>{dateString}</i></span>
-        {' '}
+        <span className={css.range}>
+          <i>{dateString}</i>
+        </span>{' '}
         <span className={css.diff}>{duration}</span>
       </div>
       <div className={css.summary}>
         <p>{summary}</p>
       </div>
     </div>
-  );
+  )
 }
