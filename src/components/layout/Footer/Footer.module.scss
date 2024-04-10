@@ -1,0 +1,22 @@
+.footer {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1.5rem 0;
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 0 0 .5rem;
+      color: #777;
+
+      &.email {
+        margin: 0;
+      }
+    }
+  }
+}

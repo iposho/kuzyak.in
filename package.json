@@ -1,24 +1,51 @@
 {
-  "name": "kuzyak.in",
-  "version": "0.1.0",
-  "private": true,
+  "version": "4.1.1",
+  "author": " Pavel Kuzyakin <pavel@kuzyak.in> (kuzyak.in)",
+  "description": "My personal website",
+  "homepage": "https://kuzyak.in",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iposho/kuzyak.in.git"
+  },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 5000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "next lint",
+    "stylelint": "npx stylelint \"**/*.+(css|scss)\" --fix"
   },
   "dependencies": {
+    "next": "14.1.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@typescript-eslint/parser": "^7.6.0",
     "eslint": "^8",
-    "eslint-config-next": "14.1.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-next": "14.1.4",
+    "sass": "^1.74.1",
+    "stylelint": "^16.3.1",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "typescript": "^5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
