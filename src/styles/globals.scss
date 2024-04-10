@@ -43,9 +43,9 @@ a:hover {
   display: flex;
 }
 
-//@media (prefers-color-scheme: dark) {
-//  :root {
-//    --text-color: #fff;
-//    --background-color: #0f0f0f;
-//  }
-//}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #fff;
+    --background-color: #0f0f0f;
+  }
+}

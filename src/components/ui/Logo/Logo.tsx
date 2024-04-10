@@ -22,8 +22,8 @@ export const Logo = (): ReactElement => {
       <Image
         src="/me.webp"
         alt="Павел Кузякин"
-        width={100}
-        height={100}
+        width={80}
+        height={80}
         className={css.avatar}
         priority
       />
