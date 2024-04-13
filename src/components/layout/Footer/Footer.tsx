@@ -1,4 +1,8 @@
+'use client';
+
 import { ReactElement } from 'react';
+
+import { Social } from '@/components/ui/Social';
 
 import { COPYRIGHT_START_YEAR, CONTACT_EMAIL } from '@/constants/base';
 
@@ -11,7 +15,7 @@ export const Footer = (): ReactElement => {
     <footer className={css.footer}>
       <div>
         <p className={css.copyright}>
-          {`© ${COPYRIGHT_START_YEAR}...${currentYear}`}
+          {`☕ ${COPYRIGHT_START_YEAR}...${currentYear}`}
         </p>
         <p className={css.email}>
           <a href={CONTACT_EMAIL}>
@@ -19,6 +23,7 @@ export const Footer = (): ReactElement => {
           </a>
         </p>
       </div>
+      <Social />
     </footer>
   );
 };

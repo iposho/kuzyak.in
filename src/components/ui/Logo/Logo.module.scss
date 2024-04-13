@@ -1,6 +1,8 @@
 .logo {
   position: relative;
   display: flex;
+  width: 100%;
+  max-width: 80px;
   border-radius: 50%;
   box-shadow: 8px 8px 45px -15px rgb(0 0 0 / 75%);
 
@@ -14,5 +16,11 @@
   .link {
     display: flex;
     border: none;
+  }
+}
+
+@media (width <= 640px) {
+  .logo {
+    max-width: 64px;
   }
 }

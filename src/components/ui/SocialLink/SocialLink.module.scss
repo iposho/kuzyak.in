@@ -1,0 +1,16 @@
+.socialLink {
+  display: inline-flex;
+  border-radius: 50%;
+  transition: all .5s ease-out;
+
+  svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    transition: all .5s ease-out;
+
+    &:hover {
+      filter: drop-shadow(2px 4px 6px #aaa);
+      transform: scale(1.175);
+    }
+  }
+}

@@ -5,6 +5,6 @@
     "stylelint-config-idiomatic-order"
   ],
   "rules": {
-    "selector-class-pattern": null
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$"
   }
 }

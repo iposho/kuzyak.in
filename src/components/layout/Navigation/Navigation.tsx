@@ -1,11 +1,21 @@
+import { NavLink } from '@/components/ui/NavLink';
+
+import { NAV_LINKS } from '@/constants/navigation';
+
 import css from './Navigation.module.scss';
 
 export const Navigation = () => (
   <nav className={css.navigation}>
     <ul>
-      <li><a href="/design/">Проекты</a></li>
-      <li><a href="/music/">Заметки</a></li>
-      <li><a href="/chess/">Шахматы</a></li>
+      {
+        NAV_LINKS.map((link) => (
+          <li key={link.id}>
+            <NavLink href={link.href}>
+              {link.title}
+            </NavLink>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 );

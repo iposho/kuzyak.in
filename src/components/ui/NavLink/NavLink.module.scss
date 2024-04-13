@@ -1,0 +1,15 @@
+.navLink {
+  border-bottom-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 400;
+
+  &.disabled {
+    color: rgb(255 80 32);
+  }
+}
+
+@media (width <= 640px) {
+  .navLink {
+    font-size: 1.25rem;
+  }
+}

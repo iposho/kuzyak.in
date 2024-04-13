@@ -1,0 +1,15 @@
+.social {
+  ul {
+    display: inline-flex;
+    gap: 1rem;
+    list-style-type: none;
+
+    .icon {
+      &:hover {
+        svg {
+          fill: red;
+        }
+      }
+    }
+  }
+}
