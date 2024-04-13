@@ -4,12 +4,8 @@
     gap: 1rem;
     list-style-type: none;
 
-    .icon {
-      &:hover {
-        svg {
-          fill: red;
-        }
-      }
+    li {
+      display: inline-flex;
     }
   }
 }
