@@ -17,15 +17,18 @@ export const NavLink: FC<INavLinkProps> = ({ href, children }) => {
 
   return (
     <>
-      {isCurrentPage ? (
-        <span className={`${css.navLink} ${css.disabled}`}>
-          {children}
-        </span>
-      ) : (
-        <Link className={css.navLink} href={href}>
-          {children}
-        </Link>
-      )}
+      {
+        isCurrentPage
+          ? (
+            <span className={`${css.navLink} ${css.disabled}`}>
+              {children}
+            </span>
+          ) : (
+            <Link className={css.navLink} href={href}>
+              {children}
+            </Link>
+          )
+      }
     </>
   );
 };

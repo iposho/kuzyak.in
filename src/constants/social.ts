@@ -1,5 +1,5 @@
 export interface ISocialLink {
-  id: number;
+  id?: number;
   link: string;
   label: 'Facebook' | 'Linkedin' | 'Twitter' | 'Github' | 'Telegram';
 }
@@ -27,7 +27,7 @@ export const SOCIAL_LINKS: ISocialLink[] = [
   },
   {
     id: 5,
-    link: 'https://t.me/mrPosho',
+    link: 'https://telegram.me/mrPosho',
     label: 'Telegram',
   },
 ];

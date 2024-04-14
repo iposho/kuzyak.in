@@ -1,0 +1,53 @@
+.cv {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1rem;
+
+  .transcription {
+    margin-top: -.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-color-light);
+  }
+
+  .updateDate {
+    padding: 1rem 0;
+    font-size: .875rem;
+    font-style: italic;
+  }
+
+  .about {
+    margin-bottom: 2.5rem;
+  }
+
+  .experience {
+    h2 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .keywords {
+    margin-bottom: 1rem;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      gap: 1rem;
+      list-style-type: none;
+
+      li {
+        display: inline-flex;
+        padding: 0.375rem 0.75rem;
+        background-color: rgb(0 178 255 / 10%);
+        color: darkblue;
+      }
+    }
+  }
+
+  p {
+    margin: 0 0 .75rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}

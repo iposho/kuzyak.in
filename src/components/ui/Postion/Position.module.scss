@@ -1,0 +1,42 @@
+.position {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.75rem;
+
+  h3 {
+    margin-bottom: 0;
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 400;
+      gap: 0.125rem;
+    }
+  }
+
+  .responsibilities {
+    display: flex;
+
+    ul {
+      list-style-type: '— ';
+      padding-inline-start: 1.25rem;
+
+      li {
+        max-width: 768px;
+        margin: 0 0 .75rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .date {
+    margin: 0 0 .5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    .diff {
+      color: var(--text-color-light);
+    }
+  }
+}
