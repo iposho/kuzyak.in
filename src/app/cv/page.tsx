@@ -17,9 +17,9 @@ export const metadata: Metadata = {
 };
 
 export default function CV() {
-  const updateDate = new Date();
-  const dateTime = updateDate.toISOString();
-  const localeDate = updateDate.toLocaleDateString('ru-RU');
+  const dateTime = process.env.BUILD_DATE;
+  const localeDate = dateTime ? new Date(dateTime).toLocaleDateString('ru-RU') : '';
+  const time = dateTime ? new Date(dateTime).toLocaleTimeString('ru-RU') : '';
 
   return (
     <section className={css.cv}>
@@ -69,6 +69,10 @@ export default function CV() {
           dateTime={dateTime}
         >
           {localeDate}
+          {' '}
+          в
+          {' '}
+          {time}
         </time>
       </div>
     </section>

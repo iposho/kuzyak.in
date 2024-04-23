@@ -72,6 +72,10 @@ export const SKILLS:ISkills[] = [
     id: 17,
     name: 'NPM',
   },
+  {
+    id: 18,
+    name: 'Netlify',
+  },
 ];
 
 export const SKILLS_STRING:string = SKILLS.map((i) => i.name).toString();

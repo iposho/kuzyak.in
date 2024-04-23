@@ -31,6 +31,7 @@ export const Footer = (): ReactElement => (
           target="_blank"
           rel="noopener noreferrer"
         >
+          v.
           {VERSION}
         </a>
       </p>

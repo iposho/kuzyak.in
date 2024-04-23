@@ -14,3 +14,12 @@
     }
   }
 }
+
+@media (width <= 540px) {
+  .socialLink {
+    img {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}

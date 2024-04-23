@@ -2,6 +2,8 @@
 
 // https://nextjs.org/docs/app/api-reference/next-config-js/
 
+const buildDate = new Date().toISOString();
+
 const nextConfig = {
   productionBrowserSourceMaps: true,
   compress: true,
@@ -10,6 +12,7 @@ const nextConfig = {
   },
   env: {
     YANDEX_METRIKA_ID: process.env.YANDEX_METRIKA_ID,
+    BUILD_DATE: buildDate,
   },
 };
 

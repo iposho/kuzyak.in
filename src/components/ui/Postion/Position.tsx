@@ -53,7 +53,7 @@ export function Position({
             />
             {company}
           </a>
-          →
+          <span className={css.arrow}>→</span>
         </>
         <span className={css.range}>
           {dateString}
@@ -61,7 +61,7 @@ export function Position({
         </span>
         {' '}
         <span className={css.diff}>
-          <i>{`(${duration})`}</i>
+          <i>{`${duration}`}</i>
         </span>
       </div>
       <div className={css.responsibilities}>

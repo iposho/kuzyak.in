@@ -41,3 +41,16 @@
     line-height: 1.5;
   }
 }
+
+
+@media (width <= 540px) {
+  .position {
+    .date {
+      flex-direction: column;
+
+      .arrow {
+        display: none;
+      }
+    }
+  }
+}

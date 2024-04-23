@@ -2,9 +2,9 @@
   display: flex;
   width: 100%;
   max-width: 1200px;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  padding: 1.5rem 1rem 2.5rem;
+  padding: 1.5rem 1rem;
 
   div {
     display: flex;
@@ -13,6 +13,23 @@
 
     p {
       margin: 0;
+
+      &.email {
+        margin-bottom: 1rem;
+      }
+
+      &.version {
+        font-family: monospace;
+
+        a {
+          color: var(--text-color-lighter);
+          text-decoration: none;
+
+          &:hover {
+            color: var(--text-color-red);
+          }
+        }
+      }
     }
   }
 }
@@ -25,6 +42,10 @@
 
     div {
       align-items: center;
+
+      p {
+        text-align: center;
+      }
     }
   }
 }
