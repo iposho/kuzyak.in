@@ -1,16 +1,17 @@
 .position {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.75rem;
 
-  h3 {
-    margin-bottom: 0;
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: .125rem;
+    text-transform: uppercase;
 
-    a {
-      display: inline-flex;
-      align-items: center;
-      font-weight: 400;
-      gap: 0.125rem;
+    &:hover {
+      img {
+        filter: blur(1px);
+      }
     }
   }
 
@@ -18,11 +19,12 @@
     display: flex;
 
     ul {
-      list-style-type: '— ';
+      list-style-type: '–';
       padding-inline-start: 1.25rem;
 
       li {
         max-width: 768px;
+        padding-left: .75rem;
         margin: 0 0 .75rem;
         font-size: 1.25rem;
         line-height: 1.5;
@@ -31,12 +33,11 @@
   }
 
   .date {
-    margin: 0 0 .5rem;
+    display: flex;
+    margin: 0 0 0.75rem;
+    color: var(--text-color-light-1);
     font-size: 1rem;
+    gap: 0.25rem;
     line-height: 1.5;
-
-    .diff {
-      color: var(--text-color-light);
-    }
   }
 }

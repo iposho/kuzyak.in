@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation';
 
 import generateRandomColor from '@/helpers/generateRandomColor';
 
+import { OPEN_TO_WORK } from '@/constants/base';
 import css from './Logo.module.scss';
 
 export const Logo = (): ReactElement => {
@@ -19,6 +20,7 @@ export const Logo = (): ReactElement => {
   };
 
   const isMainPage = usePathname() === '/';
+  const isCvPage = usePathname() === '/cv';
 
   const Avatar = (
     <>
@@ -31,6 +33,20 @@ export const Logo = (): ReactElement => {
         priority
       />
     </>
+  );
+
+  const OpenToWork = (
+    OPEN_TO_WORK
+      ? (
+        <span className={`${css.openToWork} ${css.showPanel}`}>
+          #Open To&nbsp;Work
+        </span>
+      )
+      : (
+        <span className={css.openToWork}>
+          Не ищу работу
+        </span>
+      )
   );
 
   return (
@@ -47,6 +63,9 @@ export const Logo = (): ReactElement => {
               {Avatar}
             </Link>
           )
+      }
+      {
+        isCvPage && OpenToWork
       }
     </div>
   );

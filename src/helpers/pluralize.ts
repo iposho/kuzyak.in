@@ -6,7 +6,17 @@
  * It should have 3 elements, representing the singular, plural, and plural form for numbers between 10 and 20.
  * @return {string} - The pluralized value.
  */
-export default function pluralize(value: number, variants: string[]): string {
+
+interface IPluralizeArgs {
+  value: number
+  variants: string[]
+}
+
+export default function pluralize({ value, variants } : IPluralizeArgs): string {
+  if (!Number.isInteger(value) || !Array.isArray(variants) || variants.length !== 3) {
+    throw new Error('Invalid input');
+  }
+
   const number = Math.abs(value) % 100;
   const remainder = number % 10;
 

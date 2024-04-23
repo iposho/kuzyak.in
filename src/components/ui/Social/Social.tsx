@@ -17,6 +17,7 @@ export const Social = ():ReactElement => (
         }: ISocialLink) => (
           <li key={id}>
             <SocialLink
+              id={id}
               label={label}
               link={link}
             />

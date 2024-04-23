@@ -1,10 +1,13 @@
 // Global styles
 :root {
-  --text-color: #000;
-  --background-color: #fff;
+  --white: #fff;
+  --background-color: var(--white);
   --link-color: var(--text-color);
   --key-color: #00b2ff;
-  --text-color-light: #959799;;
+  --text-color: #111;
+  --text-color-light: #444;
+  --text-color-light-1: #666;
+  --text-color-lighter: #959799;
   --link-underline-color: color-mix(in srgb, var(--key-color) 50%, rgb(255 255 255 / 0%));
 
   -webkit-font-smoothing: antialiased;
@@ -44,29 +47,34 @@ a:hover {
 
 // Typography
 h1 {
+  max-width: 64ch;
   margin: 0 0 .5rem;
   font-size: 2.75rem;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.25;
 }
 
 h2 {
+  max-width: 64ch;
   margin: 0 0 .5rem;
   font-size: 1.875rem;
   font-weight: 600;
-  line-height: 1.5;
+  line-height: 1.25;
 }
 
 h3 {
+  max-width: 64ch;
   margin: 0 0 .5rem;
   font-size: 1.375rem;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.125;
 }
 
 p {
   width: 100%;
-  max-width: 768px;
+  max-width: 61.5ch;
+  margin: 0 0 .75rem;
+  line-height: 1.5;
 }
 
 // Main container

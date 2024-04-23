@@ -50,7 +50,7 @@ export const SKILLS:ISkills[] = [
   },
   {
     id: 12,
-    name: 'Tailwind',
+    name: 'Tailwind CSS',
   },
   {
     id: 13,
@@ -63,6 +63,14 @@ export const SKILLS:ISkills[] = [
   {
     id: 15,
     name: 'Git',
+  },
+  {
+    id: 16,
+    name: 'Vercel',
+  },
+  {
+    id: 17,
+    name: 'NPM',
   },
 ];
 

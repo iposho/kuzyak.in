@@ -1,5 +1,3 @@
-import { ReactElement } from 'react';
-
 import Image from 'next/image';
 
 import { calculateDuration, formatLuxonDate } from '@/helpers/dates';
@@ -14,40 +12,15 @@ export interface IPosition {
   endDate: string
   title: string
   responsibilities?: string[]
+  width?: number
+  height?: number
 }
 
 const getDateString = (startDate: string, endDate: string): string => {
   const startDt = formatLuxonDate(startDate);
   const endDt = endDate ? formatLuxonDate(endDate) : '...';
-  return `${startDt} — ${endDt}`;
+  return `${startDt}...${endDt}`;
 };
-
-const ImageTitle = ({
-  title,
-  link,
-  image,
-  company,
-}: {
-  title: string
-  link: string
-  image: string
-  company: string
-}): ReactElement => (
-  <h3>
-    {title}
-    {', '}
-    <a href={link}>
-      <Image
-        src={image}
-        alt={title}
-        width={16}
-        height={16}
-        className={css.icon}
-      />
-      {company}
-    </a>
-  </h3>
-);
 
 export function Position({
   company,
@@ -57,19 +30,39 @@ export function Position({
   endDate,
   title,
   responsibilities,
+  width = 16,
+  height = 16,
 }: IPosition) {
   const duration = calculateDuration(startDate, endDate);
   const dateString = getDateString(startDate, endDate);
 
   return (
     <div className={css.position}>
-      <ImageTitle title={title} link={link} image={image} company={company} />
+      <h3>
+        {title}
+      </h3>
       <div className={css.date}>
+        <>
+          <a href={link}>
+            <Image
+              src={image}
+              alt={title}
+              width={width}
+              height={height}
+              className={css.icon}
+            />
+            {company}
+          </a>
+          →
+        </>
         <span className={css.range}>
           {dateString}
+          ,
         </span>
         {' '}
-        <span className={css.diff}>{duration}</span>
+        <span className={css.diff}>
+          <i>{`(${duration})`}</i>
+        </span>
       </div>
       <div className={css.responsibilities}>
         <ul>

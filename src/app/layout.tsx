@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 
 import { IBM_Plex_Sans } from 'next/font/google';
 
@@ -11,7 +11,11 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import Scripts from '@/scripts';
 
-import { METADATA_TITLE, METADATA_DESCRIPTION, METADATA_KEYWORDS } from '@/constants/base';
+import {
+  METADATA_TITLE,
+  METADATA_DESCRIPTION,
+  METADATA_KEYWORDS,
+} from '@/constants/base';
 
 import '@/styles/globals.scss';
 

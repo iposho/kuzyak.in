@@ -1,5 +1,5 @@
 export interface ISocialLink {
-  id?: number;
+  id: number;
   link: string;
   label: 'Facebook' | 'Linkedin' | 'Twitter' | 'Github' | 'Telegram';
 }

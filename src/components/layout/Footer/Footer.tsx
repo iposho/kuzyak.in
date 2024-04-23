@@ -6,7 +6,9 @@ import { Social } from '@/components/ui/Social';
 
 import createDateDiapason from '@/helpers/dates';
 
-import { COPYRIGHT_START_YEAR, CONTACT_EMAIL } from '@/constants/base';
+import {
+  COPYRIGHT_START_YEAR, CONTACT_EMAIL, VERSION, REPOSITORY_URL,
+} from '@/constants/base';
 
 import css from './Footer.module.scss';
 
@@ -21,6 +23,15 @@ export const Footer = (): ReactElement => (
           href={CONTACT_EMAIL}
         >
           {CONTACT_EMAIL.replace('mailto:', '')}
+        </a>
+      </p>
+      <p className={css.version}>
+        <a
+          href={REPOSITORY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {VERSION}
         </a>
       </p>
     </div>

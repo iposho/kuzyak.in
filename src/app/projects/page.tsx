@@ -9,16 +9,19 @@ export const metadata: Metadata = {
 };
 
 async function getData() {
-  const res = await fetch('https://api.github.com/users/iposho');
+  const res = await fetch('https://api.github.com/users/iposho/repos?type=public&sort=updated&per_page=10');
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
+  const data = await res.json();
+
+  const pinnedProjects = data.filter((repo: any) => repo.pinned);
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');
   }
 
-  return res.json();
+  return pinnedProjects;
 }
 
 export default async function Projects() {
