@@ -69,11 +69,22 @@
         padding: .375rem .75rem;
         background-color: rgb(0 178 255 / 10%);
         color: darkblue;
+        text-wrap: nowrap;
       }
     }
   }
 
   p {
     font-size: 1.25rem;
+  }
+}
+
+@media (width <= 728px) {
+  .keywords {
+    overflow-x: scroll;
+
+    ul {
+      flex-wrap: nowrap !important;
+    }
   }
 }

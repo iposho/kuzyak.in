@@ -3,7 +3,6 @@
   max-width: 900px;
   padding: 0 1rem;
   margin-bottom: .125rem;
-  font-size: 2rem;
 
   h1 {
     margin: 0 0 1rem;
@@ -12,6 +11,15 @@
   p {
     width: 100%;
     margin: 0 0 .875rem;
+    font-size: 2rem;
     line-height: 1.5;
+  }
+}
+
+@media (width <= 540px) {
+  .description {
+    p {
+      font-size: 1.25rem;
+    }
   }
 }
