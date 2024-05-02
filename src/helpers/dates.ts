@@ -6,7 +6,7 @@ import pluralize from '@/helpers/pluralize';
  *
  * @type {string}
  */
-export const FORMAT = 'dd.MM.yyyy';
+export const FORMAT: string = 'dd.MM.yyyy';
 
 /**
  * Formats the given Luxon date string into specified format and locale.
