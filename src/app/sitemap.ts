@@ -11,14 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: 'https://kuzyak.in/cv',
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: 'https://kuzyak.in/projects',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1,
+      changeFrequency: 'monthly',
+      priority: 0.8,
     },
   ];
 }
