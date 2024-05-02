@@ -2,11 +2,19 @@
   display: flex;
   flex-direction: column;
 
+  h3 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+
   a {
     display: inline-flex;
     align-items: center;
+    padding: 0 2px;
+    border-radius: 3px;
+    font-weight: 700;
     gap: .125rem;
-    text-transform: uppercase;
 
     &:hover {
       img {
@@ -42,15 +50,3 @@
   }
 }
 
-
-@media (width <= 540px) {
-  .position {
-    .date {
-      flex-direction: column;
-
-      .arrow {
-        display: none;
-      }
-    }
-  }
-}

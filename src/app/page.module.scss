@@ -1,14 +1,12 @@
 .description {
   width: 100%;
-  max-width: 768px;
+  max-width: 900px;
   padding: 0 1rem;
-  margin: 0 0 2rem;
-  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: .125rem;
+  font-size: 2rem;
 
   h1 {
-    margin: 0 0 .75rem;
-    font-size: 1.5em;
-    line-height: 1.25;
+    margin: 0 0 1rem;
   }
 
   p {

@@ -9,35 +9,10 @@ export const metadata: Metadata = {
   description: METADATA_DESCRIPTION,
 };
 
-async function getData() {
-  const res = await fetch('https://api.github.com/users/iposho');
-
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
-  }
-
-  const data = await res.json();
-
-  return data;
-}
-
-export default async function Projects() {
-  const data = await getData();
-
-  console.log({ data });
-
+export default function Projects() {
   return (
     <section className={css.projects}>
       <h1>Проекты</h1>
-      {
-        data
-        && (
-          <div>
-            {data.name}
-          </div>
-        )
-      }
     </section>
   );
 }

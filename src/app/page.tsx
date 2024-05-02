@@ -1,4 +1,5 @@
 import { YEREVAN_MAP_LINK } from '@/constants/base';
+
 import css from './page.module.scss';
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
           👋 Привет, меня зовут Паша&nbsp;Кузякин.
         </h1>
         <p>
-          Я&nbsp;фронтенд-разработчик, иногда&nbsp;&mdash; тимлид и&nbsp;руководитель.
+          Я&nbsp;фронтенд-разработчик.
         </p>
         <p>В&nbsp;коммерческой разработке с&nbsp;2015 года.</p>
         <p>

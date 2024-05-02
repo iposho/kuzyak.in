@@ -4,11 +4,11 @@ export const NAV_LINKS = [
     href: '/cv',
     title: 'Резюме',
   },
-  {
-    id: 2,
-    href: '/projects',
-    title: 'Проекты',
-  },
+  // {
+  //   id: 2,
+  //   href: '/projects',
+  //   title: 'Проекты',
+  // },
   // {
   //   id: 3,
   //   href: '/notes',

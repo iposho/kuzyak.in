@@ -11,10 +11,6 @@
     margin-bottom: -2rem;
   }
 
-  .pageTitleForPrint {
-    display: none;
-  }
-
   .transcription {
     color: var(--text-color-lighter);
   }
@@ -34,9 +30,7 @@
   }
 
   .experience {
-    h2 {
-      margin-bottom: 1.25rem;
-    }
+    margin-bottom: -.5rem;
 
     .positions {
       display: flex;
@@ -83,23 +77,3 @@
     font-size: 1.25rem;
   }
 }
-
-/* stylelint-disable */
-//@media print {
-//  .cv {
-//    font-size: 12px;
-//
-//    .pageTitle, .transcription {
-//      display: none;
-//    }
-//
-//    .pageTitleForPrint {
-//      display: flex;
-//    }
-//
-//    .keywords, .languages, p {
-//      font-size: 1rem;
-//    }
-//  }
-//}
-/* stylelint-enable */

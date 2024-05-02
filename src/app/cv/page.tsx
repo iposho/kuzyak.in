@@ -9,10 +9,10 @@ import { SKILLS, SKILLS_STRING } from '@/constants/skills';
 import css from './page.module.scss';
 
 export const metadata: Metadata = {
-  title: 'Curriculum vitae',
-  description: 'Опытный фронтенд-разработчик с навыками HTML, CSS,'
-    + ' JavaScript, TypeScript и React. Успешный опыт управления командой'
-    + ' и стратегическим направлением проектов. Специализируюсь на работе в динамичных стартапах и небольших компаниях.',
+  title: 'Резюме',
+  description: 'Опытный фронтенд-разработчик с глубокой экспертизой в'
+    + ' JavaScript, TypeScript и React. Успешный опыт управления командами'
+    + ' и департаментом. Специализируюсь на работе в динамичных стартапах и небольших компаниях.',
   keywords: SKILLS_STRING,
 };
 
@@ -23,18 +23,24 @@ export default function CV() {
 
   return (
     <section className={css.cv}>
-      <h1 className={css.pageTitle}>Curriculum vitae</h1>
-      <h1 className={css.pageTitleForPrint}>Кузякин Павел Евгеньевич</h1>
-      <div className={css.transcription}>/kəˌrɪk.jə.ləm ˈviː.taɪ/</div>
-      <div className={css.about}>
+      <h1 className={css.pageTitle}>Резюме</h1>
+      <div className={css.keywords}>
+        <ul>
+          {
+            SKILLS.map((skill) => <li key={skill.id}>{skill.name}</li>)
+          }
+        </ul>
+      </div>
+      <div>
+        <h2>Фронтенд-разработчик</h2>
         <p>
-          Я&nbsp;опытный фронтенд-разработчик с&nbsp;экспертизой в&nbsp;JavaScript, TypeScript и&nbsp;React.
+          Я&nbsp;опытный фронтенд-разработчик с&nbsp;экспертизой в&nbsp;JavaScript, TypeScript и&nbsp;React со всеми вытекающими.
         </p>
-        <p>У&nbsp;меня есть успешный опыт управления командой и&nbsp;целым направлением.</p>
+        <p>У&nbsp;меня есть успешный опыт управления командами и&nbsp;целым департаментом.</p>
         <p>Больше всего люблю работать в&nbsp;динамичных стартапах и&nbsp;небольших компаниях.</p>
       </div>
       <div className={css.experience}>
-        <h2>Опыт в деталях</h2>
+        <h2>Опыт</h2>
         <div className={css.positions}>
           {CV_POSITIONS.map((position) => (
             <Position key={position.id} {...position} />
@@ -51,14 +57,6 @@ export default function CV() {
               emoji,
               level,
             }) => <li key={id}>{`${emoji} ${lang} — ${level}`}</li>)
-          }
-        </ul>
-      </div>
-      <div className={css.keywords}>
-        <h2>Ключевые слова</h2>
-        <ul>
-          {
-            SKILLS.map((skill) => <li key={skill.id}>{skill.name}</li>)
           }
         </ul>
       </div>
