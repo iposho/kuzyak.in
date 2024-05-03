@@ -37,7 +37,7 @@ export default async function Icon() {
           height={32}
           style={{
             borderRadius: '50%',
-            backgroundColor: '#00b2ff',
+            backgroundColor: 'transparent',
             boxShadow: '8px 8px 45px -15px rgb(0 0 0 / 75%)',
           }}
         />
