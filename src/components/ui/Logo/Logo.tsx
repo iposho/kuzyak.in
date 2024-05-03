@@ -10,6 +10,7 @@ import { usePathname } from 'next/navigation';
 import generateRandomColor from '@/helpers/generateRandomColor';
 
 import { OPEN_TO_WORK } from '@/constants/base';
+
 import css from './Logo.module.scss';
 
 export const Logo = (): ReactElement => {

@@ -1,19 +1,14 @@
 import type { Metadata } from 'next';
 
-import { Position } from '@/components/ui/Postion';
-
 import { CV_LANGUAGES, CV_POSITIONS } from '@/constants/cv';
 
-import { SKILLS, SKILLS_STRING } from '@/constants/skills';
+import { SKILLS } from '@/constants/skills';
+import { Position } from '../../components/ui/Position';
 
 import css from './page.module.scss';
 
 export const metadata: Metadata = {
   title: 'Резюме',
-  description: 'Опытный фронтенд-разработчик с глубокой экспертизой в'
-    + ' JavaScript, TypeScript и React. Успешный опыт управления командами'
-    + ' и департаментом. Специализируюсь на работе в динамичных стартапах и небольших компаниях.',
-  keywords: SKILLS_STRING,
 };
 
 export default function CV() {

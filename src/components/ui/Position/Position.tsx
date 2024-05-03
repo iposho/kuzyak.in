@@ -2,16 +2,11 @@ import Image from 'next/image';
 
 import { formatLuxonDate } from '@/helpers/dates';
 
+import { IPosition } from '@/constants/cv';
+
 import css from './Position.module.scss';
 
-export interface IPosition {
-  company: string
-  link?: string
-  image: string
-  startDate: string
-  endDate: string
-  title: string
-  responsibilities?: string[]
+export interface IPositionItem extends IPosition {
   width?: number
   height?: number
 }
@@ -32,7 +27,7 @@ export function Position({
   responsibilities,
   width = 16,
   height = 16,
-}: IPosition) {
+}: IPositionItem) {
   const dateString = getDateString(startDate, endDate);
 
   return (
