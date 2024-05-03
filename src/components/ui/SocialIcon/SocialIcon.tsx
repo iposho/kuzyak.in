@@ -1,5 +1,7 @@
 import { FC, useMemo } from 'react';
+
 import Image, { StaticImageData } from 'next/image';
+
 import { ISocialLink } from '@/constants/social';
 
 import facebookSvg from '../../../../public/social/facebook.svg';

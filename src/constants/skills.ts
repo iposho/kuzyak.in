@@ -78,4 +78,4 @@ export const SKILLS:ISkills[] = [
   },
 ];
 
-export const SKILLS_STRING:string = SKILLS.map((i) => i.name).toString();
+export const SKILLS_STRING:string = SKILLS.map((i) => i.name).join(', ');

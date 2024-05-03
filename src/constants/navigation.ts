@@ -1,4 +1,10 @@
-export const NAV_LINKS = [
+interface INavLink {
+  id: number;
+  href: string;
+  title: string;
+}
+
+export const NAV_LINKS:INavLink[] = [
   {
     id: 1,
     href: '/cv',

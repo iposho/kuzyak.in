@@ -1,5 +1,4 @@
 import { DateTime } from 'luxon';
-import pluralize from '@/helpers/pluralize';
 
 /**
  * The format string for date.
@@ -52,46 +51,4 @@ export default function createDateDiapason(
   }
 
   return `${sinceYear}${separator}${currentYear}`;
-}
-
-/**
- * Calculates the duration between two given dates.
- *
- * @param {string} startDate - The start date in the format 'YYYY-MM-DD'.
- * @param {string} endDate - The end date in the format 'YYYY-MM-DD'.
- * @param {string} separator - The separator between years and months.
- * @return {string} - The formatted duration in years and months.
- */
-export function calculateDuration(
-  startDate: string,
-  endDate: string,
-  separator: string = '',
-): string {
-  const end = DateTime.fromFormat(endDate, FORMAT);
-  const start = DateTime.fromFormat(startDate, FORMAT);
-
-  const diffInMonths = end.diff(start, ['years', 'months']);
-
-  const { years, months } = diffInMonths.toObject();
-
-  const formattedYears = years
-    ? `${years} ${pluralize({
-      value:
-      years,
-      variants: ['год', 'года', 'лет'],
-    })} `
-    : '';
-
-  const formattedMonths = months
-    ? `${Math.floor(months)} ${pluralize({
-      value: Math.floor(months),
-      variants: [
-        'месяц',
-        'месяца',
-        'месяцев',
-      ],
-    })}`
-    : '';
-
-  return `${formattedYears}${separator}${formattedMonths}`;
 }

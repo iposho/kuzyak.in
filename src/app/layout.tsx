@@ -31,11 +31,9 @@ export const metadata: Metadata = {
   keywords: METADATA_KEYWORDS,
 };
 
-const ProductionScripts = () => {
-  const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 
-  return isProduction ? <Scripts /> : null;
-};
+const ProductionScripts = () => (isProduction ? <Scripts /> : null);
 
 export default function RootLayout({
   children,
@@ -51,8 +49,14 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <SpeedInsights />
-        <Analytics />
+        {
+          isProduction && (
+            <>
+              <SpeedInsights />
+              <Analytics />
+            </>
+          )
+        }
       </body>
     </html>
   );

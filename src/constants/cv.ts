@@ -1,4 +1,22 @@
-const CV_POSITIONS = [
+export interface IPosition {
+  id: number;
+  title: string;
+  company: string;
+  link: string;
+  image: string;
+  startDate: string;
+  endDate: string;
+  responsibilities: string[];
+}
+
+interface ILanguage {
+  id: number;
+  lang: string;
+  level: string;
+  emoji: string;
+}
+
+const CV_POSITIONS: IPosition[] = [
   {
     id: 1,
     title: 'Руководитель команды Web Core',
@@ -73,7 +91,7 @@ const CV_POSITIONS = [
   },
 ];
 
-const CV_LANGUAGES = [
+const CV_LANGUAGES:ILanguage[] = [
   {
     id: 1,
     lang: 'Русский',
