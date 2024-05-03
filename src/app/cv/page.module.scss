@@ -81,10 +81,12 @@
 
 @media (width <= 728px) {
   .keywords {
+    margin-bottom: -.75rem;
     overflow-x: scroll;
 
     ul {
       flex-wrap: nowrap !important;
+      padding-bottom: 1rem;
     }
   }
 }
