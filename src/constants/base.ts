@@ -7,7 +7,6 @@ export const METADATA_BASE = new URL('https://kuzyak.in');
 export const METADATA_TITLE = 'Павел Кузякин';
 export const METADATA_DESCRIPTION = 'Фронтенд-разработчик';
 export const METADATA_KEYWORDS = SKILLS_STRING;
-export const OPEN_TO_WORK = false;
 export const VERSION = packageJson?.version || '0.0.0';
 export const REPOSITORY_URL = packageJson?.repository?.url || 'https://github.com/iposho/kuzyak.in';
 

@@ -13,6 +13,7 @@ const nextConfig = {
   env: {
     YANDEX_METRIKA_ID: process.env.YANDEX_METRIKA_ID,
     BUILD_DATE: buildDate,
+    IS_OPEN_TO_WORK: process.env.IS_OPEN_TO_WORK,
   },
 };
 

@@ -9,8 +9,10 @@ import { usePathname } from 'next/navigation';
 
 import generateRandomColor from '@/helpers/generateRandomColor';
 
-import { OPEN_TO_WORK } from '@/constants/base';
 import css from './Logo.module.scss';
+
+// Hack for using boolean values in environment variables
+const isOpenToWork = JSON.parse(process.env.IS_OPEN_TO_WORK || 'false');
 
 export const Logo = (): ReactElement => {
   const [bgColor, setBgColor] = useState('#00b2ff');
@@ -36,7 +38,7 @@ export const Logo = (): ReactElement => {
   );
 
   const OpenToWork = (
-    OPEN_TO_WORK
+    isOpenToWork
       ? (
         <span className={`${css.openToWork} ${css.showPanel}`}>
           #Open To&nbsp;Work
