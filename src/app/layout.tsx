@@ -38,8 +38,6 @@ export const metadata: Metadata = {
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const ProductionScripts = () => (isProduction ? <Scripts /> : null);
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,7 +46,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ibmPlexSans.className}>
-        <ProductionScripts />
+        {
+          isProduction && <Scripts />
+        }
         <Header />
         <main className="main">
           {children}
