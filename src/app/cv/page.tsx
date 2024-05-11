@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
-import { CV_LANGUAGES, CV_POSITIONS } from '@/constants/cv';
+import { Position } from '@/components/ui/Position';
 
+import { CV_LANGUAGES, CV_POSITIONS } from '@/constants/cv';
 import { SKILLS } from '@/constants/skills';
-import { Position } from '../../components/ui/Position';
 
 import css from './page.module.scss';
 
