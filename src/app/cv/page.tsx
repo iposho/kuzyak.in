@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 
 import { Position } from '@/components/ui/Position';
 
+import { METADATA_TITLE } from '@/constants/base';
 import { CV_LANGUAGES, CV_POSITIONS } from '@/constants/cv';
 import { SKILLS } from '@/constants/skills';
 
 import css from './page.module.scss';
 
 export const metadata: Metadata = {
-  title: 'Резюме',
+  title: `Резюме → ${METADATA_TITLE}`,
 };
 
 export default function CV() {

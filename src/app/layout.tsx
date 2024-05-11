@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   metadataBase: METADATA_BASE,
   openGraph: {
     url: METADATA_BASE,
+    type: 'website',
   },
 };
 
