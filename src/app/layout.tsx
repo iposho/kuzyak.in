@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   description: METADATA_DESCRIPTION,
   keywords: METADATA_KEYWORDS,
   metadataBase: METADATA_BASE,
+  openGraph: {
+    url: METADATA_BASE,
+  },
 };
 
 const isProduction = process.env.NODE_ENV === 'production';
