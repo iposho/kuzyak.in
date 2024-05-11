@@ -15,6 +15,7 @@ import {
   METADATA_TITLE,
   METADATA_DESCRIPTION,
   METADATA_KEYWORDS,
+  METADATA_BASE,
 } from '@/constants/base';
 
 import '@/styles/globals.scss';
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
   title: METADATA_TITLE,
   description: METADATA_DESCRIPTION,
   keywords: METADATA_KEYWORDS,
+  metadataBase: METADATA_BASE,
 };
 
 const isProduction = process.env.NODE_ENV === 'production';
