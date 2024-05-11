@@ -3,6 +3,7 @@ import {
   METADATA_TITLE,
   METADATA_BASE,
   VERSION,
+  METADATA_ROLE,
 } from '@/constants/base';
 
 export const runtime = 'edge';
@@ -31,6 +32,7 @@ export default async function GET() {
           alignItems: 'center',
           justifyContent: 'center',
           letterSpacing: '-.02em',
+          flexDirection: 'column',
           fontWeight: 700,
           background: '#fff',
           backgroundImage: 'linear-gradient(to bottom, #eee, #fff1f1)',
@@ -38,20 +40,20 @@ export default async function GET() {
       >
         <div
           style={{
-            left: 64,
-            top: 72,
-            position: 'absolute',
             display: 'flex',
             alignItems: 'center',
+            justifySelf: 'flex-start',
             color: '#222',
+            position: 'absolute',
+            top: 72,
           }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt={METADATA_TITLE}
             src={logo}
-            width={24}
-            height={24}
+            width={48}
+            height={48}
             style={{
               borderRadius: '50%',
               backgroundColor: '#000',
@@ -60,7 +62,7 @@ export default async function GET() {
           <span
             style={{
               marginLeft: 8,
-              fontSize: 20,
+              fontSize: 32,
               color: '#000',
             }}
           >
@@ -93,16 +95,41 @@ export default async function GET() {
         >
           {METADATA_TITLE}
         </div>
-        <span
+        <div
           style={{
-            position: 'absolute',
-            left: 64,
-            bottom: 72,
-            color: '#bbb',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            padding: '1rem',
+            margin: '1rem 0',
+            fontSize: 40,
+            width: 'auto',
+            maxWidth: 768,
+            textAlign: 'center',
+            backgroundColor: '#222',
+            color: '#f6f6f6',
+            lineHeight: 1.4,
+            boxShadow: '8px 8px 45px -15px #000',
           }}
         >
-          {VERSION}
-        </span>
+          {METADATA_ROLE}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            position: 'absolute',
+            bottom: 72,
+            alignItems: 'center',
+          }}
+        >
+          <span
+            style={{
+              color: '#bbb',
+            }}
+          >
+            {VERSION}
+          </span>
+        </div>
       </div>
     ),
     {
