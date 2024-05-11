@@ -40,26 +40,6 @@ body {
   gap: 1rem;
 }
 
-@media (width <= 1366px) {
-  body {
-    background-position: right 4rem, top -1.5rem right -1rem;
-    background-size: 100px, 100px;
-  }
-}
-
-@media (width <= 1024px) {
-  body {
-    background-position: top 3rem right 0, top -1.5rem right -1rem;
-    background-size: 75px, 75px;
-  }
-}
-
-@media (width <= 728px) {
-  body {
-    background-image: none;
-  }
-}
-
 // Links
 a {
   color: var(--link-color);
