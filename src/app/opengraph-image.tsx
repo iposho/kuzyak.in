@@ -38,8 +38,8 @@ export default async function GET() {
       >
         <div
           style={{
-            left: 42,
-            top: 42,
+            left: 64,
+            top: 72,
             position: 'absolute',
             display: 'flex',
             alignItems: 'center',
@@ -96,8 +96,8 @@ export default async function GET() {
         <span
           style={{
             position: 'absolute',
-            left: 42,
-            bottom: 42,
+            left: 64,
+            bottom: 72,
             color: '#bbb',
           }}
         >
