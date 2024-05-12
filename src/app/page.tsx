@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <section className={css.description}>
       <h1>
-        👋 Привет, меня зовут Паша&nbsp;Кузякин.
+        Привет 👋, меня зовут Паша&nbsp;Кузякин.
       </h1>
       <p>
         Я&nbsp;фронтенд-разработчик.
