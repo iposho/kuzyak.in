@@ -48,21 +48,19 @@ export default function RootLayout({
     <html lang="en">
       <body className={ibmPlexSans.className}>
         {
-          isProduction && <Scripts />
-        }
-        <Header />
-        <main className="main">
-          {children}
-        </main>
-        <Footer />
-        {
           isProduction && (
             <>
+              <Scripts />
               <SpeedInsights />
               <Analytics />
             </>
           )
         }
+        <Header />
+        <main className="main" data-isproduction={isProduction}>
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

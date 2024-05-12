@@ -8,13 +8,13 @@
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/iposho/kuzyak.in/main)
 
 
-# kuzyak.in
+# <a href="https://kuzyak.in">kuzyak.in</a>
+
+<a href="https://kuzyak.in"><img src="./public/preview.webp" alt="kuzyak.in preview" align="center"></a>
 
 My personal website.
 
 Made for myself, usually at night with an incredible amount of ☕.
-
-Demo is here: https://kuzyak.in.
 
 ## Installing / Getting started
 

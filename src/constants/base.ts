@@ -7,8 +7,8 @@ export const METADATA_BASE = new URL('https://kuzyak.in');
 export const METADATA_TITLE = 'Павел Кузякин';
 export const METADATA_ROLE = 'Фронтенд-разработчик';
 export const METADATA_DESCRIPTION = 'Опытный фронтенд-разработчик с глубокой экспертизой в'
-  + ' JavaScript, TypeScript и React. Успешный опыт управления командами'
-  + ' и департаментом. Специализируюсь на работе в динамичных стартапах и небольших компаниях.';
+  + ' JavaScript, TypeScript и React. За плечами — успешный опыт управления командами'
+  + ' и департаментом.';
 export const METADATA_KEYWORDS = SKILLS_STRING;
 
 export const OPEN_TO_WORK = false;
