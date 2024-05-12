@@ -17,7 +17,7 @@
 
   .updateDate {
     padding-bottom: 1rem;
-    color: var(--text-color-light);
+    color: var(--text-color-lighter);
     font-size: .875rem;
     font-style: italic;
   }
@@ -59,6 +59,8 @@
 
     ul {
       display: flex;
+      width: 100%;
+      max-width: 728px;
       flex-wrap: wrap;
       margin-top: 1rem;
       gap: 1rem;
