@@ -32,6 +32,13 @@
   .experience {
     margin-bottom: -.5rem;
 
+    .overallExperience {
+      margin-top: -.5rem;
+      margin-bottom: 1.25rem;
+      color: #111;
+      font-style: italic;
+    }
+
     .positions {
       display: flex;
       flex-direction: column;

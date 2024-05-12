@@ -6,6 +6,8 @@ import { METADATA_TITLE } from '@/constants/base';
 import { CV_LANGUAGES, CV_POSITIONS } from '@/constants/cv';
 import { SKILLS } from '@/constants/skills';
 
+import { calculateDuration } from '@/helpers/dates';
+
 import css from './page.module.scss';
 
 export const metadata: Metadata = {
@@ -16,6 +18,12 @@ export default function CV() {
   const dateTime = process.env.BUILD_DATE;
   const localeDate = dateTime ? new Date(dateTime).toLocaleDateString('ru-RU') : '';
   const time = dateTime ? new Date(dateTime).toLocaleTimeString('ru-RU') : '';
+
+  const overallExperienceValue = calculateDuration(
+    '01.12.2014',
+    localeDate,
+    'и ',
+  );
 
   return (
     <section className={css.cv}>
@@ -37,6 +45,11 @@ export default function CV() {
       </div>
       <div className={css.experience}>
         <h2>Опыт</h2>
+        <p className={css.overallExperience}>
+          {overallExperienceValue}
+          {' '}
+          💥
+        </p>
         <div className={css.positions}>
           {CV_POSITIONS.map((position) => (
             <Position key={position.id} {...position} />
