@@ -8,7 +8,7 @@
 
 # <a href="https://kuzyak.in">kuzyak.in</a>
 
-<a href="https://kuzyak.in"><img src="./public/preview.webp" alt="kuzyak.in preview" align="center"></a>
+<a href="https://kuzyak.in"><img src="./preview.webp" alt="kuzyak.in preview" align="center"></a>
 
 My personal website.
 
