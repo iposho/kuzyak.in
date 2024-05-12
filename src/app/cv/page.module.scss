@@ -57,6 +57,10 @@
   .keywords {
     font-size: 1.25rem;
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
     ul {
       display: flex;
       flex-wrap: wrap;
