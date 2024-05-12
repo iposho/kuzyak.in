@@ -48,7 +48,7 @@ export default function CV() {
         <p className={css.overallExperience}>
           {overallExperienceValue}
           {' '}
-          💥
+          👨‍💻
         </p>
         <div className={css.positions}>
           {CV_POSITIONS.map((position) => (
