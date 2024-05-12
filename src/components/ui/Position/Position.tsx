@@ -13,7 +13,7 @@ export interface IPositionItem extends IPosition {
 
 const getDateString = (startDate: string, endDate: string): string => {
   const startDt = formatLuxonDate(startDate);
-  const endDt = endDate ? formatLuxonDate(endDate) : '...';
+  const endDt = endDate ? formatLuxonDate(endDate) : 'н.в.';
   return `${startDt} – ${endDt}`;
 };
 
