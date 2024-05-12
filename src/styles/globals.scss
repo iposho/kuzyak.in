@@ -99,3 +99,16 @@ p {
   flex-direction: column;
   align-items: center;
 }
+
+// Not found page
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    padding: 1rem;
+  }
+}
