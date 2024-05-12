@@ -14,6 +14,10 @@ My personal website.
 
 Made for myself, usually at night with an incredible amount of ☕.
 
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+
 
 ## Installing / Getting started
 
