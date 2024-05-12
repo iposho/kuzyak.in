@@ -33,6 +33,10 @@ export function Position({
   return (
     <div className={css.position}>
       <h3>
+        <span className={css.title}>
+          {title}
+          <span className={css.arrow}>→</span>
+        </span>
         <a href={link}>
           <Image
             src={image}
@@ -43,8 +47,7 @@ export function Position({
           />
           {company}
         </a>
-        <span className={css.arrow}>→</span>
-        <span className={css.title}>{title}</span>
+
       </h3>
       <div className={css.date}>
         <span>
