@@ -1,9 +1,8 @@
 import { ImageResponse } from 'next/og';
 import {
-  METADATA_TITLE,
   METADATA_BASE,
-  VERSION,
   METADATA_ROLE,
+  METADATA_TITLE,
 } from '@/constants/base';
 
 export const runtime = 'edge';
@@ -34,48 +33,9 @@ export default async function GET() {
           letterSpacing: '-.02em',
           flexDirection: 'column',
           fontWeight: 700,
-          background: '#fff',
-          backgroundImage: 'linear-gradient(to bottom, #eee, #fff1f1)',
+          background: '#fdf6f2',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifySelf: 'flex-start',
-            color: '#222',
-            position: 'absolute',
-            top: 72,
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt={METADATA_TITLE}
-            src={logo}
-            width={48}
-            height={48}
-            style={{
-              borderRadius: '50%',
-              backgroundColor: '#000',
-            }}
-          />
-          <span
-            style={{
-              marginLeft: 8,
-              fontSize: 32,
-              color: '#000',
-            }}
-          >
-            <span
-              style={{
-                color: '#999',
-              }}
-            >
-              pavel@
-            </span>
-            {METADATA_BASE.host}
-          </span>
-        </div>
         <div
           style={{
             display: 'flex',
@@ -83,6 +43,7 @@ export default async function GET() {
             justifyContent: 'center',
             padding: '20px 50px',
             margin: '0 42px',
+            marginTop: '-40px',
             fontSize: 64,
             width: 'auto',
             maxWidth: 768,
@@ -117,17 +78,39 @@ export default async function GET() {
         <div
           style={{
             display: 'flex',
+            alignItems: 'center',
+            justifySelf: 'flex-start',
+            color: '#111',
             position: 'absolute',
             bottom: 72,
-            alignItems: 'center',
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt={METADATA_TITLE}
+            src={logo}
+            width={50}
+            height={50}
+            style={{
+              borderRadius: '50%',
+              backgroundColor: '#00b2ff',
+            }}
+          />
           <span
             style={{
-              color: '#bbb',
+              marginLeft: 8,
+              fontSize: 40,
+              color: '#000',
             }}
           >
-            {VERSION}
+            <span
+              style={{
+                color: '#999',
+              }}
+            >
+              pavel@
+            </span>
+            {METADATA_BASE.host}
           </span>
         </div>
       </div>
