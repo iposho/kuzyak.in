@@ -33,7 +33,7 @@ export default async function GET() {
           letterSpacing: '-.02em',
           flexDirection: 'column',
           fontWeight: 700,
-          background: '#fdf6f2',
+          backgroundColor: '#fdf6f2',
         }}
       >
         <div
@@ -105,7 +105,7 @@ export default async function GET() {
           >
             <span
               style={{
-                color: '#999',
+                color: 'rgba(0,0,0,0.5)',
               }}
             >
               pavel@
