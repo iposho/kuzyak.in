@@ -25,6 +25,10 @@
     background-color: aliceblue;
   }
 
+  .description {
+    margin-bottom: -1rem;
+  }
+
   .experience {
     margin-bottom: -.5rem;
 
@@ -73,8 +77,7 @@
         display: inline-flex;
         padding: .375rem .75rem;
         border-radius: 10px;
-        background-color: rgb(0 178 255 / 10%);
-        color: darkblue;
+        background-color: rgb(0 0 0 / 5%);
         text-wrap: nowrap;
       }
     }
@@ -82,26 +85,5 @@
 
   p {
     font-size: 1.25rem;
-  }
-}
-
-@media (width <= 728px) {
-  .cv {
-    .keywords {
-      margin-bottom: -1.25rem;
-      -ms-overflow-style: none; /* Internet Explorer 10+ */
-      overflow-x: scroll;
-      scrollbar-width: none; /* Firefox */
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      ul {
-        flex-wrap: nowrap;
-        margin-top: 0;
-        gap: .5rem;
-      }
-    }
   }
 }
