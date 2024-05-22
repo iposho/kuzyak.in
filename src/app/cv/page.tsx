@@ -28,20 +28,20 @@ export default function CV() {
   return (
     <section className={css.cv}>
       <h1 className={css.pageTitle}>Резюме</h1>
-      <div className={css.keywords}>
-        <ul>
-          {
-            SKILLS.map((skill) => <li key={skill.id}>{skill.name}</li>)
-          }
-        </ul>
-      </div>
-      <div>
-        <h2>Фронтенд-разработчик</h2>
+      <div className={css.description}>
         <p>
           Я&nbsp;опытный фронтенд-разработчик с&nbsp;экспертизой в&nbsp;JavaScript, TypeScript и&nbsp;React со всеми вытекающими.
         </p>
         <p>У&nbsp;меня есть успешный опыт управления командами и&nbsp;целым департаментом.</p>
         <p>Больше всего люблю работать в&nbsp;динамичных стартапах и&nbsp;небольших компаниях.</p>
+      </div>
+      <div className={css.keywords}>
+        <h2>Ключевые слова</h2>
+        <ul>
+          {
+            SKILLS.map((skill) => <li key={skill.id}>{skill.name}</li>)
+          }
+        </ul>
       </div>
       <div className={css.experience}>
         <h2>Опыт</h2>
