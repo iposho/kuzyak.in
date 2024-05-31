@@ -1,6 +1,6 @@
 import Script from 'next/script';
 
-const ymId = process.env.YANDEX_METRIKA_ID;
+const ymId = process.env.NEXT_PUBLIC_YANDEX_METRIKA_ID;
 
 export function YandexMetrika() {
   if (!ymId) {

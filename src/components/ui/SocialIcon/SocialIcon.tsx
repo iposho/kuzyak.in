@@ -4,11 +4,11 @@ import Image, { StaticImageData } from 'next/image';
 
 import { ISocialLink } from '@/constants/social';
 
-import facebookSvg from '../../../../public/social/facebook.svg';
-import githubSvg from '../../../../public/social/github.svg';
-import linkedinSvg from '../../../../public/social/linkedin.svg';
-import telegramSvg from '../../../../public/social/telegram.svg';
-import twitterSvg from '../../../../public/social/twitter.svg';
+import githubSvg from '@/../public/social/github.svg';
+import linkedinSvg from '@/../public/social/linkedin.svg';
+import telegramSvg from '@/../public/social/telegram.svg';
+import twitterSvg from '@/../public/social/twitter.svg';
+import facebookSvg from '@/../public/social/facebook.svg';
 
 interface IIconMap {
   [key: string]: StaticImageData;

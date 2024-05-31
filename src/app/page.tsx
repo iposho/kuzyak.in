@@ -2,7 +2,7 @@ import { YEREVAN_MAP_LINK } from '@/constants/base';
 
 import css from './page.module.scss';
 
-export default function Home() {
+export default async function Home() {
   return (
     <section className={css.description}>
       <h1>

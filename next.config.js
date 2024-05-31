@@ -11,7 +11,6 @@ const nextConfig = {
     buildActivityPosition: 'bottom-right',
   },
   env: {
-    YANDEX_METRIKA_ID: process.env.YANDEX_METRIKA_ID,
     BUILD_DATE: buildDate,
   },
 };

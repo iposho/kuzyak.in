@@ -1,0 +1,19 @@
+.logout {
+  display: inline-flex;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  .logoutIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: var( --text-color-lighter);
+    transition: fill .25s ease-in-out;
+  }
+
+  &:hover {
+    .logoutIcon {
+      fill: var(--black)
+    }
+  }
+}
