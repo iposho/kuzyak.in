@@ -1,0 +1,33 @@
+.postEditForm {
+  .description {
+    margin-bottom: 1rem;
+  }
+
+  input {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  textarea {
+    min-height: 20rem;
+  }
+
+  button {
+    max-width: 16rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .buttonsGroup {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .cancel {
+      width: 100%;
+      max-width: 10rem;
+      background-color: orangered;
+    }
+  }
+}

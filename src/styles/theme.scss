@@ -1,0 +1,55 @@
+form {
+  display: flex;
+  flex-direction: column;
+
+  .formGroup {
+    display: inline-flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: inline-flex;
+
+    &.labelColumn {
+      flex-direction: column;
+      gap: .5rem;
+    }
+  }
+
+  input {
+    padding: 1rem .5rem;
+    border: 1px solid #aaa;
+    border-radius: .5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  textarea {
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid #aaa;
+    border-radius: .5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  button {
+    width: 100%;
+    padding: .5rem 1rem;
+    border: 1px solid #aaa;
+    border-radius: .5rem;
+    background-color: teal;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all .5s ease-in-out;
+
+    &:hover {
+      filter: opacity(.8);
+    }
+  }
+}

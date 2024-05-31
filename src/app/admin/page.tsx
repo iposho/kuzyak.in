@@ -13,16 +13,12 @@ export default async function AdminPage() {
     return <Login />;
   }
 
-  const posts = await supabase.from('posts').select();
+  const { data: { user } } = await supabase.auth.getUser();
+  const name = user?.user_metadata.full_name || '%username%';
 
   return (
     <section className={css.adminPage}>
-      <h3>Привет, %username%!</h3>
-      <div>
-        {
-          session && <pre>{JSON.stringify(posts?.data, null, 2)}</pre>
-        }
-      </div>
+      <h3>{`Привет, ${name}!`}</h3>
     </section>
   );
 }

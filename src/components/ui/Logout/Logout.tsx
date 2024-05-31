@@ -1,41 +1,21 @@
 'use client';
 
+import React, { useState, useEffect } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter, usePathname } from 'next/navigation';
-
 import { NavLink } from '@/components/ui/NavLink';
-
+import Link from 'next/link';
 import css from './Logout.module.scss';
 
 interface LogoutProps {
   isAuth: boolean;
 }
 
-const LogoutIcon = () => (
-  <svg
-    className={css.logoutIcon}
-    viewBox="0 0 1024 1024"
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M835.669333 554.666667h-473.173333A42.453333 42.453333 0 0
-      1 320 512a42.666667 42.666667 0 0 1 42.474667-42.666667h473.173333l-161.813333-161.834666a42.666667
-      42.666667 0 0 1 60.330666-60.330667l234.666667 234.666667a42.666667 42.666667 0 0 1 0 60.330666l-234.666667
-      234.666667a42.666667 42.666667 0 0 1-60.330666-60.330667L835.669333 554.666667zM554.666667 42.666667a42.666667
-      42.666667 0 1 1 0 85.333333H149.525333C137.578667 128 128 137.578667 128 149.482667v725.034666C128
-      886.4 137.6 896 149.525333 896H554.666667a42.666667 42.666667 0 1 1 0
-      85.333333H149.525333A106.816 106.816 0 0 1 42.666667 874.517333V149.482667A106.773333 106.773333
-      0 0 1 149.525333 42.666667H554.666667z"
-      fill=""
-    />
-  </svg>
-);
-
 export function Logout({ isAuth }: LogoutProps) {
   const supabase = createClientComponentClient<Database>();
   const router = useRouter();
   const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleSignOut = async () => {
     await supabase.auth.signOut();
@@ -47,19 +27,46 @@ export function Logout({ isAuth }: LogoutProps) {
     router.refresh();
   };
 
-  return isAuth && (
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.altKey || event.metaKey) && event.key === 'l') {
+        event.preventDefault();
+        setIsVisible((prev) => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  const isNotAdminPage = pathname !== '/admin';
+
+  return isAuth ? (
     <>
       <li>
-        <NavLink href="/admin">
-          Админка
+        <NavLink className={css.settings} href="/admin">
+          🛠️
         </NavLink>
       </li>
       <li>
-        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
         <button className={css.logout} type="button" onClick={handleSignOut}>
-          <LogoutIcon />
+          🔓
         </button>
       </li>
     </>
+  ) : (
+    (isVisible && isNotAdminPage) && (
+      <li>
+        <Link
+          className={css.login}
+          href="/admin"
+        >
+          🔒
+        </Link>
+      </li>
+    )
   );
 }

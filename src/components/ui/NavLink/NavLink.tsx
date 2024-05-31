@@ -10,9 +10,10 @@ import css from './NavLink.module.scss';
 interface INavLinkProps {
   href: string;
   children: ReactNode;
+  className?: string;
 }
 
-export const NavLink: FC<INavLinkProps> = ({ href, children }) => {
+export const NavLink: FC<INavLinkProps> = ({ href, children, className = '' }) => {
   const isCurrentPage = href === usePathname();
 
   return (
@@ -20,11 +21,11 @@ export const NavLink: FC<INavLinkProps> = ({ href, children }) => {
       {
         isCurrentPage
           ? (
-            <span className={`${css.navLink} ${css.disabled}`}>
+            <span data-disabled-link={isCurrentPage} className={`${css.navLink} ${css.disabled} ${className}`}>
               {children}
             </span>
           ) : (
-            <Link className={css.navLink} href={href}>
+            <Link className={`${css.navLink} ${className}`} href={href}>
               {children}
             </Link>
           )
