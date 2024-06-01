@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 
-import { SocialLink } from '@/components/ui/SocialLink/SocialLink';
+import { SocialLink } from '@/components/ui/molecules/SocialLink/SocialLink';
 
 import { SOCIAL_LINKS, ISocialLink } from '@/constants/social';
 

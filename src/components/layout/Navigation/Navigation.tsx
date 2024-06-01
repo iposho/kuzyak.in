@@ -1,10 +1,10 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-import { NavLink } from '@/components/ui/NavLink';
-import { Logout } from '@/components/ui/Logout';
+import { Logout } from '@/components/ui/molecules/Position/Logout';
 
 import { NAV_LINKS } from '@/constants/navigation';
+import { NavLink } from '../../ui/atoms/NavLink';
 
 import css from './Navigation.module.scss';
 

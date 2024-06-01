@@ -1,8 +1,7 @@
 import { ReactElement } from 'react';
 
-import { SocialIcon } from '@/components/ui/SocialIcon';
-
 import { ISocialLink } from '@/constants/social';
+import { SocialIcon } from '../../atoms/SocialIcon';
 
 import css from './SocialLink.module.scss';
 

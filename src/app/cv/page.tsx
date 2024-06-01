@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
 
-import { Position } from '@/components/ui/Position';
-
 import { METADATA_TITLE } from '@/constants/base';
 import { CV_LANGUAGES, CV_POSITIONS } from '@/constants/cv';
 import { SKILLS } from '@/constants/skills';
 
 import { calculateDuration } from '@/helpers/dates';
+import { Position } from '../../components/ui/molecules/Position';
 
 import css from './page.module.scss';
 

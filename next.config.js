@@ -5,6 +5,14 @@
 const buildDate = new Date().toISOString();
 
 const nextConfig = {
+  webpack: (config, { isServer }) => {
+    config.module.rules.push({
+      test: /repoToText\.js$/,
+      use: 'null-loader',
+    });
+
+    return config;
+  },
   productionBrowserSourceMaps: true,
   compress: true,
   devIndicators: {

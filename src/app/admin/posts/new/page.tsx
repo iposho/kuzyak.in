@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import usePosts from '@/hooks/usePosts';
 
-import { PostEditForm } from '@/components/ui/PostEditForm/PostEditForm';
+import { PostEditForm } from '@/components/ui/organisms/PostEditForm/PostEditForm';
 
 import css from './page.module.scss';
 

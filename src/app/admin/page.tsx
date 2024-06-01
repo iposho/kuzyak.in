@@ -1,12 +1,11 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
+import supabaseServer from '@/helpers/supabase/supabaseServer';
 
-import { Login } from '@/components/ui/Login';
+import { Login } from '@/components/ui/molecules/Login';
 
 import css from './page.module.scss';
 
 export default async function AdminPage() {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = supabaseServer();
   const { data: { session } } = await supabase.auth.getSession();
 
   if (!session) {

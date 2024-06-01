@@ -39,3 +39,6 @@ next-env.d.ts
 .idea/
 
 supabase/
+
+project_code.txt
+src/tools/filelist.txt

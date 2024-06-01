@@ -1,4 +1,5 @@
 {
+  "name": "kuzyak.in",
   "version": "5.7.0",
   "author": " Pavel Kuzyakin <pavel@kuzyak.in> (kuzyak.in)",
   "description": "My personal website",
@@ -21,6 +22,7 @@
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "next lint",
     "stylelint": "npx stylelint \"**/*.+(css|scss)\" --fix",
+    "repott": "node src/tools/repoToText.js",
     "prepare": "husky"
   },
   "dependencies": {
@@ -32,7 +34,8 @@
     "luxon": "^3.4.4",
     "next": "14.1.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sharp": "^0.33.4"
   },
   "devDependencies": {
     "@types/luxon": "^3.4.2",

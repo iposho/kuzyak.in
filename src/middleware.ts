@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
+import supabaseServer from './helpers/supabase/supabaseServer';
 
 export const middleware = async (req: NextRequest) => {
   const res = NextResponse.next();
-  const supabase = createMiddlewareClient<Database>({ req, res });
+  const supabase = supabaseServer();
   const { data: { session } } = await supabase.auth.getSession();
 
   const isAuthPage = req.nextUrl.pathname === '/admin' || req.nextUrl.pathname === '/admin/callback';

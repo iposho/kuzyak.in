@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: METADATA_BASE,
     type: 'website',
+    siteName: METADATA_TITLE,
   },
 };
 

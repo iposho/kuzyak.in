@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter, usePathname } from 'next/navigation';
-import { NavLink } from '@/components/ui/NavLink';
 import Link from 'next/link';
+import { NavLink } from '../../../atoms/NavLink';
 import css from './Logout.module.scss';
 
 interface LogoutProps {

@@ -5,7 +5,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 import Image from 'next/image';
 
-import githubSvg from '@/../public/social/github.svg';
+import githubSvg from '../../../../../public/social/github.svg';
 
 import css from './Login.module.scss';
 

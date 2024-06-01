@@ -2,13 +2,12 @@
 
 import { ReactElement } from 'react';
 
-import { Social } from '@/components/ui/Social';
-
 import createDateDiapason from '@/helpers/dates';
 
 import {
   COPYRIGHT_START_YEAR, CONTACT_EMAIL, VERSION, REPOSITORY_URL,
 } from '@/constants/base';
+import { Social } from '../../ui/organisms/Social';
 
 import css from './Footer.module.scss';
 
