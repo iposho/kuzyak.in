@@ -27,7 +27,9 @@
     .cancel {
       width: 100%;
       max-width: 10rem;
-      background-color: orangered;
+      border: 0;
+      background-color: transparent;
+      color: orangered;
     }
   }
 }

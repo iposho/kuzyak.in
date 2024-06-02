@@ -1,19 +1,19 @@
-import supabaseServer from '@/helpers/supabase/supabaseServer';
+import { createClient } from '@/helpers/supabase/supabaseServer';
 
 import { Login } from '@/components/ui/molecules/Login';
 
 import css from './page.module.scss';
 
 export default async function AdminPage() {
-  const supabase = supabaseServer();
-  const { data: { session } } = await supabase.auth.getSession();
+  const supabase = createClient();
 
-  if (!session) {
+  const { data: { user }, error } = await supabase.auth.getUser();
+
+  if (error || !user) {
     return <Login />;
   }
 
-  const { data: { user } } = await supabase.auth.getUser();
-  const name = user?.user_metadata.full_name || '%username%';
+  const name = user.user_metadata.full_name;
 
   return (
     <section className={css.adminPage}>

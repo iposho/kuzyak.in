@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '@/lib/database.types';
+import { createClient } from '@/helpers/supabase/supabaseClient';
 
 const useGetPosts = () => {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClient();
   const [posts, setPosts] = useState<any[]>([]);
-  const [currentSession, setCurrentSession] = useState<any | null>(null);
+  const [currentUser, setCurrentUser] = useState<any | null>(null);
 
   useEffect(() => {
     const fetchSession = async () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
-        setCurrentSession(session);
+        const { data: { user } } = await supabase.auth.getUser();
+        setCurrentUser(user);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
@@ -31,10 +30,11 @@ const useGetPosts = () => {
       .limit(limit || 50);
     if (error) throw new Error(error.message);
     setPosts(data || []);
+    return data;
   };
 
   const createPost = async (title: string, body: string) => {
-    if (!currentSession) throw new Error('Session not found');
+    if (!currentUser) throw new Error('Session not found');
     const { data, error } = await supabase
       .from('posts')
       .insert({

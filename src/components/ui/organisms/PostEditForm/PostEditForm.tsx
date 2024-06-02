@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
 import css from './PostEditForm.module.scss';
 
 interface Post {
@@ -13,9 +15,10 @@ interface PostEditFormProps {
   post?: Post | null;
 }
 
-export const PostEditForm: React.FC<PostEditFormProps> = ({ saveForm, post }) => {
+export const PostEditForm: FC<PostEditFormProps> = ({ saveForm, post }) => {
   const [title, setTitle] = useState<string>('');
   const [body, setBody] = useState<string>('');
+  const router = useRouter();
 
   useEffect(() => {
     if (post) {
@@ -27,6 +30,10 @@ export const PostEditForm: React.FC<PostEditFormProps> = ({ saveForm, post }) =>
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await saveForm(title, body);
+  };
+
+  const handleCancelClick = () => {
+    router.push('/admin/posts');
   };
 
   const currentDate = new Date().toLocaleDateString('ru-RU');
@@ -76,7 +83,7 @@ export const PostEditForm: React.FC<PostEditFormProps> = ({ saveForm, post }) =>
 
       <div className={css.buttonsGroup}>
         <button type="submit">Опубликовать</button>
-        <button className={css.cancel} type="button">Отменить</button>
+        <button className={css.cancel} type="button" onClick={handleCancelClick}>Отменить</button>
       </div>
     </form>
   );

@@ -1,5 +1,4 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
+import { createClient } from '@/helpers/supabase/supabaseServer';
 
 import { Logout } from '@/components/ui/molecules/Position/Logout';
 
@@ -9,8 +8,9 @@ import { NavLink } from '../../ui/atoms/NavLink';
 import css from './Navigation.module.scss';
 
 export const Navigation = async () => {
-  const supabase = createServerComponentClient<Database>({ cookies });
-  const { data: { session } } = await supabase.auth.getSession();
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const isAuth = !!user;
 
   return (
     <nav className={css.navigation}>
@@ -24,7 +24,7 @@ export const Navigation = async () => {
             </li>
           ))
         }
-        <Logout isAuth={!!session} />
+        <Logout isAuth={isAuth} />
       </ul>
     </nav>
   );

@@ -1,10 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/helpers/supabase/supabaseClient';
+
 import { useRouter, usePathname } from 'next/navigation';
+
 import Link from 'next/link';
-import { NavLink } from '../../../atoms/NavLink';
+import { NavLink } from '@/components/ui/atoms/NavLink';
+
 import css from './Logout.module.scss';
 
 interface LogoutProps {
@@ -12,15 +15,20 @@ interface LogoutProps {
 }
 
 export function Logout({ isAuth }: LogoutProps) {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClient();
   const router = useRouter();
   const pathname = usePathname();
+
   const [isVisible, setIsVisible] = useState(false);
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut();
 
-    if (pathname.startsWith('/admin/')) {
+    if (error) {
+      throw new Error(error.message);
+    }
+
+    if (pathname.startsWith('/admin')) {
       router.push('/admin');
     }
 

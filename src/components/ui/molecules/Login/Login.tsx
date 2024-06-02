@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/helpers/supabase/supabaseClient';
 
 import Image from 'next/image';
 
@@ -11,7 +11,7 @@ import css from './Login.module.scss';
 
 export function Login() {
   const router = useRouter();
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClient();
 
   const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5000';
 
