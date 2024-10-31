@@ -5,11 +5,11 @@ interface INavLink {
 }
 
 export const NAV_LINKS:INavLink[] = [
-  {
-    id: 1,
-    href: '/cv',
-    title: 'Резюме',
-  },
+  // {
+  //   id: 1,
+  //   href: '/cv',
+  //   title: 'Резюме',
+  // },
   // {
   //   id: 2,
   //   href: '/projects',

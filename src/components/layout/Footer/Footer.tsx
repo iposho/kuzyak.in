@@ -7,7 +7,7 @@ import { Social } from '@/components/ui/Social';
 import createDateDiapason from '@/helpers/dates';
 
 import {
-  COPYRIGHT_START_YEAR, CONTACT_EMAIL, VERSION, REPOSITORY_URL,
+  COPYRIGHT_START_YEAR, VERSION, REPOSITORY_URL,
 } from '@/constants/base';
 
 import css from './Footer.module.scss';
@@ -17,13 +17,6 @@ export const Footer = (): ReactElement => (
     <div>
       <p className={css.copyright}>
         {`© ${createDateDiapason(COPYRIGHT_START_YEAR, '...')}`}
-      </p>
-      <p className={css.email}>
-        <a
-          href={CONTACT_EMAIL}
-        >
-          {CONTACT_EMAIL.replace('mailto:', '')}
-        </a>
       </p>
       <p className={css.version}>
         <a

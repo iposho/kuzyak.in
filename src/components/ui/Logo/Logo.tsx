@@ -2,7 +2,7 @@
 
 import { ReactElement, useState } from 'react';
 
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 
 import { usePathname } from 'next/navigation';
@@ -25,14 +25,7 @@ export const Logo = (): ReactElement => {
 
   const Avatar = (
     <>
-      <Image
-        src="/me.webp"
-        alt="Павел Кузякин"
-        width={80}
-        height={80}
-        className={css.avatar}
-        priority
-      />
+
     </>
   );
 
