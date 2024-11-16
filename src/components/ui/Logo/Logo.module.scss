@@ -1,6 +1,7 @@
 .logo {
   position: relative;
   display: flex;
+  overflow: hidden;
   width: 100%;
   max-width: 40px;
   height: 40px;
@@ -9,8 +10,8 @@
 
   .avatar {
     width: 100%;
-    max-width: 80px;
-    height: auto;
+    max-width: 40px;
+    height: 40px;
     border-radius: 50%;
   }
 
@@ -38,11 +39,5 @@
       max-width: fit-content;
       background-color: green;
     }
-  }
-}
-
-@media (width <= 640px) {
-  .logo {
-    max-width: 64px;
   }
 }

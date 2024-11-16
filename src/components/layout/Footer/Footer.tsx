@@ -2,12 +2,12 @@
 
 import { ReactElement } from 'react';
 
-import { Social } from '@/components/ui/Social';
-
 import createDateDiapason from '@/helpers/dates';
 
 import {
-  COPYRIGHT_START_YEAR, VERSION, REPOSITORY_URL,
+  COPYRIGHT_START_YEAR,
+  VERSION,
+  REPOSITORY_URL,
 } from '@/constants/base';
 
 import css from './Footer.module.scss';
@@ -29,6 +29,5 @@ export const Footer = (): ReactElement => (
         </a>
       </p>
     </div>
-    <Social />
   </footer>
 );
