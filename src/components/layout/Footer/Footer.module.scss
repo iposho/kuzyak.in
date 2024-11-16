@@ -38,19 +38,3 @@
     }
   }
 }
-
-@media (width <= 540px) {
-  .footer {
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 2rem;
-
-    div {
-      align-items: center;
-
-      p {
-        text-align: center;
-      }
-    }
-  }
-}
