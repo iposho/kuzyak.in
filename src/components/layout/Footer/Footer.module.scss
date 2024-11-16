@@ -1,10 +1,10 @@
 .footer {
   display: flex;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1.5rem 1rem 2rem;
+  padding: 3rem 1rem 2rem;
 
   div {
     display: flex;
@@ -13,6 +13,10 @@
 
     p {
       margin: 0;
+
+      &.copyright {
+        margin-bottom: .5rem;
+      }
 
       &.email {
         margin-bottom: 1rem;
