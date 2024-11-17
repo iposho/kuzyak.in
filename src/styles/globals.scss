@@ -33,14 +33,14 @@ html {
 }
 
 body {
+  position: relative;
   display: flex;
+  overflow: hidden;
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
   background-color: var(--white);
   color: var(--text-color);
-  position: relative;
-  overflow: hidden;
 }
 
 // Links
