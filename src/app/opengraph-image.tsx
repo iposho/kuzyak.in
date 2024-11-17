@@ -33,8 +33,8 @@ export default async function GET() {
           style={{
             display: 'flex',
             width: '100%',
-            padding: '0 1rem',
-            marginBottom: '2rem',
+            padding: '0 3rem',
+            marginBottom: '2.5rem',
           }}
         >
           <div
@@ -42,8 +42,8 @@ export default async function GET() {
               display: 'flex',
               borderRadius: '50%',
               backgroundColor: 'rgb(59,67,152)',
-              width: '70px',
-              height: '70px',
+              width: '50px',
+              height: '50px',
             }}
           />
         </div>
@@ -57,12 +57,10 @@ export default async function GET() {
             marginTop: '-40px',
             fontSize: 80,
             width: '100%',
-            // maxWidth: 768,
             fontWeight: 'bold',
             textAlign: 'left',
             color: '#111',
             lineHeight: 1.4,
-            // textShadow: '8px 8px 45px -15px #000',
           }}
         >
           {METADATA_TITLE}
