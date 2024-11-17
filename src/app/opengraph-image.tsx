@@ -70,13 +70,13 @@ export default async function GET() {
         </div>
         <div
           style={{
-            fontFamily: '"IBM Plex Sans", Arial, sans-serif',
+            fontFamily: 'IBM Plex Sans',
             display: 'flex',
             padding: '20px 150px',
             width: '100%',
             margin: '0 42px',
             marginTop: '-20px',
-            fontSize: 64,
+            fontSize: 60,
             fontWeight: 400,
           }}
         >
@@ -90,7 +90,7 @@ export default async function GET() {
             padding: '20px 150px',
             margin: '0 42px',
             marginTop: '-20px',
-            fontSize: 64,
+            fontSize: 60,
             width: '100%',
             fontWeight: 400,
             textAlign: 'center',
