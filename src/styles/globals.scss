@@ -39,6 +39,8 @@ body {
   align-items: center;
   background-color: var(--white);
   color: var(--text-color);
+  position: relative;
+  overflow: hidden;
 }
 
 // Links
