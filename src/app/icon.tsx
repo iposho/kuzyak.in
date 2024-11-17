@@ -9,7 +9,7 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Icon() {
-  const image = await fetch(new URL('/public/og.png', import.meta.url)).then(
+  const image = await fetch(new URL('/public/images/og.png', import.meta.url)).then(
     (res) => res.arrayBuffer(),
   );
 

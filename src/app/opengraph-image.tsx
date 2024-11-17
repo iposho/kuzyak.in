@@ -1,9 +1,5 @@
 import { ImageResponse } from 'next/og';
-import {
-  METADATA_BASE,
-  METADATA_ROLE,
-  METADATA_TITLE,
-} from '@/constants/base';
+import { METADATA_BASE } from '@/constants/base';
 
 export const runtime = 'edge';
 
@@ -12,7 +8,13 @@ export const size = {
   height: 630,
 };
 
+const semiBoldFontUrl = new URL('/public/fonts/IBMPlexSans-SemiBold.ttf', import.meta.url);
+const regularFontUrl = new URL('/public/fonts/IBMPlexSans-Regular.ttf', import.meta.url);
+
 export default async function GET() {
+  const semiBoldFontData = await fetch(semiBoldFontUrl).then((res) => res.arrayBuffer());
+  const regularFontData = await fetch(regularFontUrl).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -33,7 +35,7 @@ export default async function GET() {
           style={{
             display: 'flex',
             width: '100%',
-            padding: '0 3rem',
+            padding: '1rem 3rem',
             marginBottom: '2.5rem',
           }}
         >
@@ -49,33 +51,36 @@ export default async function GET() {
         </div>
         <div
           style={{
+            fontFamily: 'IBM Plex Sans',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'flex-start',
             padding: '20px 150px',
             margin: '0 42px',
             marginTop: '-40px',
-            fontSize: 80,
+            fontSize: 70,
             width: '100%',
-            fontWeight: 'bold',
+            fontWeight: 600,
             textAlign: 'left',
             color: '#111',
-            lineHeight: 1.4,
+            lineHeight: 1.125,
           }}
         >
-          {METADATA_TITLE}
+          Привет, меня зовут Паша&nbsp;Кузякин.
         </div>
         <div
           style={{
+            fontFamily: '"IBM Plex Sans", Arial, sans-serif',
             display: 'flex',
             padding: '20px 150px',
             width: '100%',
             margin: '0 42px',
-            marginTop: '-40px',
+            marginTop: '-20px',
             fontSize: 64,
+            fontWeight: 400,
           }}
         >
-          {METADATA_ROLE}
+          Я&nbsp;фронтенд-разработчик.
         </div>
         <div
           style={{
@@ -84,15 +89,15 @@ export default async function GET() {
             justifyContent: 'flex-start',
             padding: '20px 150px',
             margin: '0 42px',
-            marginTop: '-40px',
-            fontSize: 72,
+            marginTop: '-20px',
+            fontSize: 64,
             width: '100%',
-            fontWeight: '700',
+            fontWeight: 400,
             textAlign: 'center',
             color: 'rgb(59,67,152)',
             lineHeight: 1.4,
             position: 'absolute',
-            bottom: '80px',
+            bottom: '60px',
           }}
         >
           {METADATA_BASE.host}
@@ -101,6 +106,20 @@ export default async function GET() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: 'IBM Plex Sans',
+          data: semiBoldFontData,
+          style: 'normal',
+          weight: 600,
+        },
+        {
+          name: 'IBM Plex Sans',
+          data: regularFontData,
+          style: 'normal',
+          weight: 400,
+        },
+      ],
     },
   );
 }
