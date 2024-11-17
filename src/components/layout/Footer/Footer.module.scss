@@ -38,3 +38,10 @@
     }
   }
 }
+
+.face {
+  position: absolute;
+  right: -100px;
+  bottom: -20px;
+  z-index: -1;
+}
