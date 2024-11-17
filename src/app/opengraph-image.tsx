@@ -113,17 +113,15 @@ export default async function GET() {
           style={{
             display: 'flex',
             position: 'absolute',
-            right: '-100px',
-            bottom: '-20px',
+            right: '-125px',
+            bottom: '-25px',
           }}
         >
           <img
             alt=""
             src={logo}
-            width={200}
-            height={200}
-            style={{
-            }}
+            width={250}
+            height={250}
           />
         </div>
       </div>
