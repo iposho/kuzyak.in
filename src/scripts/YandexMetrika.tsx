@@ -31,7 +31,7 @@ export function Metrika() {
           a.parentNode.insertBefore(k, a);
         })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        ym(88484526, "init", {
+        ym(${counterId}, "init", {
           clickmap: true,
           trackLinks: true,
           accurateTrackBounce: true,
