@@ -15,6 +15,13 @@ export default async function GET() {
   const semiBoldFontData = await fetch(semiBoldFontUrl).then((res) => res.arrayBuffer());
   const regularFontData = await fetch(regularFontUrl).then((res) => res.arrayBuffer());
 
+  const image = await fetch(new URL('/public/images/face.png', import.meta.url)).then(
+    (res) => res.arrayBuffer(),
+  );
+  const contentType = 'image/png';
+
+  const logo = `data:${contentType};base64,${Buffer.from(image).toString('base64')}`;
+
   return new ImageResponse(
     (
       <div
@@ -101,6 +108,23 @@ export default async function GET() {
           }}
         >
           {METADATA_BASE.host}
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            position: 'absolute',
+            right: '-100px',
+            bottom: '-20px',
+          }}
+        >
+          <img
+            alt=""
+            src={logo}
+            width={200}
+            height={200}
+            style={{
+            }}
+          />
         </div>
       </div>
     ),

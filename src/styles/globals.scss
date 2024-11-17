@@ -40,10 +40,18 @@ body {
   align-items: center;
   background-color: var(--white);
   background-image: url('/images/face.webp');
-  background-position: right -100px bottom -25px;
+  background-position: right -125px bottom -25px;
   background-repeat: no-repeat;
-  background-size: 200px;
+  background-size: 250px;
   color: var(--text-color);
+}
+
+@media (max-width: 1000px) {
+  body {
+    background-position: right -100px bottom -25px;
+    background-repeat: no-repeat;
+    background-size: 200px;
+  }
 }
 
 // Links
