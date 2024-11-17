@@ -1,4 +1,5 @@
 import { CONTACT_EMAIL } from '@/constants/base';
+
 import css from './page.module.scss';
 
 export default function Home() {
