@@ -45,3 +45,9 @@
   right: -100px;
   bottom: -20px;
 }
+
+@media (max-width: 1000px) {
+  .face {
+    display: none;
+  }
+}
