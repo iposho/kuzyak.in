@@ -46,7 +46,7 @@ body {
   color: var(--text-color);
 }
 
-@media (max-width: 1000px) {
+@media (width <= 1000px) {
   body {
     background-position: right -100px bottom -25px;
     background-repeat: no-repeat;
