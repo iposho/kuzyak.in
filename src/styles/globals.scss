@@ -10,6 +10,7 @@
   --text-color-light: #444;
   --text-color-light-1: #666;
   --text-color-lighter: rgb(150 150 150 / 50%);
+  --link-color-red: rgb(222 12 43 / 94%);
   --text-color-red: rgb(255 0 107 / 62%);
   --link-underline-color: color-mix(in srgb, var(--key-color) 50%, rgb(255 255 255 / 0%));
 
@@ -45,12 +46,15 @@ a {
   color: var(--link-color);
   text-decoration: underline;
   text-decoration-color: var(--link-underline-color);
-  text-decoration-thickness: .0625em;
-  text-underline-offset: .25em;
+  text-decoration-thickness: .035em;
+  text-underline-offset: .275em;
+  transition: all .25s linear;
 }
 
 a:hover {
-  color: var(--key-color);
+  color: var(--link-color-red);
+  text-decoration-color: var(--link-color-red);
+  text-decoration-thickness: .0475em;
 }
 
 // Typography
