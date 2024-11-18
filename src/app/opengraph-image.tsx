@@ -35,7 +35,7 @@ export default async function GET() {
           padding: '2rem 0',
           flexDirection: 'column',
           fontWeight: 700,
-          backgroundColor: '#f6f6f6',
+          backgroundColor: '#fff',
         }}
       >
         <div

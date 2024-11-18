@@ -13,7 +13,7 @@ export default function Home() {
           Я&nbsp;фронтенд-разработчик. Работаю в
           {' '}
           <a href="https://graphlogic.ai">
-            Graphlogic.ai
+            Graphlogic
           </a>
           .
         </p>
