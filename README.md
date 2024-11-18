@@ -30,6 +30,10 @@ $ echo "YANDEX_METRIKA_ID=YOUR_YANDEX_METRIKA_ID" >> .env.local
 $ npm run dev
 ```
 
+## Achievments
+
+<img src="./public/images/typewriter.webp" /> <img src="./public/images/macos.webp" />
+
 ## Licensing
 
 This project is licensed under the terms of the [MIT License](LICENSE).

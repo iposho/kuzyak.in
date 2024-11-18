@@ -117,6 +117,7 @@ export default async function GET() {
             bottom: '-25px',
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt=""
             src={logo}
