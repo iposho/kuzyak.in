@@ -13,4 +13,5 @@ export const VERSION = packageJson?.version || '0.0.0';
 export const REPOSITORY_URL = packageJson?.repository?.url || 'https://github.com/iposho/kuzyak.in';
 
 export const COPYRIGHT_START_YEAR = 2014;
+export const CURRENT_YEAR = new Date().getFullYear();
 export const CONTACT_EMAIL = 'pavel@kuzyak.in';

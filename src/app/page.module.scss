@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 1000px;
   padding: 0 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 
   &.table {
     display: flex;
@@ -13,6 +13,7 @@
     width: 100%;
     font-size: 1.75rem;
     line-height: 1.5;
+    margin-bottom: .75rem;
   }
 
   a {
@@ -71,7 +72,7 @@
     .list {
       grid-template-columns: 1fr 1fr;
       column-gap: 0.5rem;
-      row-gap: 1rem;
+      row-gap: 0;
     }
   }
 }
@@ -82,7 +83,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       column-gap: 0.5rem;
-      row-gap: 1rem;
+      row-gap: .5rem;
     }
   }
 }
@@ -99,7 +100,8 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
+  border-radius: 4px;
 
   &:focus-visible {
     outline: 2px solid currentColor;
@@ -133,6 +135,6 @@
   }
 
   &[href^="mailto:"] svg {
-    color: #ea4335;
+    color: var(--email-color);
   }
 }
