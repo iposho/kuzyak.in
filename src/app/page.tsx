@@ -17,10 +17,16 @@ export default function Home() {
           </a>
           .
         </p>
-        <p>Эксперт в JavaScript, TypeScript и React.</p>
         <p>
           Люблю создавать сложные веб-сайты и&nbsp;приложения; руководить командами,
           нанимать, обучать и&nbsp;развивать людей.
+        </p>
+      </section>
+
+      <section className={css.section}>
+        <h2>Технологии, с которыми дружу</h2>
+        <p>
+          React, TypeScript, Next.js, Tailwind, GraphQL, Supabase, Docker, Node.js
         </p>
       </section>
 
