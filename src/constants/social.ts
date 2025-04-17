@@ -4,9 +4,11 @@ import {
   FaFacebook,
   FaTwitter,
   FaTelegram,
+  FaEnvelope,
 } from 'react-icons/fa';
 
 export enum SocialPlatform {
+  Email = 'Почта',
   Facebook = 'Facebook',
   Linkedin = 'Linkedin',
   Twitter = 'Twitter',
@@ -23,6 +25,12 @@ export interface ISocialLink {
 
 export const SOCIAL_LINKS: ISocialLink[] = [
   {
+    id: 0,
+    link: 'mailto:pavel@kuzyak.in',
+    label: SocialPlatform.Email,
+    icon: FaEnvelope,
+  },
+  {
     id: 1,
     link: 'https://facebook.com/pashakuzyakin',
     label: SocialPlatform.Facebook,
@@ -30,7 +38,7 @@ export const SOCIAL_LINKS: ISocialLink[] = [
   },
   {
     id: 2,
-    link: 'https://www.linkedin.com/in/pavelkuzyakin/',
+    link: 'https://www.linkedin.com/in/pavelkuzyakin',
     label: SocialPlatform.Linkedin,
     icon: FaLinkedin,
   },
