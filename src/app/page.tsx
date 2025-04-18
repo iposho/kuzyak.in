@@ -2,6 +2,7 @@
 
 import { SOCIAL_LINKS } from '@/constants/social';
 import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
+// import { CurrentTrack } from '@/components/ui/CurrentTrack/CurrentTrack';
 
 import { RiMapPinRangeFill } from 'react-icons/ri';
 
@@ -72,6 +73,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* <section className={css.section}> */}
+      {/*   <CurrentTrack /> */}
+      {/* </section> */}
     </>
   );
 }

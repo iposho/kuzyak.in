@@ -14,6 +14,14 @@ const nextConfig = {
     YANDEX_METRIKA_ID: process.env.YANDEX_METRIKA_ID,
     BUILD_DATE: buildDate,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'lastfm.freetls.fastly.net',
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
