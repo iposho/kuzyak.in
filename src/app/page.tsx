@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <section className={css.section}>
         <h1>
-          Привет, меня зовут Паша&nbsp;Кузякин.
+          Привет, меня&nbsp;зовут Паша&nbsp;Кузякин.
         </h1>
         <p>
           Я&nbsp;фронтенд-разработчик с более чем десятилетним стажем. Работаю в
