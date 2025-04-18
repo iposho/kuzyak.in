@@ -2,11 +2,11 @@
   position: relative;
   min-height: 100vh;
   padding: 1rem;
-  background-image: url('/images/awicons/typewriter.webp');
-  background-repeat: no-repeat;
-  background-position: right top;
-  background-size: 200px;
   background-attachment: fixed;
+  background-image: url('/images/awicons/typewriter.webp');
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 200px;
 }
 
 @media (width <= 768px) {
