@@ -3,7 +3,7 @@
 import { SOCIAL_LINKS } from '@/constants/social';
 import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
 
-import { MdOutlinePinDrop } from 'react-icons/md';
+import { RiMapPinRangeFill } from 'react-icons/ri';
 
 import css from './page.module.scss';
 
@@ -62,8 +62,9 @@ export default function Home() {
       <section className={css.section}>
         <div id="location" className={css.location}>
           <div className={css.locationInfo}>
-            {/* <FaMapMarkerAlt className={css.locationIcon} /> */}
-            <MdOutlinePinDrop className={css.locationIcon} />
+            <RiMapPinRangeFill
+              className={css.locationIcon}
+            />
             <div>Ереван, Армения</div>
           </div>
           <div className={css.timeInfo}>
