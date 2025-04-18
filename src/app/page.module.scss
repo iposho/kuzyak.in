@@ -142,10 +142,10 @@
 .location {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: .5rem;
   font-size: 1.75rem;
   line-height: 1.5;
-  margin-top: 2rem;
+  margin-top: 1rem;
   flex-direction: column;
 
   @media (width <= 540px) {
