@@ -22,7 +22,7 @@
   background: linear-gradient(
     90deg,
     var(--text-secondary) 25%,
-    rgb(255 255 255 / 10%) 50%,
+    var(--shadow-color) 50%,
     var(--text-secondary) 75%
   );
   background-size: 200% 100%;

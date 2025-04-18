@@ -8,7 +8,7 @@ import {
   FaTelegram,
 } from 'react-icons/fa';
 
-import { VscMail } from 'react-icons/vsc';
+import { RiMailLine } from 'react-icons/ri';
 
 export enum SocialPlatform {
   Email = 'Почта',
@@ -31,7 +31,7 @@ export const SOCIAL_LINKS: ISocialLink[] = [
     id: 0,
     link: `mailto:${CONTACT_EMAIL}`,
     label: SocialPlatform.Email,
-    icon: VscMail,
+    icon: RiMailLine,
   },
   {
     id: 1,

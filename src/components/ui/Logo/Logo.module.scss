@@ -7,26 +7,8 @@
   max-width: 40px;
   height: 40px;
   border-radius: 50%;
-  animation: gradientFlow 20s ease infinite;
-  background: linear-gradient(
-    45deg,
-    #ff6b6b,
-    #ff8e8e,
-    #ffb3b3,
-    #ffd8b3,
-    #ffe0b3,
-    #fff0b3,
-    #e6ffb3,
-    #b3ffb3,
-    #b3ffe6,
-    #b3ffff,
-    #b3e6ff,
-    #b3b3ff,
-    #d8b3ff,
-    #ffb3ff,
-    #ffb3d8,
-    #ff6b6b
-  );
+  animation: gradient-flow 20s ease infinite;
+  background: linear-gradient(45deg, var(--gradient-colors));
   background-size: 2000% 2000%;
 
   .link {
@@ -36,9 +18,9 @@
   }
 }
 
-@keyframes gradientFlow {
+@keyframes gradient-flow {
   0% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
 
   50% {
@@ -46,6 +28,6 @@
   }
 
   100% {
-    background-position: 0% 50%;
+    background-position: 0 50%;
   }
 }

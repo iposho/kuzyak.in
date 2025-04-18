@@ -61,7 +61,10 @@ export default function RootLayout({
           )
         }
         <Header />
-        <main className="main" data-isproduction={isProduction}>
+        <main
+          className="main"
+          data-isproduction={isProduction}
+        >
           {children}
         </main>
         <Footer />
