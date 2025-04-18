@@ -113,23 +113,23 @@
   }
 
   &[href*="github.com"] svg {
-    color: #333;
+    color: var(--github-color);
   }
 
   &[href*="telegram.me"] svg {
-    color: #08c;
+    color: var(--telegram-color);
   }
 
   &[href*="linkedin.com"] svg {
-    color: #0077b5;
+    color: var(--linkedin-color);
   }
 
   &[href*="facebook.com"] svg {
-    color: #1877f2;
+    color: var(--facebook-color);
   }
 
   &[href*="twitter.com"] svg {
-    color: #1da1f2;
+    color: var(--twitter-color);
   }
 
   &[href^="mailto:"] svg {
@@ -154,7 +154,7 @@
   height: 2rem;
   flex-shrink: 0;
   animation: pulse 2s infinite;
-  color: #ff4d4d;
+  color: var(--location-color);
 
   @keyframes pulse {
     0% {
