@@ -49,16 +49,17 @@ body {
 }
 
 body::before {
-  content: '';
   position: absolute;
   top: 64px;
   right: 32px;
   width: 100px;
   height: 100px;
   background-image: url('/images/awicons/award.webp');
+  background-repeat: no-repeat;
+
   // background-image: url('https://web.archive.org/web/20030607112319im_/http://mir.glasnet.ru/~awicon/images/award_303.gif');
   background-size: contain;
-  background-repeat: no-repeat;
+  content: '';
   transform: rotate(15deg);
 }
 

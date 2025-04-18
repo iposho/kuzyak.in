@@ -1,10 +1,10 @@
 .time {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
+  color: var(--text-secondary);
   font-size: 1.25rem;
   line-height: 1.4;
-  margin-top: 0.5rem;
-  color: var(--text-secondary);
 
   @media (width <= 540px) {
     font-size: 1.125rem;
@@ -17,16 +17,16 @@
 }
 
 .skeleton {
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
   background: linear-gradient(
     90deg,
     var(--text-secondary) 25%,
-    rgba(255, 255, 255, 0.1) 50%,
+    rgb(255 255 255 / 10%) 50%,
     var(--text-secondary) 75%
   );
   background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
   color: transparent;
-  border-radius: 4px;
   user-select: none;
 }
 
@@ -34,6 +34,7 @@
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
