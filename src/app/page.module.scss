@@ -86,6 +86,17 @@
   }
 }
 
+.locationInfo {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+
+  svg {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
 .socialLinks {
   display: flex;
   padding: 0;
@@ -168,17 +179,6 @@
     100% {
       transform: scale(1);
     }
-  }
-}
-
-.locationInfo {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-
-  svg {
-    width: 2.25rem;
-    height: 2.25rem;
   }
 }
 
