@@ -32,7 +32,7 @@ $ npm run dev
 
 ## Achievments
 
-<img src="public/images/awicons/typewriter.webp" /> <img src="public/images/awicons/macos.webp" /> <img src="public/images/awicons/smu.webp" />
+<img src="public/images/awicons/award.webp" /> <img src="public/images/awicons/typewriter.webp" /> <img src="public/images/awicons/macos.webp" /> <img src="public/images/awicons/smu.webp" />
 
 ## Licensing
 

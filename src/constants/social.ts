@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL } from '@/constants/base';
+
 import {
   FaGithub,
   FaLinkedin,
@@ -26,7 +28,7 @@ export interface ISocialLink {
 export const SOCIAL_LINKS: ISocialLink[] = [
   {
     id: 0,
-    link: 'mailto:pavel@kuzyak.in',
+    link: `mailto:${CONTACT_EMAIL}`,
     label: SocialPlatform.Email,
     icon: FaEnvelope,
   },

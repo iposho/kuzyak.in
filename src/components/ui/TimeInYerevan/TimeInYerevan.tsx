@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import css from '@/app/page.module.scss';
+
+import css from './TimeInYerevan.module.scss';
 
 export function TimeInYerevan() {
   const [time, setTime] = useState<string>('');
@@ -11,7 +12,7 @@ export function TimeInYerevan() {
     const updateTime = () => {
       const now = new Date();
       const yerevanTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Yerevan' }));
-      
+
       const hours = yerevanTime.getHours().toString().padStart(2, '0');
       const minutes = yerevanTime.getMinutes().toString().padStart(2, '0');
       setTime(`${hours}:${minutes}`);
@@ -20,7 +21,7 @@ export function TimeInYerevan() {
       const userOffset = now.getTimezoneOffset();
       const yerevanOffset = -240; // GMT+4 в минутах
       const diff = (yerevanOffset - userOffset) / 60;
-      
+
       if (diff > 0) {
         setTimeDiff(`на ${diff} час${diff > 1 ? 'а' : ''} позже`);
       } else if (diff < 0) {
@@ -38,8 +39,22 @@ export function TimeInYerevan() {
 
   return (
     <div className={css.time}>
-      <span>Сейчас в Ереване {time}</span>
-      <span className={css.timeDiff}>({timeDiff})</span>
+      {
+        timeDiff && (
+          <>
+            <span>
+              Сейчас в Ереване
+              {' '}
+              {time}
+            </span>
+            <span className={css.timeDiff}>
+              (
+              {timeDiff}
+              )
+            </span>
+          </>
+        )
+      }
     </div>
   );
-} 
+}
