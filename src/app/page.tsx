@@ -2,7 +2,8 @@
 
 import { SOCIAL_LINKS } from '@/constants/social';
 import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+
+import { MdOutlinePinDrop } from 'react-icons/md';
 
 import css from './page.module.scss';
 
@@ -61,7 +62,8 @@ export default function Home() {
       <section className={css.section}>
         <div id="location" className={css.location}>
           <div className={css.locationInfo}>
-            <FaMapMarkerAlt className={css.locationIcon} />
+            {/* <FaMapMarkerAlt className={css.locationIcon} /> */}
+            <MdOutlinePinDrop className={css.locationIcon} />
             <div>Ереван, Армения (GMT+4)</div>
           </div>
           <div className={css.timeInfo}>
