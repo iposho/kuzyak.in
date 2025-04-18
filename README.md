@@ -95,6 +95,3 @@ Contributions are welcome! If you have any ideas for improvements, feel free to 
 ## Licensing
 
 This project is licensed under the terms of the [MIT License](LICENSE).
-
-<br/><br/>
-<img src="public/images/signature.webp" width="180" />

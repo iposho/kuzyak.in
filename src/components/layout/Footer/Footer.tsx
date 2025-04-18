@@ -2,8 +2,6 @@
 
 import { FC } from 'react';
 
-import Image from 'next/image';
-
 import {
   CURRENT_YEAR,
   VERSION,
@@ -18,14 +16,6 @@ export const Footer: FC = () => (
     <div className={css.column}>
       <p className={css.copyright}>
         {`© ${COPYRIGHT_START_YEAR}...${CURRENT_YEAR}`}
-        <Image
-          src="/images/signString.webp"
-          alt="Signature: P. dictus magister"
-          className={css.signature}
-          width={220}
-          height={54}
-          priority={false}
-        />
       </p>
 
       <p className={css.version}>
