@@ -6,6 +6,8 @@ import { IBM_Plex_Sans } from 'next/font/google';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 
+import { EasterEgg } from '@/components/ui/EasterEgg';
+
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -62,6 +64,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <EasterEgg />
       </body>
     </html>
   );

@@ -1,0 +1,22 @@
+.layout {
+  position: relative;
+  min-height: 100vh;
+  padding: 1rem;
+  background-image: url('/images/awicons/typewriter.webp');
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-size: 200px;
+  background-attachment: fixed;
+}
+
+@media (width <= 768px) {
+  .layout {
+    background-size: 150px;
+  }
+}
+
+@media (width <= 540px) {
+  .layout {
+    background-size: 100px;
+  }
+} 

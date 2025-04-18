@@ -81,9 +81,9 @@
   .section {
     .list {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1.5fr;
       column-gap: 0.5rem;
-      row-gap: .5rem;
+      row-gap: 0;
     }
   }
 }

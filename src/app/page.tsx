@@ -24,14 +24,14 @@ export default function Home() {
       </section>
 
       <section className={css.section}>
-        <h2>Технологии, с которыми дружу</h2>
+        <h2 id="technologies">Технологии, с которыми дружу</h2>
         <p>
           React, TypeScript, Next.js, Tailwind, GraphQL, Supabase, Docker, Node.js
         </p>
       </section>
 
       <section className={css.section}>
-        <h2>Связаться можно так:</h2>
+        <h2 id="contacts">На связи</h2>
         <ul className={css.list}>
           {SOCIAL_LINKS.map(({
             id,

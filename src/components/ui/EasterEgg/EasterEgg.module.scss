@@ -1,0 +1,14 @@
+.easterEgg {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--easter-egg-bg);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  z-index: 9999;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+} 

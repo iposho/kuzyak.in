@@ -14,6 +14,7 @@
   --text-color-red: rgb(255 0 107 / 62%);
   --link-underline-color: color-mix(in srgb, var(--key-color) 50%, rgb(255 255 255 / 0%));
   --email-color: #4a90e2;
+  --easter-egg-bg: #2e7d32;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,11 +48,41 @@ body {
   color: var(--text-color);
 }
 
-@media (width <= 1000px) {
+body::before {
+  content: '';
+  position: absolute;
+  top: 64px;
+  right: 32px;
+  width: 100px;
+  height: 100px;
+  background-image: url('/images/awicons/award.webp');
+  // background-image: url('https://web.archive.org/web/20030607112319im_/http://mir.glasnet.ru/~awicon/images/award_303.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(15deg);
+}
+
+@media (width <= 768px) {
   body {
-    background-position: right -100px bottom -25px;
-    background-repeat: no-repeat;
-    background-size: 200px;
+    background-position: right -125px bottom -25px;
+  }
+  
+  body::before {
+    top: 48px;
+    right: 24px;
+    width: 80px;
+  height: 80px;
+  }
+}
+
+@media (width <= 540px) {
+  body {
+    background-position: right -125px bottom -25px;
+  }
+  
+  body::before {
+    top: 32px;
+    right: 16px;
   }
 }
 
