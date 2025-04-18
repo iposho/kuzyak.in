@@ -10,7 +10,7 @@ export default function Home() {
           Привет, меня&nbsp;зовут Паша&nbsp;Кузякин.
         </h1>
         <p>
-          Я&nbsp;фронтенд-разработчик с более чем десятилетним стажем. Работаю в
+          Я&nbsp;фронтенд-разработчик с&nbsp;десятилетним опытом. Работаю в
           {' '}
           <a href="https://graphlogic.ai">
             Graphlogic
