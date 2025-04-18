@@ -1,4 +1,8 @@
+'use client';
+
 import { SOCIAL_LINKS } from '@/constants/social';
+import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 import css from './page.module.scss';
 
@@ -56,22 +60,13 @@ export default function Home() {
 
       <section className={css.section}>
         <div id="location" className={css.location}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={css.locationIcon}
-          >
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          <span>Ереван, Армения (GMT+4)</span>
+          <div className={css.locationInfo}>
+            <FaMapMarkerAlt className={css.locationIcon} />
+            <div>Ереван, Армения (GMT+4)</div>
+          </div>
+          <div className={css.timeInfo}>
+            <TimeInYerevan />
+          </div>
         </div>
       </section>
     </>

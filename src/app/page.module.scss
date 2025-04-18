@@ -141,11 +141,12 @@
 
 .location {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   font-size: 1.75rem;
   line-height: 1.5;
   margin-top: 2rem;
+  flex-direction: column;
 
   @media (width <= 540px) {
     font-size: 1.5rem;
@@ -156,5 +157,31 @@
   width: 2rem;
   height: 2rem;
   flex-shrink: 0;
-  color: currentColor;
+  color: #ff4d4d;
+  animation: pulse 2s infinite;
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+.locationInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 2.5rem;
 }
