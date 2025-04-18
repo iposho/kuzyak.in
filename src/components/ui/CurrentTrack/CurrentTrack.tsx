@@ -1,5 +1,6 @@
 'use client';
 
+// TODO: Придумать уже, куда его запихать
 import { useEffect, useState } from 'react';
 import { FaMusic } from 'react-icons/fa';
 import Image from 'next/image';
