@@ -138,3 +138,23 @@
     color: var(--email-color);
   }
 }
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.75rem;
+  line-height: 1.5;
+  margin-top: 2rem;
+
+  @media (width <= 540px) {
+    font-size: 1.5rem;
+  }
+}
+
+.locationIcon {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  color: currentColor;
+}
