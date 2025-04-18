@@ -12,7 +12,7 @@ const nextConfig = {
   },
   env: {
     YANDEX_METRIKA_ID: process.env.YANDEX_METRIKA_ID,
-    BUILD_DATE: buildDate,
+    BUILD_DATE: process.env.BUILD_DATE || buildDate,
   },
   images: {
     remotePatterns: [

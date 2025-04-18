@@ -4,6 +4,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { LAST_UPDATE_DATE } from '@/constants/base';
+
 import '@/styles/globals.scss';
 
 export function EasterEgg() {
@@ -26,6 +28,14 @@ export function EasterEgg() {
   };
 
   if (!showMessage) return null;
+
+  const formattedDate = LAST_UPDATE_DATE.toLocaleString('ru-RU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 
   return (
     <button
@@ -53,7 +63,7 @@ export function EasterEgg() {
         (e.currentTarget as HTMLElement).style.opacity = '1';
       }}
     >
-      🌘 Паша хуячит этот сайт ночью 18 апреля 2025 года в 3:24.
+      {`🌘 Паша хуячит этот сайт ночью ${formattedDate}.`}
     </button>
   );
 }

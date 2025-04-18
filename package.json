@@ -15,10 +15,10 @@
     "nextjs-website"
   ],
   "scripts": {
-    "dev": "next dev -p 5050",
-    "build": "next build",
+    "dev": "next dev",
+    "build": "BUILD_DATE=$(date +'%Y-%m-%dT%H:%M:%S') next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "next lint",
     "lint:fix": "eslint . --fix",
     "eslint": "next lint",
     "stylelint": "npx stylelint \"**/*.+(css|scss)\" --fix",
