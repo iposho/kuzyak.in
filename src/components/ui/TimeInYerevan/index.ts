@@ -1,1 +1,1 @@
-export * from './TimeInYerevan';
+export { TimeInYerevan } from './TimeInYerevan';

@@ -9,7 +9,7 @@ function pluralize(n: number, forms: [string, string, string]): string {
   return forms[2];
 }
 
-export function TimeInYerevan() {
+function TimeInYerevan() {
   const now = new Date();
   const yerevanTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Yerevan' }));
 
@@ -52,3 +52,5 @@ export function TimeInYerevan() {
     </div>
   );
 }
+
+export { TimeInYerevan };
