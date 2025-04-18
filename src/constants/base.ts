@@ -14,4 +14,5 @@ export const REPOSITORY_URL = packageJson?.repository?.url || 'https://github.co
 
 export const COPYRIGHT_START_YEAR = 2014;
 export const CURRENT_YEAR = new Date().getFullYear();
+export const LAST_UPDATE_DATE = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString());
 export const CONTACT_EMAIL = 'pavel@kuzyak.in';
