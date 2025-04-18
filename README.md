@@ -32,8 +32,11 @@ $ npm run dev
 
 ## Achievments
 
-<img src="public/images/awicons/award.webp" /> <img src="public/images/awicons/typewriter.webp" /> <img src="public/images/awicons/macos.webp" /> <img src="public/images/awicons/smu.webp" />
+<img src="public/images/awicons/award.webp" /> <img src="public/images/awicons/typewriter.webp" /> <img src="public/images/awicons/smu.webp" />
 
 ## Licensing
 
 This project is licensed under the terms of the [MIT License](LICENSE).
+
+<br/>
+<img src="public/images/signature.webp" width="180" />
