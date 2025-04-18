@@ -15,12 +15,19 @@ export default async function GET() {
   const semiBoldFontData = await fetch(semiBoldFontUrl).then((res) => res.arrayBuffer());
   const regularFontData = await fetch(regularFontUrl).then((res) => res.arrayBuffer());
 
-  const image = await fetch(new URL('/public/images/face.png', import.meta.url)).then(
+  const faceImage = await fetch(new URL('/public/images/face.png', import.meta.url)).then(
     (res) => res.arrayBuffer(),
   );
+
+  // Загружаем изображение award.png
+  const awardImage = await fetch(new URL('/public/images/awicons/award.png', import.meta.url)).then(
+    (res) => res.arrayBuffer(),
+  );
+
   const contentType = 'image/png';
 
-  const logo = `data:${contentType};base64,${Buffer.from(image).toString('base64')}`;
+  const faceBase64 = `data:${contentType};base64,${Buffer.from(faceImage).toString('base64')}`;
+  const awardBase64 = `data:${contentType};base64,${Buffer.from(awardImage).toString('base64')}`;
 
   return new ImageResponse(
     (
@@ -120,9 +127,28 @@ export default async function GET() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt=""
-            src={logo}
+            src={faceBase64}
             width={250}
             height={250}
+          />
+        </div>
+
+        {/* Добавляем изображение award.png в правый верхний угол, повернутое на 30 градусов */}
+        <div
+          style={{
+            display: 'flex',
+            position: 'absolute',
+            right: '50px',
+            top: '100px',
+            transform: 'rotate(30deg)',
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt=""
+            src={awardBase64}
+            width={58}
+            height={80}
           />
         </div>
       </div>
