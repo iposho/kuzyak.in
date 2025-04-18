@@ -64,7 +64,7 @@ export default function Home() {
           <div className={css.locationInfo}>
             {/* <FaMapMarkerAlt className={css.locationIcon} /> */}
             <MdOutlinePinDrop className={css.locationIcon} />
-            <div>Ереван, Армения (GMT+4)</div>
+            <div>Ереван, Армения</div>
           </div>
           <div className={css.timeInfo}>
             <TimeInYerevan />
