@@ -95,3 +95,8 @@ Contributions are welcome! If you have any ideas for improvements, feel free to 
 ## Licensing
 
 This project is licensed under the terms of the [MIT License](LICENSE).
+
+<br/><br/>
+<a href="https://web.archive.org/web/20010406054522/http://mir.glasnet.ru/~awicon/">
+    <img src="public/images/awicons/temafree.webp" alt="temafree" width="170">
+</a>
