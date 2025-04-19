@@ -2,9 +2,11 @@
 
 import { SOCIAL_LINKS } from '@/constants/social';
 import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
-// import { CurrentTrack } from '@/components/ui/CurrentTrack/CurrentTrack';
 
 import { RiMapPinRangeFill } from 'react-icons/ri';
+// import { CurrentTrack } from '@/components/ui/CurrentTrack/CurrentTrack';
+
+import { getExperienceYears } from '@/utils/getExperienceYears';
 
 import css from './page.module.scss';
 
@@ -16,7 +18,10 @@ export default function Home() {
           Привет, меня&nbsp;зовут Паша&nbsp;Кузякин.
         </h1>
         <p>
-          Я&nbsp;фронтенд-разработчик с&nbsp;десятилетним опытом.
+          Я&nbsp;фронтенд-разработчик с&nbsp;опытом
+          {' '}
+          {getExperienceYears()}
+          .
         </p>
         <p>
           Работаю в
