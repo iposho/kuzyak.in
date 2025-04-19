@@ -35,7 +35,7 @@ export const SOCIAL_LINKS: ISocialLink[] = [
   },
   {
     id: 1,
-    link: 'https://telegram.me/mrPosho',
+    link: 'https://telegram.me/mrposho',
     label: SocialPlatform.Telegram,
     icon: FaTelegram,
   },
