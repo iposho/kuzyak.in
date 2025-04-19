@@ -16,7 +16,7 @@ Made for myself, usually at night with an incredible amount of ☕.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Installing / Getting started
+## 🚀 Quick Start
 
 ```shell
 $ git clone https://github.com/iposho/kuzyak.in.git
@@ -25,7 +25,7 @@ $ npm i
 $ npm run dev
 ```
 
-## Technologies and Tools
+## 🛠️ Stack & Tools
 
 - [Next.js](https://nextjs.org/) - React framework
 - [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
@@ -36,7 +36,7 @@ $ npm run dev
 - [Vercel Analytics](https://vercel.com/analytics) - Analytics
 - [Vercel Speed Insights](https://vercel.com/speed-insights) - Performance monitoring
 
-## Available Scripts
+## 💻 Development Scripts
 
 ```shell
 # Run in development mode
@@ -56,7 +56,7 @@ $ npm run stylelint
 $ npm run lint:fix
 ```
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 kuzyak.in/
@@ -70,7 +70,8 @@ kuzyak.in/
 └── ...              # Configuration files
 ```
 
-## Development and Deployment
+## 📦 Contribution
+Contributions are welcome!
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -78,7 +79,7 @@ kuzyak.in/
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
+## 📝License
 
 This project is licensed under the terms of the [MIT License](LICENSE).
 
