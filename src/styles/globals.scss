@@ -62,8 +62,8 @@ body {
 
 body::before {
   position: absolute;
-  top: 64px;
-  right: 32px;
+  top: 42px;
+  right: 8px;
   width: 100px;
   height: 100px;
   background-image: url('/images/awicons/award.webp');
@@ -79,23 +79,16 @@ body::before {
   body {
     background-position: right -125px bottom -25px;
   }
-  
+
   body::before {
-    top: 48px;
-    right: 24px;
     width: 80px;
-  height: 80px;
+    height: 80px;
   }
 }
 
 @media (width <= 540px) {
   body {
     background-position: right -125px bottom -25px;
-  }
-  
-  body::before {
-    top: 32px;
-    right: 16px;
   }
 }
 
