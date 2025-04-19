@@ -2,6 +2,8 @@
 
 import { FC } from 'react';
 
+import Image from 'next/image';
+
 import {
   CURRENT_YEAR,
   VERSION,
@@ -28,6 +30,14 @@ export const Footer: FC = () => (
           {VERSION}
         </a>
       </p>
+
+      <Image
+        src="/images/awicons/temafree.webp"
+        alt="Signature"
+        className={css.signature}
+        width={173}
+        height={20}
+      />
     </div>
   </footer>
 );
