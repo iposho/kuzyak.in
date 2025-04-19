@@ -22,8 +22,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 $ git clone https://github.com/iposho/kuzyak.in.git
 $ cd kuzyak.in/
 $ npm i
-$ echo "YANDEX_METRIKA_ID=YOUR_YANDEX_METRIKA_ID" >> .env.local
-[...]
 $ npm run dev
 ```
 
@@ -35,7 +33,6 @@ $ npm run dev
 - [ESLint](https://eslint.org/) - JavaScript/TypeScript linter
 - [Stylelint](https://stylelint.io/) - CSS/SCSS linter
 - [Husky](https://typicode.github.io/husky/) - Git hooks
-- [Luxon](https://moment.github.io/luxon/) - Date handling
 - [Vercel Analytics](https://vercel.com/analytics) - Analytics
 - [Vercel Speed Insights](https://vercel.com/speed-insights) - Performance monitoring
 
@@ -67,17 +64,10 @@ kuzyak.in/
 ├── src/             # Source code
 │   ├── app/         # Next.js App Router
 │   ├── components/  # React components
-│   └── styles/      # Styles
+│   ├── styles/      # Styles
+│   └── utils/       # Utilities
 ├── .husky/          # Git hooks
 └── ...              # Configuration files
-```
-
-## Environment Variables
-
-Create `.env.local` based on `.env.example`:
-
-```shell
-YANDEX_METRIKA_ID=your_metrika_id
 ```
 
 ## Development and Deployment
@@ -88,11 +78,7 @@ YANDEX_METRIKA_ID=your_metrika_id
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## Contributing
-
-Contributions are welcome! If you have any ideas for improvements, feel free to create issues or pull requests.
-
-## Licensing
+## License
 
 This project is licensed under the terms of the [MIT License](LICENSE).
 
