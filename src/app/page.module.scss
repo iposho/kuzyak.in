@@ -89,11 +89,11 @@
 .locationInfo {
   display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: 1rem;
 
   svg {
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2rem;
+    height: auto;
   }
 }
 
