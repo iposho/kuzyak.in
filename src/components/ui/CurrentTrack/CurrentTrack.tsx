@@ -3,7 +3,6 @@
 // TODO: Придумать уже, куда его запихать
 import { useEffect, useState } from 'react';
 import { FaMusic } from 'react-icons/fa';
-import Image from 'next/image';
 import css from './CurrentTrack.module.scss';
 
 interface Track {
@@ -38,7 +37,7 @@ function CurrentTrack() {
     };
 
     fetchCurrentTrack();
-    const interval = setInterval(fetchCurrentTrack, 30000); // Обновляем каждые 30 секунд
+    const interval = setInterval(fetchCurrentTrack, 30000);
 
     return () => clearInterval(interval);
   }, []);
@@ -48,25 +47,20 @@ function CurrentTrack() {
   if (!track) return null;
 
   return (
-    <div className={css.track}>
-      <div className={css.cover}>
-        {track.image ? (
-          <Image
-            src={track.image}
-            alt={`Обложка трека ${track.name}`}
-            width={48}
-            height={48}
-            className={css.coverImage}
-          />
-        ) : (
-          <FaMusic className={css.coverIcon} />
-        )}
-      </div>
-      <div className={css.info}>
-        <a href={track.url} target="_blank" rel="noreferrer" className={css.link}>
-          {track.name}
-        </a>
-        <span className={css.artist}>{track.artist}</span>
+    <div className={css.currentTrack}>
+      <div className={css.track}>
+        <FaMusic className={css.coverIcon} />
+        <span className={css.nowPlaying}>Слушаю прямо сейчас:</span>
+        <div className={css.marqueeContainer}>
+          <a
+            href={track.url}
+            target="_blank"
+            rel="noreferrer"
+            className={css.link}
+          >
+            {`${track.name} — ${track.artist}`}
+          </a>
+        </div>
       </div>
     </div>
   );

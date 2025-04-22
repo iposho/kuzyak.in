@@ -21,6 +21,7 @@ import {
 } from '@/constants/base';
 
 import '@/styles/globals.scss';
+import { CurrentTrack } from '@/components/ui/CurrentTrack';
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin', 'cyrillic'],
@@ -69,6 +70,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <EasterEgg />
+        <CurrentTrack />
       </body>
     </html>
   );
