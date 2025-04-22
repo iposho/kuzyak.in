@@ -62,6 +62,7 @@ export default function RootLayout({
           )
         }
         <Header />
+        <CurrentTrack />
         <main
           className="main"
           data-isproduction={isProduction}
@@ -70,7 +71,6 @@ export default function RootLayout({
         </main>
         <Footer />
         <EasterEgg />
-        <CurrentTrack />
       </body>
     </html>
   );

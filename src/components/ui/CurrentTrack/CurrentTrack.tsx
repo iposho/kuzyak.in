@@ -1,8 +1,9 @@
 'use client';
 
-// TODO: Придумать уже, куда его запихать
 import { useEffect, useState } from 'react';
-import { FaMusic } from 'react-icons/fa';
+
+import { CiStreamOn } from 'react-icons/ci';
+
 import css from './CurrentTrack.module.scss';
 
 interface Track {
@@ -49,7 +50,7 @@ function CurrentTrack() {
   return (
     <div className={css.currentTrack}>
       <div className={css.track}>
-        <FaMusic className={css.coverIcon} />
+        <CiStreamOn className={css.coverIcon} />
         <span className={css.nowPlaying}>Слушаю прямо сейчас:</span>
         <div className={css.marqueeContainer}>
           <a

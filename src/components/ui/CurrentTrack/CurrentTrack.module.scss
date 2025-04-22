@@ -3,27 +3,64 @@
   display: flex;
   max-width: 468px;
   position: absolute;
-  top: 1rem;
+  top: 0;
+  font-size: 14px;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    padding: 0 1rem;
+    font-size: 12px;
+  }
 }
 
 .track {
   display: flex;
   align-items: center;
   padding: .5rem;
-  gap: 12px;
+  gap: .375rem;
   justify-content: center;
   width: 100%;
+
+  @media (max-width: 480px) {
+    padding: .375rem;
+    gap: .25rem;
+  }
 }
 
 .coverIcon {
-  color: var(--text-color-dark);
-  font-size: 24px;
+  color: var(--location-color);
+  font-size: 32px;
+  animation: pulse 2s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .nowPlaying {
   color: rgb(0 0 0 / 70%);
   white-space: nowrap;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 }
 
 .marqueeContainer {
@@ -45,6 +82,14 @@
   white-space: nowrap;
   animation: marquee 15s linear infinite;
   padding-left: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.85em;
+  }
 
   &:hover {
     animation-play-state: paused;
