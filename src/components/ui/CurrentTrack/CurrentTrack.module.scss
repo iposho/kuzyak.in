@@ -1,38 +1,63 @@
+.currentTrack {
+  width: 100%;
+  display: flex;
+  max-width: 468px;
+  position: absolute;
+  top: 1rem;
+  justify-content: center;
+}
+
 .track {
   display: flex;
   align-items: center;
-  padding: 12px;
-  border: 1px solid rgb(255 255 255 / 5%);
-  border-radius: 12px;
-  background: rgb(255 255 255 / 3%);
-  gap: 16px;
-  transition: background 0.2s ease;
-
-  &:hover {
-    background: rgb(255 255 255 / 5%);
-  }
-}
-
-.cover {
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  width: 48px;
-  height: 48px;
-  flex-shrink: 0;
-  align-items: center;
+  padding: .5rem;
+  gap: 12px;
   justify-content: center;
-  border-radius: 8px;
-  background: rgb(255 255 255 / 5%);
-}
-
-.coverImage {
-  object-fit: cover;
+  width: 100%;
 }
 
 .coverIcon {
-  color: rgb(255 255 255 / 30%);
+  color: var(--text-color-dark);
   font-size: 24px;
+}
+
+.nowPlaying {
+  color: rgb(0 0 0 / 70%);
+  white-space: nowrap;
+}
+
+.marqueeContainer {
+  overflow: hidden;
+  width: 100%;
+}
+
+.link {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-decoration-color: var(--link-underline-color);
+  text-decoration-thickness: .035em;
+  text-underline-offset: .275em;
+  transition: all .25s linear;
+  line-height: 1.5;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: 500;
+  white-space: nowrap;
+  animation: marquee 15s linear infinite;
+  padding-left: 100%;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .info {
@@ -42,24 +67,10 @@
   gap: 4px;
 }
 
-.link {
-  overflow: hidden;
-  color: inherit;
-  font-size: 1.1em;
-  font-weight: 500;
-  text-decoration: none;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 .artist {
   overflow: hidden;
   font-size: 0.9em;
   opacity: 0.7;
   text-overflow: ellipsis;
   white-space: nowrap;
-} 
+}
