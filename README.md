@@ -16,6 +16,13 @@ Made for myself, usually at night with an incredible amount of ☕.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## ✨ Why bother clicking
+
+- It’s minimal — but not boring
+- No Tailwind, no Bootstrap — just raw SCSS and care
+- Fits all screens like a tailored suit
+- Typography and whitespace? Obsessively crafted
+
 ## 🚀 Quick Start
 
 ```shell
