@@ -5,11 +5,10 @@ import { FC } from 'react';
 import Image from 'next/image';
 
 import {
-  CURRENT_YEAR,
-  VERSION,
-  REPOSITORY_URL,
-  COPYRIGHT_START_YEAR,
+  LAST_UPDATE_DATE,
 } from '@/constants/base';
+
+import { formatDate } from '@/utils/formatDate';
 
 import css from './Footer.module.scss';
 
@@ -17,10 +16,10 @@ export const Footer: FC = () => (
   <footer className={css.footer}>
     <div className={css.column}>
       <p className={css.copyright}>
-        {`© ${COPYRIGHT_START_YEAR}...${CURRENT_YEAR}`}
+        {formatDate(new Date(LAST_UPDATE_DATE))}
       </p>
 
-      <p className={css.version}>
+      {/* <p className={css.version}>
         <a
           href={REPOSITORY_URL}
           target="_blank"
@@ -29,7 +28,7 @@ export const Footer: FC = () => (
           v.
           {VERSION}
         </a>
-      </p>
+      </p> */}
 
       <a
         href="https://web.archive.org/web/20010406054522/http://mir.glasnet.ru/~awicon/"
