@@ -21,6 +21,9 @@ function CurrentTrack() {
   useEffect(() => {
     const fetchCurrentTrack = async () => {
       try {
+        setLoading(true);
+        setError(null);
+
         const response = await fetch('/api/lastfm');
         const data = await response.json();
 
@@ -29,7 +32,9 @@ function CurrentTrack() {
           return;
         }
 
-        setTrack(data.track);
+        if (track?.name !== data.track?.name || track?.artist !== data.track?.artist) {
+          setTrack(data.track);
+        }
       } catch (err) {
         setError('Не удалось загрузить текущий трек');
       } finally {
@@ -38,10 +43,10 @@ function CurrentTrack() {
     };
 
     fetchCurrentTrack();
-    const interval = setInterval(fetchCurrentTrack, 30000);
+    const interval = setInterval(fetchCurrentTrack, 300000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [track]);
 
   if (loading) return null;
   if (error) return null;
@@ -53,14 +58,15 @@ function CurrentTrack() {
         <CiStreamOn className={css.coverIcon} />
         <span className={css.nowPlaying}>Слушаю прямо сейчас:</span>
         <div className={css.marqueeContainer}>
-          <a
+          {`${track.name} — ${track.artist}`}
+          {/* <a
             href={track.url}
             target="_blank"
             rel="noreferrer"
             className={css.link}
           >
             {`${track.name} — ${track.artist}`}
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

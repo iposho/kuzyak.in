@@ -1,64 +1,104 @@
 .currentTrack {
-  width: 100%;
-  display: flex;
-  max-width: 468px;
   position: absolute;
   top: 0;
-  font-size: 14px;
+  display: flex;
+  width: 100%;
+  max-width: 468px;
   justify-content: center;
+  font-size: 14px;
+  transition: all 0.3s ease;
 
-  @media (max-width: 768px) {
+  .track {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem 1.25rem;
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    background: rgb(255 255 255 / 5%);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    gap: 1rem;
+    transition: all 0.3s ease;
+
+    @media (width <= 480px) {
+      padding: .5rem .75rem;
+      gap: .5rem;
+    }
+  }
+
+  &:hover {
+    transform: translateY(2px);
+
+    .track {
+      background: rgb(255 255 255 / 8%);
+      box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+    }
+  }
+
+  @media (width <= 768px) {
     max-width: 100%;
     padding: 0 1rem;
     font-size: 12px;
   }
 }
 
-.track {
-  display: flex;
-  align-items: center;
-  padding: .5rem;
-  gap: .375rem;
-  justify-content: center;
-  width: 100%;
-
-  @media (max-width: 480px) {
-    padding: .375rem;
-    gap: .25rem;
-  }
-}
-
 .coverIcon {
+  padding: 8px;
+  border-radius: 12px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: rgb(255 255 255 / 10%);
   color: var(--location-color);
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / 20%));
   font-size: 32px;
-  animation: pulse 2s ease-in-out infinite;
+  transition: all 0.3s ease;
 
-  @media (max-width: 768px) {
+  &:hover {
+    animation-play-state: paused;
+    background: rgb(255 255 255 / 15%);
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  @media (width <= 768px) {
+    padding: 6px;
     font-size: 24px;
   }
 
-  @media (max-width: 480px) {
+  @media (width <= 480px) {
+    padding: 4px;
     font-size: 20px;
   }
 }
 
 @keyframes pulse {
   0% {
-    transform: scale(1);
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
+
   50% {
-    transform: scale(1.1);
+    opacity: 0.8;
+    transform: scale(1.1) rotate(5deg);
   }
+
   100% {
-    transform: scale(1);
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 }
 
 .nowPlaying {
-  color: rgb(0 0 0 / 70%);
+  color: rgb(0 0 0 / 80%);
+  font-size: 0.9em;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   white-space: nowrap;
 
-  @media (max-width: 480px) {
+  @media (width <= 480px) {
     display: none;
   }
 }
@@ -66,33 +106,60 @@
 .marqueeContainer {
   overflow: hidden;
   width: 100%;
+  color: var(--text-color);
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+
+  @media (width >= 768px) {
+    overflow: visible;
+  }
 }
 
 .link {
-  color: var(--link-color);
-  text-decoration: underline;
-  text-decoration-color: var(--link-underline-color);
-  text-decoration-thickness: .035em;
-  text-underline-offset: .275em;
-  transition: all .25s linear;
-  line-height: 1.5;
+  position: relative;
   display: inline-block;
+  color: var(--link-color);
   font-size: 1em;
   font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: all 0.3s ease;
   white-space: nowrap;
-  animation: marquee 15s linear infinite;
-  padding-left: 100%;
 
-  @media (max-width: 768px) {
+  &::after {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--link-underline-color);
+    content: '';
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  @media (width <= 768px) {
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
     font-size: 0.9em;
+
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      animation-play-state: paused;
+    }
   }
 
-  @media (max-width: 480px) {
+  @media (width <= 480px) {
     font-size: 0.85em;
-  }
-
-  &:hover {
-    animation-play-state: paused;
   }
 }
 
@@ -100,6 +167,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-100%);
   }

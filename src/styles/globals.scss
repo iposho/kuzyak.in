@@ -24,6 +24,7 @@
   --shadow-color: rgb(0 0 0 / 20%);
   --shadow-color-dark: rgb(0 0 0 / 75%);
   --text-color-dark: rgb(59 67 152);
+  --icon-muted: rgb(68 68 68 / 45%);
   --qr-dark: #1a1a1a;
   --qr-light: #fff;
   --gradient-colors: #ff6b6b, #ff8e8e, #ffb3b3, #ffd8b3, #ffe0b3, #fff0b3, #e6ffb3, #b3ffb3, #b3ffe6, #b3ffff, #b3e6ff, #b3b3ff, #d8b3ff, #ffb3ff, #ffb3d8, #ff6b6b;
@@ -63,10 +64,10 @@ body {
 body::before {
   position: absolute;
   top: 42px;
-  right: 8px;
-  width: 100px;
-  height: 100px;
-  background-image: url('/images/awicons/award.webp');
+  right: 24px;
+  width: 80px;
+  height: 80px;
+  background-image: url('/images/brain.webp');
   background-repeat: no-repeat;
 
   // background-image: url('https://web.archive.org/web/20030607112319im_/http://mir.glasnet.ru/~awicon/images/award_303.gif');
@@ -81,8 +82,8 @@ body::before {
   }
 
   body::before {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
 }
 
