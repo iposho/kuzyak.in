@@ -63,35 +63,27 @@
   gap: .5rem;
 
   svg {
-    width: 2rem;
+    width: 1.5rem;
     height: auto;
+    color: #e63946;
   }
 }
 
 // Social links styles
 .socialLinks {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
+  display: flex;
   padding: 0;
   margin: 2rem 0 0;
+  gap: 1rem;
   list-style: none;
-
-  @media (width > 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 .socialLink {
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
   align-items: center;
-  gap: 0.75rem 2rem;
   padding: 0.5rem 0;
   border-radius: 4px;
-  text-decoration: none;
-  border-bottom: 1px solid #bbb;
-  transition: border-color 0.3s ease;
+  gap: .5rem;
 
   &:focus-visible {
     outline: 2px solid currentcolor;
@@ -105,51 +97,46 @@
     }
   }
 
-  &:hover {
-    border-bottom-color: #000;
-  }
-
   svg {
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: auto;
     flex-shrink: 0;
-    stroke: currentColor;
-    fill: none;
-    transition: stroke 0.3s ease;
+    fill: var(--icon-muted);
+    transition: fill 0.3s ease;
 
-    @media (width <= 540px) {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
+    //@media (width <= 540px) {
+    //  width: 1.5rem;
+    //  height: 1.5rem;
+    //}
   }
 
   &:hover {
     svg {
-      stroke: var(--icon-hover);
+      fill: var(--icon-hover);
     }
 
     &[href*="github.com"] svg {
-      stroke: var(--github-color);
+      fill: var(--github-color);
     }
 
     &[href*="telegram.me"] svg {
-      stroke: var(--telegram-color);
+      fill: var(--telegram-color);
     }
 
     &[href*="linkedin.com"] svg {
-      stroke: var(--linkedin-color);
+      fill: var(--linkedin-color);
     }
 
     &[href*="facebook.com"] svg {
-      stroke: var(--facebook-color);
+      fill: var(--facebook-color);
     }
 
     &[href*="twitter.com"] svg {
-      stroke: var(--twitter-color);
+      fill: var(--twitter-color);
     }
 
     &[href^="mailto:"] svg {
-      stroke: var(--email-color);
+      fill: var(--email-color);
     }
   }
 }
@@ -165,8 +152,8 @@
 }
 
 .locationIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: auto;
   flex-shrink: 0;
   animation: pulse 2s infinite;
   color: var(--location-color);
@@ -176,7 +163,7 @@
 .timeInfo {
   display: flex;
   flex-direction: column;
-  margin-left: 2.5rem;
+  margin-left: 2rem;
   gap: .5rem;
 }
 
