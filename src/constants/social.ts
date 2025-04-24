@@ -1,14 +1,13 @@
 import { CONTACT_EMAIL } from '@/constants/base';
 
 import {
-  FaGithub,
-  FaLinkedin,
-  FaFacebook,
-  FaTwitter,
-  FaTelegram,
-} from 'react-icons/fa';
-
-import { RiMailLine } from 'react-icons/ri';
+  TbMail,
+  TbBrandTelegram,
+  TbBrandLinkedin,
+  TbBrandFacebook,
+  TbBrandTwitter,
+  TbBrandGithub,
+} from 'react-icons/tb';
 
 export enum SocialPlatform {
   Email = 'Почта',
@@ -23,7 +22,7 @@ export interface ISocialLink {
   id: number;
   link: string;
   label: SocialPlatform;
-  icon: typeof FaGithub;
+  icon: typeof TbBrandGithub;
 }
 
 export const SOCIAL_LINKS: ISocialLink[] = [
@@ -31,36 +30,36 @@ export const SOCIAL_LINKS: ISocialLink[] = [
     id: 0,
     link: `mailto:${CONTACT_EMAIL}`,
     label: SocialPlatform.Email,
-    icon: RiMailLine,
+    icon: TbMail,
   },
   {
     id: 1,
     link: 'https://telegram.me/mrposho',
     label: SocialPlatform.Telegram,
-    icon: FaTelegram,
+    icon: TbBrandTelegram,
   },
   {
     id: 2,
     link: 'https://www.linkedin.com/in/pavelkuzyakin',
     label: SocialPlatform.Linkedin,
-    icon: FaLinkedin,
+    icon: TbBrandLinkedin,
   },
   {
     id: 3,
     link: 'https://facebook.com/pashakuzyakin',
     label: SocialPlatform.Facebook,
-    icon: FaFacebook,
+    icon: TbBrandFacebook,
   },
   {
     id: 4,
     link: 'https://twitter.com/pavelkuzyakin',
     label: SocialPlatform.Twitter,
-    icon: FaTwitter,
+    icon: TbBrandTwitter,
   },
   {
     id: 5,
     link: 'https://github.com/iposho',
     label: SocialPlatform.Github,
-    icon: FaGithub,
+    icon: TbBrandGithub,
   },
 ];
