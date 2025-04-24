@@ -100,7 +100,6 @@ $transition-duration: 0.3s;
 
     li {
       @include flex-center;
-      min-height: 2.5rem;
     }
   }
 }
