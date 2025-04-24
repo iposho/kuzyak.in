@@ -21,7 +21,6 @@ import {
 } from '@/constants/base';
 
 import '@/styles/globals.scss';
-import { CurrentTrack } from '@/components/ui/CurrentTrack';
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin', 'cyrillic'],
@@ -62,7 +61,7 @@ export default function RootLayout({
           )
         }
         <Header />
-        <CurrentTrack />
+        {/* <CurrentTrack /> */}
         <main
           className="main"
           data-isproduction={isProduction}
