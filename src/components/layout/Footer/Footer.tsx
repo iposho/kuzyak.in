@@ -40,8 +40,8 @@ export const Footer: FC = () => (
           src="/images/awicons/temafree.webp"
           alt="Tema Lebedev Free Website"
           className={css.banner}
-          width={173}
-          height={20}
+          width={100}
+          height={12}
         />
       </a>
     </div>
