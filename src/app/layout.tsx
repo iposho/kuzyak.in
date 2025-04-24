@@ -7,10 +7,10 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { EasterEgg } from '@/components/layout/EasterEgg';
 
-import { Scripts } from '@/scripts';
-
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
+
+import { Scripts } from '@/scripts';
 
 import {
   METADATA_TITLE,
