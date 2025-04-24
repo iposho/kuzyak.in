@@ -10,6 +10,9 @@ $max-width: 1000px;
 $icon-size: 1.5rem;
 $line-height: 1.5;
 $transition-duration: 0.3s;
+$gap-base: 1rem;
+$gap-small: 0.5rem;
+$gap-medium: 0.75rem;
 
 // Mixins
 @mixin flex-center {
@@ -56,6 +59,14 @@ $transition-duration: 0.3s;
   }
 }
 
+@mixin responsive-gap {
+  gap: $gap-medium 0;
+
+  @media (width <= 540px) {
+    gap: $gap-base 0;
+  }
+}
+
 // Main section styles
 .section {
   width: 100%;
@@ -95,7 +106,7 @@ $transition-duration: 0.3s;
     padding: 0;
     margin: 0;
     @include responsive-font;
-    gap: $spacing-medium 0;
+    @include responsive-gap;
     list-style-type: none;
 
     li {
@@ -108,7 +119,7 @@ $transition-duration: 0.3s;
 .locationInfo {
   @include flex-center;
   margin-bottom: 0.25rem;
-  gap: $spacing-small;
+  gap: $gap-small;
 
   svg {
     width: $icon-size;
@@ -122,14 +133,15 @@ $transition-duration: 0.3s;
   @include flex-center;
   padding: 0;
   margin: $spacing-large 0 0;
-  gap: $spacing-base;
+  gap: $gap-base;
   list-style: none;
 }
 
 .socialLink {
   @include flex-center;
   border-radius: $border-radius;
-  gap: $spacing-small;
+  gap: $gap-small;
+  line-height: $line-height;
 
   @include focus-visible;
   @include mobile-active;
@@ -176,7 +188,7 @@ $transition-duration: 0.3s;
 .timeInfo {
   @include flex-column;
   margin-left: $spacing-large;
-  gap: $spacing-small;
+  gap: $gap-small;
 }
 
 // Animations
