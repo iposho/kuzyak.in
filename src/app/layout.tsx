@@ -10,6 +10,9 @@ import { EasterEgg } from '@/components/layout/EasterEgg';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 
+// IMPORTANT: Do not change the import order! React may throw Error 425 if
+// client components imports ('use client') appear after server component imports.
+// See documentation: https://react.dev/errors/425
 import { Scripts } from '@/scripts';
 
 import {
