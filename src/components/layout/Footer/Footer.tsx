@@ -17,7 +17,7 @@ export const Footer: FC = () => {
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.log(
-      `%c🚀 Версия ${VERSION}`,
+      `%c🚀 App version ${VERSION}`,
       'color: #4CAF50; font-weight: bold;',
     );
   }, []);
