@@ -56,30 +56,29 @@ body {
   align-items: center;
   background-color: var(--white);
   background-image: url('/images/face.webp');
-  background-position: right -125px bottom -25px;
+  background-position: right -25px bottom -25px;
   background-repeat: no-repeat;
-  background-size: 250px;
+  background-size: 200px;
   color: var(--text-color);
 }
 
-body::before {
-  position: absolute;
-  top: 42px;
-  right: 24px;
-  width: 80px;
-  height: 80px;
-  background-image: url('/images/brain.webp');
-  background-repeat: no-repeat;
-
-  // background-image: url('https://web.archive.org/web/20030607112319im_/http://mir.glasnet.ru/~awicon/images/award_303.gif');
-  background-size: contain;
-  content: '';
-  transform: rotate(15deg);
-}
+//body::before {
+//  position: absolute;
+//  top: 42px;
+//  right: 24px;
+//  width: 80px;
+//  height: 80px;
+//  background-image: url('/images/brain.webp');
+//  background-repeat: no-repeat;
+//  // background-image: url('https://web.archive.org/web/20030607112319im_/http://mir.glasnet.ru/~awicon/images/award_303.gif');
+//  background-size: contain;
+//  content: '';
+//  transform: rotate(15deg);
+//}
 
 @media (width <= 768px) {
   body {
-    background-position: right -125px bottom -25px;
+    background-position: right -50px bottom -25px;
   }
 
   body::before {
@@ -90,7 +89,7 @@ body::before {
 
 @media (width <= 540px) {
   body {
-    background-position: right -125px bottom -25px;
+    background-position: right -75px bottom -25px;
   }
 }
 

@@ -1,22 +1,7 @@
-const months = [
-  'января',
-  'февраля',
-  'марта',
-  'апреля',
-  'мая',
-  'июня',
-  'июля',
-  'августа',
-  'сентября',
-  'октября',
-  'ноября',
-  'декабря',
-];
-
 export const formatDate = (date: Date): string => {
-  const day = date.getDate();
-  const month = months[date.getMonth()];
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
   const year = date.getFullYear();
 
-  return `Обновлено ${day} ${month} ${year} года`;
+  return `Обновлено ${day}.${month}.${year}`;
 };

@@ -29,17 +29,6 @@ export const Footer: FC = () => {
           {formatDate(new Date(LAST_UPDATE_DATE))}
         </p>
 
-        {/* <p className={css.version}>
-          <a
-            href={REPOSITORY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            v.
-            {VERSION}
-          </a>
-        </p> */}
-
         <a
           href="https://web.archive.org/web/20010406054522/http://mir.glasnet.ru/~awicon/"
           target="_blank"
