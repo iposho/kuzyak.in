@@ -61,7 +61,8 @@ export default function Home() {
                 className={css.socialLink}
               >
                 <Icon />
-                {label === 'Почта' ? 'pavel@kuzyak.in' : link.split('/').pop()}
+                {/* {label === 'Почта' ? 'pavel@kuzyak.in' : link.split('/').pop()} */}
+                {label}
               </a>
             </li>
           ))}

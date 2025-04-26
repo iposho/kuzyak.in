@@ -18,11 +18,15 @@ $max-width: 1000px;
 $border-radius: 4px;
 $gap-base: 1rem;
 $gap-small: 0.5rem;
-$gap-medium: 0.75rem;
+$gap-smallest: 0.25rem;
 
 // Components
 $icon-size: 1.5rem;
 $transition-duration: 0.3s;
+
+// Breakpoints
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
 
 // ==========================================================================
 // Mixins
@@ -70,16 +74,27 @@ $transition-duration: 0.3s;
   font-size: $font-size-base;
   line-height: $line-height;
 
-  @media (width <= 540px) {
+  @media (width <= $breakpoint-mobile) {
     font-size: $font-size-mobile;
   }
 }
 
-@mixin responsive-gap {
-  gap: $gap-medium 0;
+// Media Query Mixins
+@mixin mobile {
+  @media (width <= $breakpoint-mobile) {
+    @content;
+  }
+}
 
-  @media (width <= 540px) {
-    gap: $gap-base 0;
+@mixin tablet {
+  @media (width > $breakpoint-mobile) and (width <= $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (width > $breakpoint-tablet) {
+    @content;
   }
 }
 
@@ -101,7 +116,7 @@ $transition-duration: 0.3s;
 
   p {
     width: 100%;
-    margin-bottom: $spacing-medium + 0.5rem;
+    margin-bottom: $spacing-medium + 0.75rem;
 
     @include responsive-font;
   }
@@ -122,14 +137,27 @@ $transition-duration: 0.3s;
   }
 
   .list {
-    display: inline-flex;
-    flex-direction: column;
+    display: grid;
+    width: fit-content;
     padding: 0;
     margin: 0 0 0.5rem;
+    gap: $gap-small 0;
+    grid-template-columns: 1fr;
     list-style-type: none;
 
     @include responsive-font;
-    @include responsive-gap;
+
+    @include tablet {
+      justify-content: stretch;
+      gap: 1rem 1.5rem;
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @include desktop {
+      justify-content: stretch;
+      gap: .5rem 2.5rem;
+      grid-template-columns: repeat(3, auto);
+    }
 
     li {
       @include flex-center;
@@ -186,7 +214,7 @@ $transition-duration: 0.3s;
   @include flex-center;
 
   border-radius: $border-radius;
-  gap: $gap-small;
+  gap: $gap-smallest;
   line-height: $line-height;
 
   @include focus-visible;
@@ -205,41 +233,12 @@ $transition-duration: 0.3s;
       transform: scale(1.1);
     }
 
-    &[href*="github.com"] {
-      svg {
-        color: var(--github-color);
-      }
-    }
-
-    &[href*="telegram.me"] {
-      svg {
-        color: var(--telegram-color);
-      }
-    }
-
-    &[href*="linkedin.com"] {
-      svg {
-        color: var(--linkedin-color);
-      }
-    }
-
-    &[href*="facebook.com"] {
-      svg {
-        color: var(--facebook-color);
-      }
-    }
-
-    &[href*="twitter.com"] {
-      svg {
-        color: var(--twitter-color);
-      }
-    }
-
-    &[href^="mailto:"] {
-      svg {
-        color: var(--email-color);
-      }
-    }
+    &[href*="github.com"] svg { color: var(--github-color); }
+    &[href*="telegram.me"] svg { color: var(--telegram-color); }
+    &[href*="linkedin.com"] svg { color: var(--linkedin-color); }
+    &[href*="facebook.com"] svg { color: var(--facebook-color); }
+    &[href*="twitter.com"] svg { color: var(--twitter-color); }
+    &[href^="mailto:"] svg { color: var(--email-color); }
   }
 }
 
@@ -259,21 +258,4 @@ $transition-duration: 0.3s;
   0% { transform: scale(1); }
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
-}
-
-// ==========================================================================
-// Media Queries
-// ==========================================================================
-
-@media (width > 540px) and (width <= 768px) {
-  .section .list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (width > 768px) {
-  .section .list {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-  }
 }
