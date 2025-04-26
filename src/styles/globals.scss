@@ -56,7 +56,7 @@ body {
   align-items: center;
   background-color: var(--white);
   background-image: url('/images/face.webp');
-  background-position: right -25px bottom -25px;
+  background-position: right 25px bottom -25px;;
   background-repeat: no-repeat;
   background-size: 200px;
   color: var(--text-color);
@@ -78,7 +78,7 @@ body {
 
 @media (width <= 768px) {
   body {
-    background-position: right -50px bottom -25px;
+    background-position: right -25px bottom -25px;
   }
 
   body::before {
@@ -89,7 +89,7 @@ body {
 
 @media (width <= 540px) {
   body {
-    background-position: right -75px bottom -25px;
+    background-position: right 0 bottom -25px;
   }
 }
 
