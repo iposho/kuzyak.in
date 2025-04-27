@@ -13,7 +13,11 @@ export const VERSION = packageJson?.version || '0.0.0';
 
 export const LAST_UPDATE_DATE = (() => {
   const buildDate = process.env.BUILD_DATE;
-  if (!buildDate) return new Date();
+  if (!buildDate) {
+    const now = new Date();
+    now.setHours(now.getHours() + 4);
+    return now;
+  }
   const date = new Date(buildDate);
   return Number.isNaN(date.getTime()) ? new Date() : date;
 })();
