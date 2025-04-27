@@ -8,13 +8,17 @@ import {
 
 import css from './Footer.module.scss';
 
+const FOOTER_CONSTANTS = {
+  COPYRIGHT: `© 2004...${new Date().getFullYear()}`,
+  STATUS_MESSAGE: 'С любовью задеплоено на Vercel ❤️',
+  VERSION_LOG: `%c🚀 App version ${VERSION}`,
+  VERSION_LOG_STYLE: 'color: #4CAF50; font-weight: bold;',
+} as const;
+
 export const Footer: FC = () => {
   useEffect(() => {
     // eslint-disable-next-line no-console
-    console.log(
-      `%c🚀 App version ${VERSION}`,
-      'color: #4CAF50; font-weight: bold;',
-    );
+    console.log(FOOTER_CONSTANTS.VERSION_LOG, FOOTER_CONSTANTS.VERSION_LOG_STYLE);
   }, []);
 
   return (
@@ -22,10 +26,10 @@ export const Footer: FC = () => {
       <div className={css.column}>
         <div className={css.copyright}>
           <p>
-            © 2004...2025
+            {FOOTER_CONSTANTS.COPYRIGHT}
           </p>
           <p className={css.status}>
-            С&nbsp;любовью задеплоено на&nbsp;Vercel  ❤️
+            {FOOTER_CONSTANTS.STATUS_MESSAGE}
           </p>
         </div>
 

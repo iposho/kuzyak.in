@@ -3,7 +3,7 @@
 import { SOCIAL_LINKS } from '@/constants/social';
 import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
 
-import { RiMapPinRangeFill } from 'react-icons/ri';
+import { TbLocation } from 'react-icons/tb';
 // import { CurrentTrack } from '@/components/ui/CurrentTrack/CurrentTrack';
 
 import { getExperienceYears } from '@/utils/getExperienceYears';
@@ -71,7 +71,7 @@ export default function Home() {
       <section className={css.section}>
         <div id="location" className={css.location}>
           <div className={css.locationInfo}>
-            <RiMapPinRangeFill
+            <TbLocation
               className={css.locationIcon}
             />
             <div>Ереван, Армения</div>
