@@ -9,7 +9,7 @@ export const revalidate = 0;
 export async function GET() {
   if (!LASTFM_API_KEY || !LASTFM_USERNAME) {
     return NextResponse.json(
-      { error: 'Last.fm API не настроен' },
+      { error: 'Last.fm API is not configured' },
       { status: 500 },
     );
   }
@@ -47,7 +47,7 @@ export async function GET() {
         name: track.name,
         artist: track.artist['#text'],
         url: track.url,
-        image: track.image[2]['#text'], // Используем средний размер изображения
+        image: track.image[2]['#text'], // Use medium size image
       },
     }, {
       headers: {
@@ -58,7 +58,7 @@ export async function GET() {
     });
   } catch (error) {
     return NextResponse.json(
-      { error: 'Ошибка при получении данных из Last.fm' },
+      { error: 'Error fetching data from Last.fm' },
       { status: 500 },
     );
   }

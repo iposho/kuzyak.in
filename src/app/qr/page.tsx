@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 
 import { useQRCode } from 'next-qrcode';
 
-import { METADATA_BASE } from '@/constants/base';
+import { METADATA } from '@/constants/base';
 
 import css from './page.module.scss';
 
@@ -24,7 +24,7 @@ const setWidth = () => {
 
 export default function Page():ReactElement {
   const { Canvas } = useQRCode();
-  const text = METADATA_BASE.toString();
+  const text = METADATA.BASE.toString();
 
   return (
     <div className={css.qr}>
