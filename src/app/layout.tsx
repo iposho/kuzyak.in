@@ -16,10 +16,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { Scripts } from '@/scripts';
 
 import {
-  METADATA_TITLE,
-  METADATA_DESCRIPTION,
-  METADATA_KEYWORDS,
-  METADATA_BASE,
+  METADATA,
 } from '@/constants/base';
 
 import '@/styles/globals.scss';
@@ -31,13 +28,13 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: METADATA_TITLE,
-  description: METADATA_DESCRIPTION,
-  keywords: METADATA_KEYWORDS,
-  metadataBase: METADATA_BASE,
+  title: METADATA.TITLE,
+  description: METADATA.DESCRIPTION,
+  keywords: METADATA.KEYWORDS,
+  metadataBase: METADATA.BASE,
   openGraph: {
-    url: METADATA_BASE,
-    siteName: METADATA_TITLE,
+    url: METADATA.BASE,
+    siteName: METADATA.TITLE,
     type: 'website',
   },
 };

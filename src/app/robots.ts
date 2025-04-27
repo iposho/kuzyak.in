@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { METADATA_BASE } from '@/constants/base';
+import { METADATA } from '@/constants/base';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: `${METADATA_BASE}sitemap.xml`,
+    sitemap: `${METADATA}sitemap.xml`,
   };
 }

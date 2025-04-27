@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og';
-import { METADATA_BASE } from '@/constants/base';
+import { METADATA } from '@/constants/base';
 
 export const runtime = 'edge';
 
@@ -108,7 +108,15 @@ export default async function GET() {
             bottom: '60px',
           }}
         >
-          {METADATA_BASE.host}
+          <div
+            style={{
+              fontSize: 24,
+              color: 'white',
+              marginTop: 8,
+            }}
+          >
+            {METADATA.BASE.host}
+          </div>
         </div>
         <div
           style={{
