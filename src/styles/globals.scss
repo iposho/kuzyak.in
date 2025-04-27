@@ -62,7 +62,7 @@ body {
   color: var(--text-color);
 }
 
-//body::before {
+// body::before {
 //  position: absolute;
 //  top: 42px;
 //  right: 24px;
@@ -74,7 +74,7 @@ body {
 //  background-size: contain;
 //  content: '';
 //  transform: rotate(15deg);
-//}
+// }
 
 @media (width <= 768px) {
   body {
