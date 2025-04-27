@@ -1,4 +1,4 @@
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -10,7 +10,7 @@
   }
 }
 
-@keyframes scaleIn {
+@keyframes scale-in {
   from {
     opacity: 0;
     transform: scale(0.95);
@@ -24,7 +24,7 @@
 
 body {
  background: none;
- 
+
  h1,
  header,
  footer {
@@ -38,16 +38,16 @@ body {
   max-width: 1000px;
   flex-direction: column;
   padding: 0 1rem;
-  animation: fadeIn 0.8s ease-out;
+  animation: fade-in 0.8s ease-out;
 
   h1 {
     margin-bottom: 1rem;
-    animation: fadeIn 0.8s ease-out 0.2s both;
+    animation: fade-in 0.8s ease-out 0.2s both;
     color: var(--text-color-lighter);
   }
 
   a {
-    animation: scaleIn 0.8s ease-out 0.4s both;
+    animation: scale-in 0.8s ease-out 0.4s both;
     cursor: pointer;
   }
 
@@ -60,11 +60,11 @@ body {
     filter: grayscale(.75);
     object-fit: cover;
     transition: all 0.3s ease;
-    
+
     &:hover {
       box-shadow: 0 10px 20px rgb(0 0 0 / 10%);
       filter: grayscale(0);
       transform: scale(1.02);
     }
   }
-} 
+}

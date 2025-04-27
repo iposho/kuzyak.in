@@ -11,7 +11,11 @@ export const METADATA_KEYWORDS = SKILLS_STRING;
 
 export const VERSION = packageJson?.version || '0.0.0';
 
-export const LAST_UPDATE_DATE = new Date(process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString());
+export const LAST_UPDATE_DATE = new Date(
+  process.env.NEXT_PUBLIC_BUILD_DATE
+  || process.env.BUILD_DATE
+  || new Date().toISOString(),
+);
 export const CONTACT_EMAIL = 'pavel@kuzyak.in';
 
 // Unused
