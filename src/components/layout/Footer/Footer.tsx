@@ -4,6 +4,7 @@ import { FC, useEffect } from 'react';
 
 import {
   VERSION,
+  LAST_UPDATE_DATE,
 } from '@/constants/base';
 
 import css from './Footer.module.scss';
@@ -13,12 +14,22 @@ const FOOTER_CONSTANTS = {
   STATUS_MESSAGE: 'С любовью задеплоено на Vercel ❤️',
   VERSION_LOG: `%c🚀 App version ${VERSION}`,
   VERSION_LOG_STYLE: 'color: #4CAF50; font-weight: bold;',
+  BUILD_DATE: `🏗️ Built on ${LAST_UPDATE_DATE.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZoneName: 'short',
+  })}`,
 } as const;
 
 export const Footer: FC = () => {
   useEffect(() => {
     // eslint-disable-next-line no-console
     console.log(FOOTER_CONSTANTS.VERSION_LOG, FOOTER_CONSTANTS.VERSION_LOG_STYLE);
+    // eslint-disable-next-line no-console
+    console.log(FOOTER_CONSTANTS.BUILD_DATE);
   }, []);
 
   return (
