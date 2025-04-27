@@ -6,14 +6,20 @@ import { useEffect, useState } from 'react';
 
 import { LAST_UPDATE_DATE } from '@/constants/base';
 
-import '@/styles/globals.scss';
+import { getTimeOfDay } from '@/utils/time';
 
+import css from './EasterEgg.module.scss';
+
+/**
+ * EasterEgg component - shows a hidden message when pressing 'n' or 'т' key
+ * The message contains information about the last website update time
+ */
 export function EasterEgg() {
   const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      // Проверяем как 'n' в английской раскладке, так и 'т' в русской
+      // Check both 'n' in English layout and 'т' in Russian layout
       if (e.key.toLowerCase() === 'n' || e.key.toLowerCase() === 'т') {
         setShowMessage(true);
       }
@@ -22,10 +28,6 @@ export function EasterEgg() {
     document.addEventListener('keydown', handleKeyPress);
     return () => document.removeEventListener('keydown', handleKeyPress);
   }, []);
-
-  const handleClick = () => {
-    setShowMessage(false);
-  };
 
   if (!showMessage) return null;
 
@@ -37,33 +39,15 @@ export function EasterEgg() {
     minute: '2-digit',
   });
 
+  const timeOfDay = getTimeOfDay(new Date());
+
   return (
     <button
-      onClick={handleClick}
+      onClick={() => setShowMessage(false)}
       type="button"
-      style={{
-        position: 'fixed',
-        top: '20px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        background: 'var(--easter-egg-bg)',
-        color: 'white',
-        padding: '1rem 1.5rem',
-        borderRadius: '12px',
-        boxShadow: '0 2px 10px rgba(0,0,0,0.2)',
-        zIndex: 9999,
-        cursor: 'pointer',
-        transition: 'opacity 0.2s ease',
-        border: 'none',
-      }}
-      onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.opacity = '0.9';
-      }}
-      onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.opacity = '1';
-      }}
+      className={css.easterEgg}
     >
-      {`🌘 Паша хуячит этот сайт ночью ${formattedDate}.`}
+      {`${timeOfDay.icon} Паша хуячит этот сайт ${timeOfDay.text} ${formattedDate}.`}
     </button>
   );
 }
