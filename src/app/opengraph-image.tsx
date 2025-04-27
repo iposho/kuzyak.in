@@ -19,15 +19,9 @@ export default async function GET() {
     (res) => res.arrayBuffer(),
   );
 
-  // Загружаем изображение award.png
-  const awardImage = await fetch(new URL('/public/images/awicons/award.png', import.meta.url)).then(
-    (res) => res.arrayBuffer(),
-  );
-
   const contentType = 'image/png';
 
   const faceBase64 = `data:${contentType};base64,${Buffer.from(faceImage).toString('base64')}`;
-  const awardBase64 = `data:${contentType};base64,${Buffer.from(awardImage).toString('base64')}`;
 
   return new ImageResponse(
     (
@@ -120,7 +114,7 @@ export default async function GET() {
           style={{
             display: 'flex',
             position: 'absolute',
-            right: '-125px',
+            right: '25px',
             bottom: '-25px',
           }}
         >
@@ -130,25 +124,6 @@ export default async function GET() {
             src={faceBase64}
             width={250}
             height={250}
-          />
-        </div>
-
-        {/* Добавляем изображение award.png в правый верхний угол, повернутое на 30 градусов */}
-        <div
-          style={{
-            display: 'flex',
-            position: 'absolute',
-            right: '50px',
-            top: '100px',
-            transform: 'rotate(30deg)',
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            src={awardBase64}
-            width={58}
-            height={80}
           />
         </div>
       </div>
