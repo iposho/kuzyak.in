@@ -108,15 +108,7 @@ export default async function GET() {
             bottom: '60px',
           }}
         >
-          <div
-            style={{
-              fontSize: 24,
-              color: 'white',
-              marginTop: 8,
-            }}
-          >
-            {METADATA.BASE.host}
-          </div>
+          {METADATA.BASE.host}
         </div>
         <div
           style={{
