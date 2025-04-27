@@ -24,6 +24,17 @@ $gap-smallest: 0.25rem;
 $icon-size: 1.5rem;
 $transition-duration: 0.3s;
 
+// Colors
+$color-location: #e63946;
+$color-text-secondary: var(--text-secondary);
+$color-github: var(--github-color);
+$color-telegram: var(--telegram-color);
+$color-linkedin: var(--linkedin-color);
+$color-facebook: var(--facebook-color);
+$color-twitter: var(--twitter-color);
+$color-email: var(--email-color);
+$color-location-icon: var(--location-color);
+
 // Breakpoints
 $breakpoint-mobile: 320px;
 $breakpoint-tablet: 768px;
@@ -173,13 +184,13 @@ $breakpoint-tablet: 768px;
 .locationInfo {
   @include flex-center;
 
-  margin-bottom: 0.25rem;
-  gap: $gap-small;
+  margin-bottom: $gap-smallest;
+  gap: $gap-smallest;
 
   svg {
     width: $icon-size;
     height: auto;
-    color: #e63946;
+    color: $color-location;
   }
 }
 
@@ -187,7 +198,7 @@ $breakpoint-tablet: 768px;
   @include flex-column;
 
   align-items: flex-start;
-  margin-top: 0.25rem;
+  margin-top: $gap-smallest;
 
   @include responsive-font;
 }
@@ -197,7 +208,7 @@ $breakpoint-tablet: 768px;
   height: auto;
   flex-shrink: 0;
   animation: pulse 2s infinite;
-  color: var(--location-color);
+  color: $color-location-icon;
 }
 
 // Social Links Component
@@ -224,7 +235,7 @@ $breakpoint-tablet: 768px;
     width: $icon-size;
     height: auto;
     flex-shrink: 0;
-    color: var(--text-secondary);
+    color: $color-text-secondary;
     transition: all $transition-duration ease;
   }
 
@@ -233,12 +244,12 @@ $breakpoint-tablet: 768px;
       transform: scale(1.1);
     }
 
-    &[href*="github.com"] svg { color: var(--github-color); }
-    &[href*="telegram.me"] svg { color: var(--telegram-color); }
-    &[href*="linkedin.com"] svg { color: var(--linkedin-color); }
-    &[href*="facebook.com"] svg { color: var(--facebook-color); }
-    &[href*="twitter.com"] svg { color: var(--twitter-color); }
-    &[href^="mailto:"] svg { color: var(--email-color); }
+    &[href*="github.com"] svg { color: $color-github; }
+    &[href*="telegram.me"] svg { color: $color-telegram; }
+    &[href*="linkedin.com"] svg { color: $color-linkedin; }
+    &[href*="facebook.com"] svg { color: $color-facebook; }
+    &[href*="twitter.com"] svg { color: $color-twitter; }
+    &[href^="mailto:"] svg { color: $color-email; }
   }
 }
 
@@ -246,7 +257,7 @@ $breakpoint-tablet: 768px;
 .timeInfo {
   @include flex-column;
 
-  margin-left: $spacing-large;
+  margin-left: $spacing-base + $spacing-medium;
   gap: $gap-small;
 }
 

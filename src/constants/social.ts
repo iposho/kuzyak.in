@@ -11,11 +11,11 @@ import {
 
 export enum SocialPlatform {
   Email = 'Почта',
-  Facebook = 'Facebook',
-  Linkedin = 'Linkedin',
-  Twitter = 'Twitter',
-  Github = 'Github',
-  Telegram = 'Telegram',
+  Facebook = 'Фейсбук',
+  Linkedin = 'Линкедин',
+  Twitter = 'Твиттер',
+  Github = 'Гитхаб',
+  Telegram = 'Телеграм',
 }
 
 export interface ISocialLink {
