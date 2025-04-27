@@ -2,14 +2,9 @@
 
 import { FC, useEffect } from 'react';
 
-import Image from 'next/image';
-
 import {
-  LAST_UPDATE_DATE,
   VERSION,
 } from '@/constants/base';
-
-import { formatDate } from '@/utils/formatDate';
 
 import css from './Footer.module.scss';
 
@@ -25,23 +20,28 @@ export const Footer: FC = () => {
   return (
     <footer className={css.footer}>
       <div className={css.column}>
-        <p className={css.copyright}>
-          {formatDate(new Date(LAST_UPDATE_DATE))}
-        </p>
+        <div className={css.copyright}>
+          <p>
+            © 2004...2025
+          </p>
+          <p className={css.status}>
+            С&nbsp;любовью задеплоено на&nbsp;Vercel  ❤️
+          </p>
+        </div>
 
-        <a
-          href="https://web.archive.org/web/20010406054522/http://mir.glasnet.ru/~awicon/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image
-            src="/images/awicons/temafree.webp"
-            alt="Tema Lebedev Free Website"
-            className={css.banner}
-            width={100}
-            height={12}
-          />
-        </a>
+        {/* <a */}
+        {/*   href="https://web.archive.org/web/20010406054522/http://mir.glasnet.ru/~awicon/" */}
+        {/*   target="_blank" */}
+        {/*   rel="noreferrer" */}
+        {/* > */}
+        {/*   <Image */}
+        {/*     src="/images/awicons/temafree.webp" */}
+        {/*     alt="Tema Lebedev Free Website" */}
+        {/*     className={css.banner} */}
+        {/*     width={100} */}
+        {/*     height={12} */}
+        {/*   /> */}
+        {/* </a> */}
       </div>
     </footer>
   );
