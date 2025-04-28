@@ -6,6 +6,7 @@ import { IBM_Plex_Sans } from 'next/font/google';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { EasterEgg } from '@/components/layout/EasterEgg';
+import { CookieConsent } from '@/components/layout/CookieConsent';
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
@@ -69,6 +70,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <EasterEgg />
+        <CookieConsent />
       </body>
     </html>
   );
