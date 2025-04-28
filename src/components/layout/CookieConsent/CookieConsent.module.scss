@@ -15,9 +15,9 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
 }
 
 @mixin button-hover {
-  background: color-mix(in srgb, var(--key-color) 90%, black);
-  box-shadow: 0 6px 16px var(--shadow-color-dark);
-  transform: translateY(-2px) scale(1.02);
+  background: rgba(255, 255, 255, 0.375);
+  transform: scale(1.02);
+  // box-shadow: 0 6px 16px var(--shadow-color-dark);
 }
 
 @mixin button-active {
@@ -44,11 +44,10 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem;
-  border-top: 2px solid var(--text-color);
+  padding: .5rem;
   animation: slide-up 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(10px);
-  background: var(--text-color-dark);
+  background: #384BEC;
   box-shadow: 0 -4px 20px var(--shadow-color);
 }
 
@@ -62,14 +61,9 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
 
   p {
     margin: 0;
-    color: var(--white);
+    color: var(--beige);
     font-size: 1.1rem;
     line-height: 1.6;
-
-    &:first-child {
-      color: var(--beige);
-      font-weight: 600;
-    }
   }
 }
 
@@ -77,13 +71,13 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
   padding: 0.875rem 2rem;
   border: none;
   border-radius: 12px;
-  background: var(--key-color);
-  box-shadow: 0 4px 12px var(--shadow-color);
-  color: var(--white);
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--beige);
   cursor: pointer;
   font-size: 1.1rem;
-  font-weight: 500;
-  text-shadow: 0 1px 2px var(--shadow-color);
+  font-weight: 600;
+  text-shadow: none;
+  box-shadow: 0 4px 12px var(--shadow-color);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
