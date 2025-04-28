@@ -23,24 +23,23 @@
 .copyright {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
 
   .status {
     max-width: 19ch;
   }
 }
 
-.version {
-  a {
-    color: var(--text-color-lighter);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--link-color-red);
-      filter: blur(1px);
-    }
-  }
-}
+// .version {
+//  a {
+//    color: var(--text-color-lighter);
+//    text-decoration: none;
+//
+//    &:hover {
+//      color: var(--link-color-red);
+//      filter: blur(1px);
+//    }
+//  }
+// }
 
 .banner {
   display: inline-flex;
