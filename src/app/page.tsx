@@ -27,7 +27,7 @@ export default function Home() {
           Работаю в
           {' '}
           <a href="https://graphlogic.ai">
-            Graphlogic
+            Графлоджике
           </a>
           .
         </p>
