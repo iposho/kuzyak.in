@@ -19,7 +19,7 @@ export default function NotFound() {
             src="/images/notfound.png"
             alt="404: Not Found"
             width={1200}
-            height={800}
+            height={630}
           />
         </Link>
       </div>
