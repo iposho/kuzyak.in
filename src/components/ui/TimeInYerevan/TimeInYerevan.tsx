@@ -45,6 +45,7 @@ function TimeInYerevan() {
         <>
           <span>
             Сейчас в Ереване
+            {' '}
             {time}
             {' '}
             (GMT+4)
