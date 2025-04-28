@@ -91,5 +91,5 @@ This project is licensed under the terms of the [MIT License](LICENSE).
 
 <br/><br/>
 <a href="https://web.archive.org/web/20010406054522/http://mir.glasnet.ru/~awicon/">
-    <img src="public/images/awicons/temafree.webp" alt="temafree" width="170">
+    <img src="public/images/jsx.webp" alt="temafree" width="150">
 </a>
