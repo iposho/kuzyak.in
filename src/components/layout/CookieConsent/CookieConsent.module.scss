@@ -31,6 +31,7 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
     opacity: 0;
     transform: translateY(100%);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -43,6 +44,7 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
     opacity: 1;
     transform: translateY(0);
   }
+
   to {
     opacity: 0;
     transform: translateY(100%);
@@ -70,6 +72,7 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
 // Content container
 .content {
   @include flex-center;
+
   max-width: 1000px;
   padding: 0 1rem;
   margin: 0 auto;
@@ -117,8 +120,8 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
 
   .content {
     flex-direction: column;
-    text-align: center;
     gap: 1.25rem;
+    text-align: center;
 
     p {
       font-size: 1rem;
