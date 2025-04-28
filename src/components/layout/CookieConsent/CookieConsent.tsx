@@ -8,30 +8,53 @@ export const CookieConsent: FC = () => {
   // State for controlling visibility and animation
   const [isVisible, setIsVisible] = useState(false);
   const [isHiding, setIsHiding] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   // Check for existing consent on mount
   useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      setIsVisible(true);
+    try {
+      const consent = localStorage.getItem('cookieConsent');
+      const shouldShow = !consent && typeof window !== 'undefined';
+      setIsVisible(shouldShow);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error checking cookie consent:', error);
+      setHasError(true);
     }
   }, []);
 
   // Handle consent acceptance with animation
   const handleAccept = () => {
-    setIsHiding(true);
-    setTimeout(() => {
-      localStorage.setItem('cookieConsent', 'true');
-      setIsVisible(false);
-    }, 300); // Match animation duration
+    try {
+      setIsHiding(true);
+      setTimeout(() => {
+        try {
+          localStorage.setItem('cookieConsent', 'true');
+          setIsVisible(false);
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error('Error saving cookie consent:', error);
+          setHasError(true);
+        }
+      }, 300); // Match animation duration
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error in handleAccept:', error);
+      setHasError(true);
+    }
   };
 
-  if (!isVisible) {
+  // Don't render if not visible or if there's an error
+  if (!isVisible || hasError) {
     return null;
   }
 
   return (
-    <div className={`${css.cookieConsent} ${isHiding ? css.hiding : ''}`}>
+    <div
+      className={`${css.cookieConsent} ${isHiding ? css.hiding : ''}`}
+      role="alert"
+      aria-live="polite"
+    >
       <div className={css.content}>
         <div>
           <p>
@@ -42,6 +65,7 @@ export const CookieConsent: FC = () => {
           type="button"
           onClick={handleAccept}
           className={css.acceptButton}
+          aria-label="Accept cookies"
         >
           🍪 Ок, не жалко!
         </button>
