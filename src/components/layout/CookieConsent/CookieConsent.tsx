@@ -5,8 +5,11 @@ import { FC, useEffect, useState } from 'react';
 import css from './CookieConsent.module.scss';
 
 export const CookieConsent: FC = () => {
+  // State for controlling visibility and animation
   const [isVisible, setIsVisible] = useState(false);
+  const [isHiding, setIsHiding] = useState(false);
 
+  // Check for existing consent on mount
   useEffect(() => {
     const consent = localStorage.getItem('cookieConsent');
     if (!consent) {
@@ -14,9 +17,13 @@ export const CookieConsent: FC = () => {
     }
   }, []);
 
+  // Handle consent acceptance with animation
   const handleAccept = () => {
-    localStorage.setItem('cookieConsent', 'true');
-    setIsVisible(false);
+    setIsHiding(true);
+    setTimeout(() => {
+      localStorage.setItem('cookieConsent', 'true');
+      setIsVisible(false);
+    }, 300); // Match animation duration
   };
 
   if (!isVisible) {
@@ -24,7 +31,7 @@ export const CookieConsent: FC = () => {
   }
 
   return (
-    <div className={css.cookieConsent}>
+    <div className={`${css.cookieConsent} ${isHiding ? css.hiding : ''}`}>
       <div className={css.content}>
         <div>
           <p>
@@ -36,7 +43,7 @@ export const CookieConsent: FC = () => {
           onClick={handleAccept}
           className={css.acceptButton}
         >
-          Ок, не жалко!
+          🍪 Ок, не жалко!
         </button>
       </div>
     </div>
