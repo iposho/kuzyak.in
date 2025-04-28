@@ -14,7 +14,7 @@ export default function NotFound() {
     <div className="notFoundPage">
       <h1>Страница не найдена</h1>
       <div className="imageContainer">
-        <Link href="/">
+        <Link href="/" replace>
           <Image
             src="/images/notfound.png"
             alt="404: Not Found"
