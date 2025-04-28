@@ -7,37 +7,49 @@ $button-color: var(--key-color);
 $shadow-color: rgb(0 0 0 / 15%);
 $hover-shadow-color: rgb(0 0 0 / 20%);
 
-// Mixins
+// Mixins for common styles
 @mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+// Button hover state styles
 @mixin button-hover {
-  background: rgba(255, 255, 255, 0.375);
+  background: rgb(255 255 255 / 37.5%);
   transform: scale(1.02);
-  // box-shadow: 0 6px 16px var(--shadow-color-dark);
 }
 
+// Button active state styles
 @mixin button-active {
-  transform: translateY(0) scale(0.98);
+  transform: scale(0.98);
 }
 
-// Animations
+// Animation for sliding up
 @keyframes slide-up {
   from {
     opacity: 0;
     transform: translateY(100%);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-// Main component
+// Animation for sliding down
+@keyframes slide-down {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+// Main cookie consent banner
 .cookieConsent {
   position: fixed;
   z-index: 9999;
@@ -49,11 +61,15 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
   backdrop-filter: blur(10px);
   background: #384BEC;
   box-shadow: 0 -4px 20px var(--shadow-color);
+
+  &.hiding {
+    animation: slide-down 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
 }
 
+// Content container
 .content {
   @include flex-center;
-
   max-width: 1000px;
   padding: 0 1rem;
   margin: 0 auto;
@@ -67,17 +83,21 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
   }
 }
 
+// Accept button styles
 .acceptButton {
-  padding: 0.875rem 2rem;
+  display: inline-flex;
+  align-items: center;
+  padding: .5rem 1rem;
   border: none;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgb(255 255 255 / 25%);
+  box-shadow: 0 4px 12px var(--shadow-color);
   color: var(--beige);
   cursor: pointer;
   font-size: 1.1rem;
   font-weight: 600;
+  gap: .375rem;
   text-shadow: none;
-  box-shadow: 0 4px 12px var(--shadow-color);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
@@ -89,7 +109,7 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
   }
 }
 
-// Media queries
+// Mobile styles
 @media (width <= 768px) {
   .cookieConsent {
     padding: 1.25rem;
@@ -97,8 +117,8 @@ $hover-shadow-color: rgb(0 0 0 / 20%);
 
   .content {
     flex-direction: column;
-    gap: 1.25rem;
     text-align: center;
+    gap: 1.25rem;
 
     p {
       font-size: 1rem;
