@@ -21,7 +21,11 @@ export function EasterEgg() {
     const handleKeyPress = (e: KeyboardEvent) => {
       // Check both 'n' in English layout and 'т' in Russian layout
       if (e.key.toLowerCase() === 'n' || e.key.toLowerCase() === 'т') {
-        setShowMessage(true);
+        setShowMessage((prev) => !prev);
+      }
+      // Close on Escape
+      if (e.key === 'Escape') {
+        setShowMessage(false);
       }
     };
 
@@ -46,8 +50,9 @@ export function EasterEgg() {
       onClick={() => setShowMessage(false)}
       type="button"
       className={css.easterEgg}
+      title="Нажмите 'n', 'т' или 'Esc' чтобы закрыть"
     >
-      {`${timeOfDay.icon} Паша хуячит этот сайт ${timeOfDay.text} ${formattedDate}.`}
+      {`${timeOfDay.icon} Паша хуячит этот сайт ${timeOfDay.text} ${formattedDate}`}
     </button>
   );
 }
