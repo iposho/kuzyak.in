@@ -50,7 +50,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ibmPlexSans.className}>
-        {/* © 2004...2025 P. dictus magister */}
         {
           isProduction && (
             <>

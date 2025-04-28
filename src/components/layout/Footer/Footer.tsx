@@ -23,7 +23,7 @@ const FOOTER_CONSTANTS = {
     timeZoneName: 'short',
   })}`,
   BUILD_DATE_STYLE: 'color: #2196F3; font-weight: bold;',
-  SIGNATURE: '%cP. dictus magister',
+  SIGNATURE: `%c© ${new Date().getFullYear()} P. dictus magister`,
   SIGNATURE_STYLE: 'color: #9C27B0; font-style: italic; font-weight: bold;',
   LOAD_TIME: '%c⏱️ Page load time: ',
   LOAD_TIME_STYLE: 'color: #FF9800; font-weight: bold;',
@@ -36,12 +36,14 @@ export const Footer: FC = () => {
     // eslint-disable-next-line no-console
     console.log(FOOTER_CONSTANTS.BUILD_DATE, FOOTER_CONSTANTS.BUILD_DATE_STYLE);
     // eslint-disable-next-line no-console
-    console.log(FOOTER_CONSTANTS.SIGNATURE, FOOTER_CONSTANTS.SIGNATURE_STYLE);
-    // eslint-disable-next-line no-console
     console.log(
       `${FOOTER_CONSTANTS.LOAD_TIME}${(performance.now() / 1000).toFixed(2)}s`,
       FOOTER_CONSTANTS.LOAD_TIME_STYLE,
     );
+    // eslint-disable-next-line no-console
+    console.log('');
+    // eslint-disable-next-line no-console
+    console.log(FOOTER_CONSTANTS.SIGNATURE, FOOTER_CONSTANTS.SIGNATURE_STYLE);
   }, []);
 
   return (
