@@ -85,7 +85,7 @@ $breakpoint-tablet: 768px;
   font-size: $font-size-base;
   line-height: $line-height;
 
-  @media (width <= $breakpoint-mobile) {
+  @media (width <= $breakpoint-tablet) {
     font-size: $font-size-mobile;
   }
 }
@@ -119,6 +119,10 @@ $breakpoint-tablet: 768px;
   padding: 0 $spacing-base;
   margin-bottom: $spacing-large + 0.25rem;
 
+  @include tablet {
+    margin-bottom: $spacing-large;
+  }
+
   &.table {
     @include flex-center;
 
@@ -130,6 +134,10 @@ $breakpoint-tablet: 768px;
     margin-bottom: $spacing-medium + 0.75rem;
 
     @include responsive-font;
+
+    @include tablet {
+      margin-bottom: $spacing-medium + 0.25rem;
+    }
   }
 
   a {
