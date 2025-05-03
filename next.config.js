@@ -5,7 +5,7 @@
 const buildDate = new Date().toISOString();
 
 const nextConfig = {
-  productionBrowserSourceMaps: true,
+  productionBrowserSourceMaps: false,
   compress: true,
   devIndicators: {
     buildActivityPosition: 'bottom-right',
