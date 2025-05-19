@@ -3,8 +3,7 @@
 import { SOCIAL_LINKS } from '@/constants/social';
 import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
 
-import { TbLocation } from 'react-icons/tb';
-// import { CurrentTrack } from '@/components/ui/CurrentTrack/CurrentTrack';
+import { CgPin } from 'react-icons/cg';
 
 import { getExperienceYears } from '@/utils/getExperienceYears';
 
@@ -40,7 +39,7 @@ export default function Home() {
       <section className={css.section}>
         <h2 id="technologies">Технологии, с которыми дружу</h2>
         <p>
-          React, TypeScript, Next.js, Tailwind, GraphQL, Supabase, Docker, Node.js
+          React, TypeScript, Next.js, Tailwind, GraphQL, Supabase, Docker, Node.js, etc.
         </p>
       </section>
 
@@ -71,7 +70,7 @@ export default function Home() {
       <section className={css.section}>
         <div id="location" className={css.location}>
           <div className={css.locationInfo}>
-            <TbLocation
+            <CgPin
               className={css.locationIcon}
             />
             <div>Ереван, Армения</div>
@@ -81,10 +80,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* <section className={css.section}> */}
-      {/*   <CurrentTrack /> */}
-      {/* </section> */}
     </>
   );
 }
