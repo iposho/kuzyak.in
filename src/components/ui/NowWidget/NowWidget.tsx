@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import {
-  Music,
-  Book,
-  Gamepad2,
-  ExternalLink,
-  Calendar,
-  Star,
-  Trophy,
-} from 'lucide-react';
+  TbMusic,
+  TbBook,
+  TbDeviceGamepad2,
+  TbExternalLink,
+  TbClock,
+  TbStar,
+  TbTrophy,
+} from 'react-icons/tb';
 
 import css from './NowWidget.module.scss';
 
@@ -107,7 +107,7 @@ function NowWidget() {
       <div className={css.cards}>
         <div className={css.card}>
           <div className={css.cardIcon}>
-            <Music className={music.isPlaying ? css.musicIconActive : css.iconMuted} />
+            <TbMusic className={music.isPlaying ? css.musicIconActive : css.iconMuted} />
           </div>
           <div className={css.cardContent}>
             <div className={css.cardTitle}>{music.isPlaying ? music.track : 'Ничего не играет'}</div>
@@ -116,7 +116,7 @@ function NowWidget() {
                 <span className={css.cardSubtitle}>{`${music.artist} • ${music.album}`}</span>
                 <div className={css.infoRow}>
                   <span className={css.infoItem}>
-                    <Calendar className={css.infoIcon} />
+                    <TbClock className={css.infoIcon} />
                     {music.duration}
                   </span>
                   <span className={css.infoItem}>{music.genre}</span>
@@ -128,7 +128,7 @@ function NowWidget() {
                 {music.url && (
                   <a href={music.url} target="_blank" rel="noreferrer" className={css.link}>
                     Открыть в Last.fm
-                    <ExternalLink className={css.infoIcon} />
+                    <TbExternalLink className={css.infoIcon} />
                   </a>
                 )}
               </div>
@@ -137,7 +137,7 @@ function NowWidget() {
         </div>
         <div className={css.card}>
           <div className={css.cardIcon}>
-            <Book className={reading.isReading ? css.bookIconActive : css.iconMuted} />
+            <TbBook className={reading.isReading ? css.bookIconActive : css.iconMuted} />
           </div>
           <div className={css.cardContent}>
             <div className={css.cardTitle}>{reading.isReading ? reading.title : 'Ничего не читаю'}</div>
@@ -149,7 +149,7 @@ function NowWidget() {
                 </div>
                 <div className={css.infoRow}>
                   <span className={css.infoItem}>
-                    <Star className={css.infoIconFilled} />
+                    <TbStar className={css.infoIconFilled} />
                     {`${reading.rating}/5`}
                   </span>
                   <span className={css.infoItem}>{reading.genre}</span>
@@ -164,7 +164,7 @@ function NowWidget() {
         </div>
         <div className={css.card}>
           <div className={css.cardIcon}>
-            <Gamepad2 className={gaming.isPlaying ? css.gameIconActive : css.iconMuted} />
+            <TbDeviceGamepad2 className={gaming.isPlaying ? css.gameIconActive : css.iconMuted} />
           </div>
           <div className={css.cardContent}>
             <div className={css.cardTitle}>{gaming.isPlaying ? gaming.game : 'Не играю'}</div>
@@ -173,7 +173,7 @@ function NowWidget() {
                 <span className={css.cardSubtitle}>{gaming.platform}</span>
                 {gaming.achievement && (
                   <div className={css.infoRow}>
-                    <Trophy className={css.infoIconGame} />
+                    <TbTrophy className={css.infoIconGame} />
                     {gaming.achievement}
                   </div>
                 )}
