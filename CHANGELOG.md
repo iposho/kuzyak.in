@@ -7,3 +7,8 @@
 
 ### Changed
 - Replaced lucide-react icons in NowWidget with tabler icons
+
+## [5.21.2] - 2025-07-28
+
+### Changed
+- Positioned NowWidget to the top-right corner on the homepage
