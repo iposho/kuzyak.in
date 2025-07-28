@@ -2,9 +2,9 @@
 
 import { SOCIAL_LINKS } from '@/constants/social';
 import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
+import { NowWidget } from '@/components/ui/NowWidget';
 
 import { TbLocation } from 'react-icons/tb';
-// import { CurrentTrack } from '@/components/ui/CurrentTrack/CurrentTrack';
 
 import { getExperienceYears } from '@/utils/getExperienceYears';
 
@@ -13,6 +13,9 @@ import css from './page.module.scss';
 export default function Home() {
   return (
     <>
+      <div className={css.nowWidgetWrapper}>
+        <NowWidget />
+      </div>
       <section className={css.section}>
         <h1>
           Привет, меня&nbsp;зовут Паша&nbsp;Кузякин.
@@ -82,9 +85,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className={css.section}> */}
-      {/*   <CurrentTrack /> */}
-      {/* </section> */}
     </>
   );
 }

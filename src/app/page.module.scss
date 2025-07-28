@@ -269,6 +269,16 @@ $breakpoint-tablet: 768px;
   gap: $gap-small;
 }
 
+// NowWidget Wrapper
+.nowWidgetWrapper {
+  position: absolute;
+  z-index: 10;
+  top: $spacing-base;
+  right: $spacing-base;
+  width: 100%;
+  max-width: 280px;
+}
+
 // ==========================================================================
 // Animations
 // ==========================================================================
