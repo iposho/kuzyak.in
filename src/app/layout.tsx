@@ -21,6 +21,7 @@ import {
 } from '@/constants/base';
 
 import '@/styles/globals.scss';
+import styles from './layout.module.scss';
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin', 'cyrillic'],
@@ -59,17 +60,19 @@ export default function RootLayout({
             </>
           )
         }
-        <Header />
-        {/* <CurrentTrack /> */}
-        <main
-          className="main"
-          data-isproduction={isProduction}
-        >
-          {children}
-        </main>
-        <Footer />
-        <EasterEgg />
-        <CookieConsent />
+        <div className={styles.layout}>
+          <Header />
+          {/* <CurrentTrack /> */}
+          <main
+            className="main"
+            data-isproduction={isProduction}
+          >
+            {children}
+          </main>
+          <Footer />
+          <EasterEgg />
+          <CookieConsent />
+        </div>
       </body>
     </html>
   );

@@ -1,0 +1,1 @@
+export { CategoriesManager } from './CategoriesManager';

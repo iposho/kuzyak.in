@@ -1,0 +1,134 @@
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+  background: #f9fafb;
+
+  .sidebar {
+    width: 250px;
+    padding: 2rem 1rem;
+    background: white;
+    border-right: 1px solid #e5e7eb;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+
+    .logo {
+      margin-bottom: 2rem;
+      color: #1a1a1a;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .navItem {
+        margin-bottom: 0.5rem;
+
+        .navLink {
+          display: flex;
+          align-items: center;
+          padding: 0.75rem 1rem;
+          border-radius: 6px;
+          color: #6b7280;
+          font-size: 0.875rem;
+          font-weight: 500;
+          text-decoration: none;
+          transition: all 0.2s;
+          gap: 0.75rem;
+
+          &:hover {
+            background: #f3f4f6;
+            color: #374151;
+          }
+
+          &.active {
+            background: #3b82f6;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .userInfo {
+      margin-top: auto;
+      padding-top: 2rem;
+      border-top: 1px solid #e5e7eb;
+
+      .userEmail {
+        margin-bottom: 1rem;
+        color: #6b7280;
+        font-size: 0.875rem;
+        text-align: center;
+      }
+
+      .signOutButton {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        background: white;
+        color: #374151;
+        cursor: pointer;
+        font-size: 0.875rem;
+        transition: all 0.2s;
+
+        &:hover {
+          background: #f9fafb;
+        }
+      }
+    }
+  }
+
+  .main {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .sidebar {
+      width: 100%;
+      padding: 1rem;
+
+      .nav {
+        display: flex;
+        gap: 0.5rem;
+        overflow-x: auto;
+
+        .navItem {
+          margin-bottom: 0;
+          white-space: nowrap;
+        }
+      }
+
+      .userInfo {
+        display: flex;
+        align-items: center;
+        padding-top: 1rem;
+        gap: 1rem;
+
+        .userEmail {
+          margin-bottom: 0;
+        }
+
+        .signOutButton {
+          width: auto;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+
+    .main {
+      padding: 1rem;
+    }
+  }
+}

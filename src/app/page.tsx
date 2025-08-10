@@ -35,6 +35,14 @@ export default function Home() {
           Люблю создавать сложные веб-сайты и&nbsp;приложения; руководить командами,
           нанимать, обучать и&nbsp;развивать людей.
         </p>
+        <p>
+          Иногда пишу в
+          {' '}
+          <a href="/blog">
+            блоге
+          </a>
+          .
+        </p>
       </section>
 
       <section className={css.section}>
