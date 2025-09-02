@@ -1,1 +1,0 @@
-export { TagsManager } from './TagsManager';

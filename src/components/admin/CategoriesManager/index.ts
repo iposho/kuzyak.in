@@ -1,1 +1,0 @@
-export { CategoriesManager } from './CategoriesManager';

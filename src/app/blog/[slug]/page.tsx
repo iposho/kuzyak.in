@@ -3,9 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import { supabase, Post } from '@/lib/supabase';
+import { Post, PostSummary } from '@/lib/blog';
 import css from './page.module.scss';
 
 export default function PostPage() {
@@ -13,6 +11,10 @@ export default function PostPage() {
   const slug = params.slug as string;
   
   const [post, setPost] = useState<Post | null>(null);
+  const [navigation, setNavigation] = useState<{
+    previous: PostSummary | null;
+    next: PostSummary | null;
+  }>({ previous: null, next: null });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,33 +26,27 @@ export default function PostPage() {
         setLoading(true);
         setError(null);
 
-        const { data, error: fetchError } = await supabase
-          .from('posts')
-          .select(`
-            *,
-            category:categories(*),
-            tags:post_tags(tag:tags(*))
-          `)
-          .eq('slug', slug)
-          .eq('status', 'published')
-          .single();
+        const [postRes, navRes] = await Promise.all([
+          fetch(`/api/blog/posts/${slug}`),
+          fetch(`/api/blog/posts/${slug}/navigation`)
+        ]);
 
-        if (fetchError) {
-          if (fetchError.code === 'PGRST116') {
+        if (!postRes.ok) {
+          if (postRes.status === 404) {
             setError('Пост не найден');
           } else {
-            throw fetchError;
+            throw new Error('Failed to fetch post');
           }
           return;
         }
 
-        // Transform post data to include tags properly
-        const transformedPost = {
-          ...data,
-          tags: data.tags?.map((pt: any) => pt.tag) || []
-        };
+        const postData = await postRes.json();
+        setPost(postData.post);
 
-        setPost(transformedPost);
+        if (navRes.ok) {
+          const navData = await navRes.json();
+          setNavigation(navData);
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Ошибка загрузки поста');
       } finally {
@@ -114,40 +110,78 @@ export default function PostPage() {
 
       <article>
         <header className={css.postHeader}>
-          <h1 className={css.postTitle}>{post.title}</h1>
+          {post.metadata.featured_image && (
+            <div className={css.featuredImage}>
+              <img 
+                src={post.metadata.featured_image} 
+                alt={post.metadata.title}
+              />
+            </div>
+          )}
+          
+          <h1 className={css.postTitle}>{post.metadata.title}</h1>
           
           <div className={css.postMeta}>
             <div className={css.publishDate}>
-              📅 {formatDate(post.published_at || post.created_at)}
+              📅 {formatDate(post.metadata.date)}
             </div>
-            {post.category && (
+            {post.metadata.author && (
+              <div className={css.author}>
+                👤 {post.metadata.author}
+              </div>
+            )}
+            {post.metadata.category && (
               <span className={css.category}>
-                {post.category.name}
+                {post.metadata.category}
               </span>
             )}
           </div>
 
-          {post.tags && post.tags.length > 0 && (
+          {post.metadata.tags && post.metadata.tags.length > 0 && (
             <div className={css.postTags}>
-              {post.tags.map(tag => (
+              {post.metadata.tags.map(tag => (
                 <Link
-                  key={tag.id}
-                  href={`/blog/tag/${tag.slug}`}
+                  key={tag}
+                  href={`/blog/tag/${encodeURIComponent(tag)}`}
                   className={css.tag}
                 >
-                  #{tag.name}
+                  #{tag}
                 </Link>
               ))}
             </div>
           )}
         </header>
 
-        <div className={css.postContent}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {post.content}
-          </ReactMarkdown>
-        </div>
+        <div 
+          className={css.postContent}
+          dangerouslySetInnerHTML={{ __html: post.htmlContent }}
+        />
       </article>
+
+      {(navigation.previous || navigation.next) && (
+        <nav className={css.postNavigation}>
+          <div className={css.navLinks}>
+            {navigation.previous && (
+              <Link 
+                href={`/blog/${navigation.previous.slug}`}
+                className={`${css.navLink} ${css.previous}`}
+              >
+                <span className={css.navDirection}>← Предыдущий пост</span>
+                <span className={css.navTitle}>{navigation.previous.metadata.title}</span>
+              </Link>
+            )}
+            {navigation.next && (
+              <Link 
+                href={`/blog/${navigation.next.slug}`}
+                className={`${css.navLink} ${css.next}`}
+              >
+                <span className={css.navDirection}>Следующий пост →</span>
+                <span className={css.navTitle}>{navigation.next.metadata.title}</span>
+              </Link>
+            )}
+          </div>
+        </nav>
+      )}
     </div>
   );
 }
