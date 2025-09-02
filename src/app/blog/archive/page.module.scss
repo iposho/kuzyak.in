@@ -1,0 +1,53 @@
+.archivePage {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 1rem;
+
+  h1 {
+    margin: 0 0 2rem;
+    color: #1a1a1a;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .yearSection {
+    margin-bottom: 2rem;
+
+    h2 {
+      margin: 0 0 1rem;
+      color: #374151;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .postList {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      .postItem {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        gap: 1rem;
+
+        .postDate {
+          min-width: 80px;
+          color: #6b7280;
+          font-size: 0.875rem;
+        }
+
+        .postLink {
+          color: #1a1a1a;
+          text-decoration: none;
+
+          &:hover {
+            color: #3b82f6;
+          }
+        }
+      }
+    }
+  }
+}
+

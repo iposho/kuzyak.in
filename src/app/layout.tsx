@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   description: METADATA.DESCRIPTION,
   keywords: METADATA.KEYWORDS,
   metadataBase: METADATA.BASE,
+  alternates: {
+    types: {
+      'application/rss+xml': '/rss.xml',
+    },
+  },
   openGraph: {
     url: METADATA.BASE,
     siteName: METADATA.TITLE,

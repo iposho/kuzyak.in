@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { Post, PostSummary } from '@/lib/blog';
+import { ShareButtons } from '@/components/blog/ShareButtons';
 import css from './page.module.scss';
 
 export default function PostPage() {
@@ -160,6 +161,8 @@ export default function PostPage() {
           dangerouslySetInnerHTML={{ __html: post.htmlContent }}
         />
       </article>
+
+      <ShareButtons title={post.metadata.title} />
 
       {(navigation.previous || navigation.next) && (
         <nav className={css.postNavigation}>
