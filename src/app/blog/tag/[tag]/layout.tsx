@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const tag = decodeURIComponent(params.tag);
     const posts = getPostsByTag(tag);
-    
+
     const title = `Посты с тегом #${tag} | ${METADATA.TITLE}`;
     const description = `Все посты с тегом #${tag}. Найдено: ${posts.length} ${posts.length === 1 ? 'пост' : 'постов'}.`;
 
@@ -30,7 +30,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch (error) {
-    console.error('Error generating tag metadata:', error);
     return {
       title: `Тег | ${METADATA.TITLE}`,
       description: 'Посты по тегу',

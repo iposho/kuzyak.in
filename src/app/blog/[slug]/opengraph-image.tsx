@@ -14,7 +14,7 @@ const regularFontUrl = new URL('/public/fonts/IBMPlexSans-Regular.ttf', import.m
 export default async function GET({ params }: { params: { slug: string } }) {
   try {
     const post = await getPostBySlug(params.slug);
-    
+
     if (!post) {
       return new Response('Post not found', { status: 404 });
     }
@@ -58,7 +58,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
             >
               {post.metadata.title}
             </div>
-            
+
             {post.metadata.excerpt && (
               <div
                 style={{
@@ -72,7 +72,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
                 {post.metadata.excerpt}
               </div>
             )}
-            
+
             <div
               style={{
                 display: 'flex',
@@ -83,15 +83,24 @@ export default async function GET({ params }: { params: { slug: string } }) {
                 fontFamily: 'IBM Plex Sans',
               }}
             >
-              <span>📅 {new Date(post.metadata.date).toLocaleDateString('ru-RU')}</span>
+              <span>
+                📅
+                {new Date(post.metadata.date).toLocaleDateString('ru-RU')}
+              </span>
               {post.metadata.category && (
-                <span>📁 {post.metadata.category}</span>
+                <span>
+                  📁
+                  {post.metadata.category}
+                </span>
               )}
               {post.metadata.author && (
-                <span>👤 {post.metadata.author}</span>
+                <span>
+                  👤
+                  {post.metadata.author}
+                </span>
               )}
             </div>
-            
+
             {post.metadata.tags && post.metadata.tags.length > 0 && (
               <div
                 style={{
@@ -102,7 +111,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
                   marginTop: '20px',
                 }}
               >
-                {post.metadata.tags.slice(0, 5).map(tag => (
+                {post.metadata.tags.slice(0, 5).map((tag) => (
                   <span
                     key={tag}
                     style={{
@@ -114,13 +123,14 @@ export default async function GET({ params }: { params: { slug: string } }) {
                       fontFamily: 'IBM Plex Sans',
                     }}
                   >
-                    #{tag}
+                    #
+                    {tag}
                   </span>
                 ))}
               </div>
             )}
           </div>
-          
+
           <div
             style={{
               position: 'absolute',
@@ -154,7 +164,6 @@ export default async function GET({ params }: { params: { slug: string } }) {
       },
     );
   } catch (error) {
-    console.error('Error generating OG image:', error);
     return new Response('Failed to generate image', { status: 500 });
   }
 }

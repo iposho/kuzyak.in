@@ -23,7 +23,7 @@ export default function BlogPage() {
         const [postsRes, tagsRes, categoriesRes] = await Promise.all([
           fetch('/api/blog/posts'),
           fetch('/api/blog/tags'),
-          fetch('/api/blog/categories')
+          fetch('/api/blog/categories'),
         ]);
 
         if (!postsRes.ok || !tagsRes.ok || !categoriesRes.ok) {
@@ -33,7 +33,7 @@ export default function BlogPage() {
         const [postsData, tagsData, categoriesData] = await Promise.all([
           postsRes.json(),
           tagsRes.json(),
-          categoriesRes.json()
+          categoriesRes.json(),
         ]);
 
         setPosts(postsData.posts);
@@ -49,19 +49,17 @@ export default function BlogPage() {
     fetchBlogData();
   }, []);
 
-  const filteredPosts = posts.filter(post => {
+  const filteredPosts = posts.filter((post) => {
     const tagMatch = !selectedTag || post.metadata.tags?.includes(selectedTag);
     const categoryMatch = !selectedCategory || post.metadata.category === selectedCategory;
     return tagMatch && categoryMatch;
   });
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('ru-RU', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
+  const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString('ru-RU', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   if (loading) {
     return (
@@ -73,10 +71,6 @@ export default function BlogPage() {
 
   return (
     <div className={css.blogPage}>
-      <div className={css.header}>
-        <h1>Блог</h1>
-        <p>Мысли, заметки и размышления о разработке</p>
-      </div>
 
       {error && <div className={css.error}>{error}</div>}
 
@@ -89,7 +83,7 @@ export default function BlogPage() {
               className={css.filterSelect}
             >
               <option value="">Все категории</option>
-              {allCategories.map(category => (
+              {allCategories.map((category) => (
                 <option key={category} value={category}>
                   {category}
                 </option>
@@ -104,9 +98,10 @@ export default function BlogPage() {
               className={css.filterSelect}
             >
               <option value="">Все теги</option>
-              {allTags.map(tag => (
+              {allTags.map((tag) => (
                 <option key={tag} value={tag}>
-                  #{tag}
+                  #
+                  {tag}
                 </option>
               ))}
             </select>
@@ -121,17 +116,17 @@ export default function BlogPage() {
         </div>
       ) : (
         <div className={css.postsGrid}>
-          {filteredPosts.map(post => (
+          {filteredPosts.map((post) => (
             <article key={post.slug} className={css.postCard}>
               {post.metadata.featured_image && (
                 <div className={css.postImage}>
-                  <img 
-                    src={post.metadata.featured_image} 
+                  <img
+                    src={post.metadata.featured_image}
                     alt={post.metadata.title}
                   />
                 </div>
               )}
-              
+
               <div className={css.postContent}>
                 <div className={css.postHeader}>
                   <h2 className={css.postTitle}>
@@ -141,7 +136,9 @@ export default function BlogPage() {
                   </h2>
                   <div className={css.postMeta}>
                     <div className={css.publishDate}>
-                      📅 {formatDate(post.metadata.date)}
+                      📅
+                      {' '}
+                      {formatDate(post.metadata.date)}
                     </div>
                     {post.metadata.category && (
                       <span className={css.category}>
@@ -157,13 +154,15 @@ export default function BlogPage() {
 
                 {post.metadata.tags && post.metadata.tags.length > 0 && (
                   <div className={css.postTags}>
-                    {post.metadata.tags.map(tag => (
+                    {post.metadata.tags.map((tag) => (
                       <button
+                        type="button"
                         key={tag}
                         onClick={() => setSelectedTag(selectedTag === tag ? '' : tag)}
                         className={`${css.tag} ${selectedTag === tag ? css.active : ''}`}
                       >
-                        #{tag}
+                        #
+                        {tag}
                       </button>
                     ))}
                   </div>

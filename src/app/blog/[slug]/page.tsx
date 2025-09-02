@@ -9,7 +9,7 @@ import css from './page.module.scss';
 export default function PostPage() {
   const params = useParams();
   const slug = params.slug as string;
-  
+
   const [post, setPost] = useState<Post | null>(null);
   const [navigation, setNavigation] = useState<{
     previous: PostSummary | null;
@@ -28,7 +28,7 @@ export default function PostPage() {
 
         const [postRes, navRes] = await Promise.all([
           fetch(`/api/blog/posts/${slug}`),
-          fetch(`/api/blog/posts/${slug}/navigation`)
+          fetch(`/api/blog/posts/${slug}/navigation`),
         ]);
 
         if (!postRes.ok) {
@@ -57,13 +57,11 @@ export default function PostPage() {
     fetchPost();
   }, [slug]);
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('ru-RU', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
+  const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString('ru-RU', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   if (loading) {
     return (
@@ -112,22 +110,26 @@ export default function PostPage() {
         <header className={css.postHeader}>
           {post.metadata.featured_image && (
             <div className={css.featuredImage}>
-              <img 
-                src={post.metadata.featured_image} 
+              <img
+                src={post.metadata.featured_image}
                 alt={post.metadata.title}
               />
             </div>
           )}
-          
+
           <h1 className={css.postTitle}>{post.metadata.title}</h1>
-          
+
           <div className={css.postMeta}>
             <div className={css.publishDate}>
-              📅 {formatDate(post.metadata.date)}
+              📅
+              {' '}
+              {formatDate(post.metadata.date)}
             </div>
             {post.metadata.author && (
               <div className={css.author}>
-                👤 {post.metadata.author}
+                👤
+                {' '}
+                {post.metadata.author}
               </div>
             )}
             {post.metadata.category && (
@@ -139,20 +141,21 @@ export default function PostPage() {
 
           {post.metadata.tags && post.metadata.tags.length > 0 && (
             <div className={css.postTags}>
-              {post.metadata.tags.map(tag => (
+              {post.metadata.tags.map((tag) => (
                 <Link
                   key={tag}
                   href={`/blog/tag/${encodeURIComponent(tag)}`}
                   className={css.tag}
                 >
-                  #{tag}
+                  #
+                  {tag}
                 </Link>
               ))}
             </div>
           )}
         </header>
 
-        <div 
+        <div
           className={css.postContent}
           dangerouslySetInnerHTML={{ __html: post.htmlContent }}
         />
@@ -162,7 +165,7 @@ export default function PostPage() {
         <nav className={css.postNavigation}>
           <div className={css.navLinks}>
             {navigation.previous && (
-              <Link 
+              <Link
                 href={`/blog/${navigation.previous.slug}`}
                 className={`${css.navLink} ${css.previous}`}
               >
@@ -171,7 +174,7 @@ export default function PostPage() {
               </Link>
             )}
             {navigation.next && (
-              <Link 
+              <Link
                 href={`/blog/${navigation.next.slug}`}
                 className={`${css.navLink} ${css.next}`}
               >

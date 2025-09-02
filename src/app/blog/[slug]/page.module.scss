@@ -7,10 +7,17 @@
     margin-bottom: 3rem;
     text-align: center;
 
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
     .featuredImage {
-      margin-bottom: 2rem;
-      border-radius: 12px;
       overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 2rem;
 
       img {
         width: 100%;
@@ -26,7 +33,7 @@
       font-weight: 600;
       line-height: 1.2;
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         font-size: 2rem;
       }
     }
@@ -40,7 +47,7 @@
       font-size: 0.875rem;
       gap: 1.5rem;
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         flex-direction: column;
         gap: 0.75rem;
       }
@@ -111,18 +118,23 @@
     }
 
     ul, ol {
-      margin: 0 0 1.5rem;
       padding-left: 1.5rem;
+      margin: 0 0 1.5rem;
 
       li {
         margin-bottom: 0.5rem;
       }
     }
 
+    .notFound p {
+      margin: 0;
+      color: #9ca3af;
+    }
+
     blockquote {
-      margin: 2rem 0;
       padding: 1rem 1.5rem;
       border-left: 4px solid #3b82f6;
+      margin: 2rem 0;
       background: #f8fafc;
       font-style: italic;
 
@@ -131,36 +143,33 @@
       }
     }
 
+
+
     code {
       padding: 0.125rem 0.375rem;
       border-radius: 4px;
       background: #f1f5f9;
       color: #e11d48;
-      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-family: Monaco, Menlo, 'Ubuntu Mono', monospace;
       font-size: 0.875em;
     }
 
     pre {
-      margin: 2rem 0;
       padding: 1.5rem;
       border-radius: 8px;
+      margin: 2rem 0;
       background: #1e293b;
       color: #f1f5f9;
       overflow-x: auto;
 
       code {
+        padding: 0;
         background: none;
         color: inherit;
-        padding: 0;
       }
     }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin: 2rem 0;
-    }
+
 
     a {
       color: #3b82f6;
@@ -171,6 +180,7 @@
       }
     }
 
+    
     table {
       width: 100%;
       margin: 2rem 0;
@@ -190,16 +200,16 @@
   }
 
   .postNavigation {
-    margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid #e5e7eb;
+    margin-top: 4rem;
 
     .navLinks {
       display: grid;
       gap: 1rem;
       grid-template-columns: 1fr 1fr;
 
-      @media (max-width: 768px) {
+      @media (width <= 768px) {
         grid-template-columns: 1fr;
       }
     }
@@ -211,9 +221,9 @@
       border: 1px solid #e5e7eb;
       border-radius: 8px;
       background: #f9fafb;
+      gap: 0.5rem;
       text-decoration: none;
       transition: all 0.2s;
-      gap: 0.5rem;
 
       &:hover {
         background: #f3f4f6;
@@ -248,8 +258,8 @@
     margin-bottom: 2rem;
     color: #6b7280;
     font-size: 0.875rem;
-    text-decoration: none;
     gap: 0.5rem;
+    text-decoration: none;
 
     &:hover {
       color: #3b82f6;
@@ -265,9 +275,9 @@
   .error {
     padding: 1rem;
     border-radius: 6px;
+    margin-bottom: 2rem;
     background: #fef2f2;
     color: #dc2626;
-    margin-bottom: 2rem;
   }
 
   .notFound {
@@ -281,9 +291,6 @@
       font-weight: 500;
     }
 
-    p {
-      margin: 0;
-      color: #9ca3af;
-    }
+
   }
 }

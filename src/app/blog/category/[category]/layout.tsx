@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const category = decodeURIComponent(params.category);
     const posts = getPostsByCategory(category);
-    
+
     const title = `Категория: ${category} | ${METADATA.TITLE}`;
     const description = `Все посты в категории "${category}". Найдено: ${posts.length} ${posts.length === 1 ? 'пост' : 'постов'}.`;
 
@@ -30,7 +30,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch (error) {
-    console.error('Error generating category metadata:', error);
     return {
       title: `Категория | ${METADATA.TITLE}`,
       description: 'Посты по категории',

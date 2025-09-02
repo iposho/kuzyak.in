@@ -9,7 +9,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const post = await getPostBySlug(params.slug);
-    
+
     if (!post) {
       return {
         title: 'Пост не найден',
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             width: 1200,
             height: 630,
             alt: post.metadata.title,
-          }
+          },
         ] : undefined,
       },
       twitter: {
@@ -51,7 +51,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     };
   } catch (error) {
-    console.error('Error generating metadata:', error);
     return {
       title: 'Ошибка загрузки поста',
       description: 'Произошла ошибка при загрузке поста',

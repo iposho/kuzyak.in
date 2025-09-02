@@ -1,12 +1,11 @@
 .layout {
   position: relative;
+  display: flex;
+  width: 100%;
   min-height: 100vh;
-  padding: 1rem;
-  background-attachment: fixed;
-  background-image: url('/images/awicons/typewriter.webp');
-  background-position: right top;
-  background-repeat: no-repeat;
-  background-size: 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (width <= 768px) {

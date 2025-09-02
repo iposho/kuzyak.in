@@ -9,7 +9,7 @@ import css from '../../page.module.scss';
 export default function TagPage() {
   const params = useParams();
   const tag = decodeURIComponent(params.tag as string);
-  
+
   const [posts, setPosts] = useState<PostSummary[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,7 +21,7 @@ export default function TagPage() {
         setError(null);
 
         const response = await fetch(`/api/blog/tags/${encodeURIComponent(tag)}/posts`);
-        
+
         if (!response.ok) {
           throw new Error('Failed to fetch posts');
         }
@@ -40,13 +40,11 @@ export default function TagPage() {
     }
   }, [tag]);
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('ru-RU', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
+  const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString('ru-RU', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   if (loading) {
     return (
@@ -62,8 +60,14 @@ export default function TagPage() {
         <Link href="/blog" className={css.backLink}>
           ← Назад к блогу
         </Link>
-        <h1>Посты с тегом #{tag}</h1>
-        <p>Найдено постов: {posts.length}</p>
+        <h1>
+          Посты с тегом #
+          {tag}
+        </h1>
+        <p>
+          Найдено постов:
+          {posts.length}
+        </p>
       </div>
 
       {error && <div className={css.error}>{error}</div>}
@@ -75,17 +79,17 @@ export default function TagPage() {
         </div>
       ) : (
         <div className={css.postsGrid}>
-          {posts.map(post => (
+          {posts.map((post) => (
             <article key={post.slug} className={css.postCard}>
               {post.metadata.featured_image && (
                 <div className={css.postImage}>
-                  <img 
-                    src={post.metadata.featured_image} 
+                  <img
+                    src={post.metadata.featured_image}
                     alt={post.metadata.title}
                   />
                 </div>
               )}
-              
+
               <div className={css.postContent}>
                 <div className={css.postHeader}>
                   <h2 className={css.postTitle}>
@@ -95,7 +99,9 @@ export default function TagPage() {
                   </h2>
                   <div className={css.postMeta}>
                     <div className={css.publishDate}>
-                      📅 {formatDate(post.metadata.date)}
+                      📅
+                      {' '}
+                      {formatDate(post.metadata.date)}
                     </div>
                     {post.metadata.category && (
                       <span className={css.category}>
@@ -111,13 +117,14 @@ export default function TagPage() {
 
                 {post.metadata.tags && post.metadata.tags.length > 0 && (
                   <div className={css.postTags}>
-                    {post.metadata.tags.map(postTag => (
+                    {post.metadata.tags.map((postTag) => (
                       <Link
                         key={postTag}
                         href={`/blog/tag/${encodeURIComponent(postTag)}`}
                         className={`${css.tag} ${postTag === tag ? css.active : ''}`}
                       >
-                        #{postTag}
+                        #
+                        {postTag}
                       </Link>
                     ))}
                   </div>
