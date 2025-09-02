@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   metadataBase: METADATA.BASE,
   alternates: {
     types: {
-      'application/rss+xml': '/rss.xml',
+      'application/rss+xml': '/blog/rss.xml',
     },
   },
   openGraph: {
