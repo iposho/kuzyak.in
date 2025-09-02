@@ -3,11 +3,11 @@
 import { usePathname } from 'next/navigation';
 import {
   FaTelegramPlane,
-  FaXTwitter,
+  FaTwitter,
   FaFacebookF,
   FaLinkedinIn,
   FaLink,
-} from 'react-icons/fa6';
+} from 'react-icons/fa';
 import { useState } from 'react';
 import css from './ShareButtons.module.scss';
 
@@ -57,7 +57,7 @@ export function ShareButtons({ title }: ShareButtonsProps) {
         aria-label="Share on Twitter"
         className={css.shareButton}
       >
-        <FaXTwitter />
+        <FaTwitter />
       </a>
       <a
         href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
