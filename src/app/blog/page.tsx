@@ -82,7 +82,7 @@ export default function BlogPage() {
         <nav className={css.blogNav}>
           <Link href="/blog/archive">Архив</Link>
           <a
-            href="/rss.xml"
+            href="/blog/rss.xml"
             target="_blank"
             rel="noopener noreferrer"
           >
