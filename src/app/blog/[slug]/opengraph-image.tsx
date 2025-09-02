@@ -8,9 +8,6 @@ export const size = {
   height: 630,
 };
 
-const semiBoldFontUrl = new URL('/public/fonts/IBMPlexSans-SemiBold.ttf', import.meta.url);
-const regularFontUrl = new URL('/public/fonts/IBMPlexSans-Regular.ttf', import.meta.url);
-
 export default async function GET({ params }: { params: { slug: string } }) {
   try {
     const post = await getPostBySlug(params.slug);
@@ -18,9 +15,6 @@ export default async function GET({ params }: { params: { slug: string } }) {
     if (!post) {
       return new Response('Post not found', { status: 404 });
     }
-
-    const semiBoldFontData = await fetch(semiBoldFontUrl).then((res) => res.arrayBuffer());
-    const regularFontData = await fetch(regularFontUrl).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
       (
@@ -53,7 +47,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
                 color: '#1a1a1a',
                 lineHeight: 1.2,
                 marginBottom: '20px',
-                fontFamily: 'IBM Plex Sans',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
               }}
             >
               {post.metadata.title}
@@ -66,7 +60,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
                   color: '#6b7280',
                   lineHeight: 1.4,
                   marginBottom: '30px',
-                  fontFamily: 'IBM Plex Sans',
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
                 }}
               >
                 {post.metadata.excerpt}
@@ -80,7 +74,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
                 gap: '20px',
                 fontSize: 18,
                 color: '#9ca3af',
-                fontFamily: 'IBM Plex Sans',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
               }}
             >
               <span>
@@ -120,7 +114,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
                       color: '#4b5563',
                       borderRadius: '6px',
                       fontSize: '16px',
-                      fontFamily: 'IBM Plex Sans',
+                      fontFamily: 'system-ui, -apple-system, sans-serif',
                     }}
                   >
                     #
@@ -138,7 +132,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
               right: '80px',
               fontSize: '18px',
               color: '#3b82f6',
-              fontFamily: 'IBM Plex Sans',
+              fontFamily: 'system-ui, -apple-system, sans-serif',
             }}
           >
             kuzyak.in
@@ -147,23 +141,11 @@ export default async function GET({ params }: { params: { slug: string } }) {
       ),
       {
         ...size,
-        fonts: [
-          {
-            name: 'IBM Plex Sans',
-            data: semiBoldFontData,
-            style: 'normal',
-            weight: 600,
-          },
-          {
-            name: 'IBM Plex Sans',
-            data: regularFontData,
-            style: 'normal',
-            weight: 400,
-          },
-        ],
       },
     );
   } catch (error) {
-    return new Response('Failed to generate image', { status: 500 });
+    console.error('Error generating opengraph image:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return new Response(`Failed to generate image: ${errorMessage}`, { status: 500 });
   }
 }
