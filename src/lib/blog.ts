@@ -52,17 +52,17 @@ export function getAllPostSlugs(): string[] {
 }
 
 // Get post by slug
-export async function getPostBySlug(slug: string): Promise<Post | null> {
-  ensurePostsDirectory();
-
+// Функция для получения поста через импорты (работает в продакшене)
+async function getPostBySlugFromImports(slug: string): Promise<Post | null> {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`);
+    // Динамический импорт для избежания циклических зависимостей
+    const { getPostContentBySlug } = await import('./posts-data');
+    const fileContents = getPostContentBySlug(slug);
 
-    if (!fs.existsSync(fullPath)) {
+    if (!fileContents) {
       return null;
     }
 
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
     // Skip draft posts in production
@@ -84,6 +84,50 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       content,
       htmlContent,
     };
+  } catch (error) {
+    return null;
+  }
+}
+
+export async function getPostBySlug(slug: string): Promise<Post | null> {
+  try {
+    // Сначала пытаемся получить контент через импорты (работает в продакшене)
+    let post = await getPostBySlugFromImports(slug);
+
+    // Если не получилось, пытаемся через файловую систему (работает в dev)
+    if (!post) {
+      ensurePostsDirectory();
+      const fullPath = path.join(postsDirectory, `${slug}.md`);
+
+      if (!fs.existsSync(fullPath)) {
+        return null;
+      }
+
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
+
+      // Skip draft posts in production
+      if (data.draft && process.env.NODE_ENV === 'production') {
+        return null;
+      }
+
+      // Process markdown to HTML
+      const processedContent = await remark()
+        .use(remarkGfm)
+        .use(html)
+        .process(content);
+
+      const htmlContent = processedContent.toString();
+
+      post = {
+        slug,
+        metadata: data as PostMetadata,
+        content,
+        htmlContent,
+      };
+    }
+
+    return post;
   } catch (error) {
     return null;
   }

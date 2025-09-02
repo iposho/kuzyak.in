@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { METADATA } from '@/constants/base';
 
 export const metadata: Metadata = {
-  title: `Блог | ${METADATA.TITLE}`,
+  title: `${METADATA.TITLE}. Блог`,
   description: 'Мысли, заметки и размышления о разработке, технологиях и жизни.',
   keywords: 'блог, разработка, программирование, фронтенд, javascript, typescript, react',
   robots: {
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `Блог | ${METADATA.TITLE}`,
+    title: `${METADATA.TITLE}. Блог`,
     description: 'Мысли, заметки и размышления о разработке, технологиях и жизни.',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: `Блог | ${METADATA.TITLE}`,
+    title: `${METADATA.TITLE}. Блог`,
     description: 'Мысли, заметки и размышления о разработке, технологиях и жизни.',
   },
 };
