@@ -1,0 +1,104 @@
+.tagsPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 1rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 0 0 1rem 0;
+    color: #333;
+  }
+}
+
+.breadcrumb {
+  a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.tagsContainer {
+  min-height: 400px;
+}
+
+.tagsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #f5f5f5;
+    color: #000;
+  }
+
+  // Выделяем популярные теги (можно добавить логику для определения популярности)
+  &:nth-child(3n) {
+    font-weight: 600;
+  }
+
+  &:nth-child(5n) {
+    font-weight: 600;
+  }
+
+  &:nth-child(7n) {
+    font-weight: 600;
+  }
+}
+
+.loading,
+.error,
+.emptyState {
+  text-align: center;
+  padding: 3rem 0;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .tagsPage {
+    padding: 1rem 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .tagsList {
+    font-size: 0.9rem;
+    gap: 0.25rem;
+  }
+
+  .tag {
+    padding: 0.2rem 0.4rem;
+  }
+}
