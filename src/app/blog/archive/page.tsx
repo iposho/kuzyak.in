@@ -24,7 +24,11 @@ export default function BlogArchivePage() {
 
   return (
     <div className={css.archivePage}>
-      <h1>Архив блога</h1>
+      <section className={css.section}>
+        <h1>Архив блога</h1>
+        <p>Все посты, отсортированные по годам</p>
+      </section>
+
       {years.map((year) => (
         <section key={year} className={css.yearSection}>
           <h2>{year}</h2>

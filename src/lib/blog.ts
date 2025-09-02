@@ -130,16 +130,94 @@ export function getAllPosts(): PostSummary[] {
   }
 }
 
+// Get posts with pagination
+export function getPostsPaginated(page: number = 1, limit: number = 6): {
+  posts: PostSummary[];
+  totalPosts: number;
+  totalPages: number;
+  currentPage: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+} {
+  const allPosts = getAllPosts();
+  const totalPosts = allPosts.length;
+  const totalPages = Math.ceil(totalPosts / limit);
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  const posts = allPosts.slice(startIndex, endIndex);
+
+  return {
+    posts,
+    totalPosts,
+    totalPages,
+    currentPage: page,
+    hasNextPage: page < totalPages,
+    hasPrevPage: page > 1,
+  };
+}
+
 // Get posts by tag
 export function getPostsByTag(tag: string): PostSummary[] {
   const allPosts = getAllPosts();
   return allPosts.filter((post) => post.metadata.tags?.some((postTag) => postTag.toLowerCase() === tag.toLowerCase()));
 }
 
+// Get posts by tag with pagination
+export function getPostsByTagPaginated(tag: string, page: number = 1, limit: number = 6): {
+  posts: PostSummary[];
+  totalPosts: number;
+  totalPages: number;
+  currentPage: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+} {
+  const allPosts = getPostsByTag(tag);
+  const totalPosts = allPosts.length;
+  const totalPages = Math.ceil(totalPosts / limit);
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  const posts = allPosts.slice(startIndex, endIndex);
+
+  return {
+    posts,
+    totalPosts,
+    totalPages,
+    currentPage: page,
+    hasNextPage: page < totalPages,
+    hasPrevPage: page > 1,
+  };
+}
+
 // Get posts by category
 export function getPostsByCategory(category: string): PostSummary[] {
   const allPosts = getAllPosts();
   return allPosts.filter((post) => post.metadata.category?.toLowerCase() === category.toLowerCase());
+}
+
+// Get posts by category with pagination
+export function getPostsByCategoryPaginated(category: string, page: number = 1, limit: number = 6): {
+  posts: PostSummary[];
+  totalPosts: number;
+  totalPages: number;
+  currentPage: number;
+  hasNextPage: boolean;
+  hasPrevPage: boolean;
+} {
+  const allPosts = getPostsByCategory(category);
+  const totalPosts = allPosts.length;
+  const totalPages = Math.ceil(totalPosts / limit);
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+  const posts = allPosts.slice(startIndex, endIndex);
+
+  return {
+    posts,
+    totalPosts,
+    totalPages,
+    currentPage: page,
+    hasNextPage: page < totalPages,
+    hasPrevPage: page > 1,
+  };
 }
 
 // Get all unique tags
