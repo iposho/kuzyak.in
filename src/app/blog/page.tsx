@@ -13,6 +13,7 @@ export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [allTags, setAllTags] = useState<string[]>([]);
   const [allCategories, setAllCategories] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   useEffect(() => {
     const fetchBlogData = async () => {
@@ -52,7 +53,11 @@ export default function BlogPage() {
   const filteredPosts = posts.filter((post) => {
     const tagMatch = !selectedTag || post.metadata.tags?.includes(selectedTag);
     const categoryMatch = !selectedCategory || post.metadata.category === selectedCategory;
-    return tagMatch && categoryMatch;
+    const searchMatch = post.metadata.title
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase())
+      || post.metadata.excerpt?.toLowerCase().includes(searchQuery.toLowerCase());
+    return tagMatch && categoryMatch && searchMatch;
   });
 
   const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString('ru-RU', {
@@ -71,6 +76,30 @@ export default function BlogPage() {
 
   return (
     <div className={css.blogPage}>
+
+      <header className={css.header}>
+        <h1>Блог</h1>
+        <nav className={css.blogNav}>
+          <Link href="/blog/archive">Архив</Link>
+          <a
+            href="/rss.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            RSS
+          </a>
+        </nav>
+        <div className={css.search}>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Поиск..."
+            aria-label="Search posts"
+            className={css.searchInput}
+          />
+        </div>
+      </header>
 
       {error && <div className={css.error}>{error}</div>}
 

@@ -21,6 +21,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - No Tailwind, no Bootstrap — just raw SCSS and care
 - Fits all screens like a tailored suit
 - Typography and whitespace? Obsessively crafted
+- Blog has RSS feed, archive, search and sharing
 
 ## 🚀 Quick Start
 
