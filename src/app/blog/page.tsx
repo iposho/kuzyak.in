@@ -78,11 +78,12 @@ export default function BlogPage() {
     <div className={css.blogPage}>
 
       <header className={css.header}>
-        <h1>Блог</h1>
         <nav className={css.blogNav}>
+          <Link href="/blog/all">Все посты</Link>
+          <Link href="/blog/tags">Теги</Link>
           <Link href="/blog/archive">Архив</Link>
           <a
-            href="/blog/rss.xml"
+            href="/rss.xml"
             target="_blank"
             rel="noopener noreferrer"
           >

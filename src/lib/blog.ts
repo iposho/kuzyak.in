@@ -42,27 +42,29 @@ export function getAllPostSlugs(): string[] {
   ensurePostsDirectory();
 
   try {
-    const fileNames = fs.readdirSync(postsDirectory);
-    return fileNames
-      .filter((name) => name.endsWith('.md'))
-      .map((name) => name.replace(/\.md$/, ''));
+    const items = fs.readdirSync(postsDirectory);
+    return items
+      .filter((item) => {
+        const itemPath = path.join(postsDirectory, item);
+        return fs.statSync(itemPath).isDirectory()
+               && fs.existsSync(path.join(itemPath, 'index.md'));
+      });
   } catch (error) {
     return [];
   }
 }
 
 // Get post by slug
-// Функция для получения поста через импорты (работает в продакшене)
-async function getPostBySlugFromImports(slug: string): Promise<Post | null> {
+export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
-    // Динамический импорт для избежания циклических зависимостей
-    const { getPostContentBySlug } = await import('./posts-data');
-    const fileContents = getPostContentBySlug(slug);
+    ensurePostsDirectory();
+    const fullPath = path.join(postsDirectory, slug, 'index.md');
 
-    if (!fileContents) {
+    if (!fs.existsSync(fullPath)) {
       return null;
     }
 
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
     // Skip draft posts in production
@@ -89,50 +91,6 @@ async function getPostBySlugFromImports(slug: string): Promise<Post | null> {
   }
 }
 
-export async function getPostBySlug(slug: string): Promise<Post | null> {
-  try {
-    // Сначала пытаемся получить контент через импорты (работает в продакшене)
-    let post = await getPostBySlugFromImports(slug);
-
-    // Если не получилось, пытаемся через файловую систему (работает в dev)
-    if (!post) {
-      ensurePostsDirectory();
-      const fullPath = path.join(postsDirectory, `${slug}.md`);
-
-      if (!fs.existsSync(fullPath)) {
-        return null;
-      }
-
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
-
-      // Skip draft posts in production
-      if (data.draft && process.env.NODE_ENV === 'production') {
-        return null;
-      }
-
-      // Process markdown to HTML
-      const processedContent = await remark()
-        .use(remarkGfm)
-        .use(html)
-        .process(content);
-
-      const htmlContent = processedContent.toString();
-
-      post = {
-        slug,
-        metadata: data as PostMetadata,
-        content,
-        htmlContent,
-      };
-    }
-
-    return post;
-  } catch (error) {
-    return null;
-  }
-}
-
 // Get all posts with metadata only
 export function getAllPosts(): PostSummary[] {
   ensurePostsDirectory();
@@ -142,7 +100,7 @@ export function getAllPosts(): PostSummary[] {
     const posts = slugs
       .map((slug) => {
         try {
-          const fullPath = path.join(postsDirectory, `${slug}.md`);
+          const fullPath = path.join(postsDirectory, slug, 'index.md');
           const fileContents = fs.readFileSync(fullPath, 'utf8');
           const { data } = matter(fileContents);
 

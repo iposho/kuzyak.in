@@ -57,9 +57,6 @@ export default function CategoryPage() {
   return (
     <div className={css.blogPage}>
       <div className={css.header}>
-        <Link href="/blog" className={css.backLink}>
-          ← Назад к блогу
-        </Link>
         <h1>
           Категория:
           {category}

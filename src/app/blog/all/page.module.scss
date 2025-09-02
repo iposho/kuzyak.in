@@ -1,0 +1,107 @@
+.allPostsPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 1rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin: 0 0 1rem 0;
+    color: #333;
+  }
+}
+
+.breadcrumb {
+  a {
+    color: #666;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.postsContainer {
+  min-height: 400px;
+}
+
+.postsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.postItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.postLink {
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.4;
+  flex: 1;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #004499;
+    text-decoration: underline;
+  }
+}
+
+.star {
+  color: #333;
+  font-size: 0.9rem;
+  margin-left: 1rem;
+  opacity: 0.7;
+}
+
+.loading,
+.error,
+.emptyState {
+  text-align: center;
+  padding: 3rem 0;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+  .allPostsPage {
+    padding: 1rem 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .postLink {
+    font-size: 0.9rem;
+  }
+
+  .star {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+  }
+}

@@ -1,5 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getPostBySlug } from '@/lib/blog';
+import fs from 'fs';
+import path from 'path';
 
 export const runtime = 'nodejs';
 
@@ -16,6 +18,19 @@ export default async function GET({ params }: { params: { slug: string } }) {
       return new Response('Post not found', { status: 404 });
     }
 
+    // Проверяем наличие preview.png
+    const previewPath = path.join(process.cwd(), 'content/posts', params.slug, 'preview.png');
+    const hasPreview = fs.existsSync(previewPath);
+
+    // Определяем цвета в зависимости от наличия preview
+    const backgroundColor = hasPreview ? '#000' : '#fff';
+    const textColor = hasPreview ? '#fff' : '#1a1a1a';
+    const secondaryTextColor = hasPreview ? '#e5e5e5' : '#6b7280';
+    const metaTextColor = hasPreview ? '#b3b3b3' : '#9ca3af';
+    const tagBgColor = hasPreview ? 'rgba(255, 255, 255, 0.2)' : '#f3f4f6';
+    const tagTextColor = hasPreview ? '#fff' : '#4b5563';
+    const brandColor = hasPreview ? '#60a5fa' : '#3b82f6';
+
     return new ImageResponse(
       (
         <div
@@ -26,12 +41,34 @@ export default async function GET({ params }: { params: { slug: string } }) {
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
-            backgroundColor: '#fff',
+            backgroundColor,
             padding: '40px 80px',
+            position: 'relative',
           }}
         >
+          {/* Background image overlay if preview exists */}
+          {hasPreview && (
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundImage: `url(file://${previewPath})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.3,
+                zIndex: 0,
+              }}
+            />
+          )}
+
+          {/* Content overlay */}
           <div
             style={{
+              position: 'relative',
+              zIndex: 1,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -44,7 +81,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
               style={{
                 fontSize: 60,
                 fontWeight: 600,
-                color: '#1a1a1a',
+                color: textColor,
                 lineHeight: 1.2,
                 marginBottom: '20px',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
@@ -57,7 +94,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
               <div
                 style={{
                   fontSize: 24,
-                  color: '#6b7280',
+                  color: secondaryTextColor,
                   lineHeight: 1.4,
                   marginBottom: '30px',
                   fontFamily: 'system-ui, -apple-system, sans-serif',
@@ -73,7 +110,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
                 alignItems: 'center',
                 gap: '20px',
                 fontSize: 18,
-                color: '#9ca3af',
+                color: metaTextColor,
                 fontFamily: 'system-ui, -apple-system, sans-serif',
               }}
             >
@@ -110,8 +147,8 @@ export default async function GET({ params }: { params: { slug: string } }) {
                     key={tag}
                     style={{
                       padding: '8px 16px',
-                      backgroundColor: '#f3f4f6',
-                      color: '#4b5563',
+                      backgroundColor: tagBgColor,
+                      color: tagTextColor,
                       borderRadius: '6px',
                       fontSize: '16px',
                       fontFamily: 'system-ui, -apple-system, sans-serif',
@@ -131,7 +168,7 @@ export default async function GET({ params }: { params: { slug: string } }) {
               bottom: '40px',
               right: '80px',
               fontSize: '18px',
-              color: '#3b82f6',
+              color: brandColor,
               fontFamily: 'system-ui, -apple-system, sans-serif',
             }}
           >

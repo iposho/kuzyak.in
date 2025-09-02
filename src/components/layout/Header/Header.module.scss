@@ -9,48 +9,118 @@
 }
 
 .navigation {
-  // position: absolute;
-  // top: 0;
-  // right: 0;
   display: flex;
-  align-items: center;
-  gap: .5rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
 }
 
-  .navLink {
-    position: relative;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.5rem;
-    background-color: transparent;
-    font-size: 1.375rem;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.mainNav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
-    /* Фокус для доступности */
-    &:focus-visible {
-      border-radius: 0.6rem;
-      outline: 2px solid #2c6fb1;
-      outline-offset: 2px;
-    }
+.subNav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
 
-    /* Активное состояние */
-    &[aria-current="page"] {
-      background-color: #2c6fb129;
-      color: #000;
-      cursor: default;
-      font-weight: 600;
-      text-decoration: none;
-    }
+.navLink {
+  position: relative;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: #333;
+
+  &:hover {
+    background-color: #f5f5f5;
   }
+
+  /* Фокус для доступности */
+  &:focus-visible {
+    border-radius: 0.6rem;
+    outline: 2px solid #2c6fb1;
+    outline-offset: 2px;
+  }
+
+  /* Активное состояние */
+  &[aria-current="page"] {
+    background-color: #e8f4fd;
+    color: #2c6fb1;
+    cursor: default;
+    font-weight: 500;
+    text-decoration: none;
+  }
+}
+
+.subNavLink {
+  position: relative;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: #666;
+
+  &:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+
+  /* Фокус для доступности */
+  &:focus-visible {
+    outline: 1px solid #2c6fb1;
+    outline-offset: 1px;
+  }
+
+  /* Активное состояние */
+  &[aria-current="page"] {
+    background-color: #e8f4fd;
+    color: #2c6fb1;
+    cursor: default;
+    font-weight: 500;
+    text-decoration: none;
+  }
+}
 
 /* Адаптивность для мобильных устройств */
 @media (width <= 768px) {
   .header {
     padding: 1.5rem 1rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .navigation {
+    align-self: stretch;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .mainNav {
+    gap: 0.5rem;
+  }
+
+  .subNav {
+    gap: 0.5rem;
   }
 
   .navLink {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.6rem;
     font-size: 0.9rem;
+  }
+
+  .subNavLink {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
   }
 }
