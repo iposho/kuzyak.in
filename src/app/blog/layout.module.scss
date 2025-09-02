@@ -1,0 +1,242 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+// Typography
+$font-size-base: 1.75rem;
+$font-size-mobile: 1.5rem;
+$line-height: 1.5;
+
+// Spacing
+$spacing-base: 1rem;
+$spacing-small: 0.5rem;
+$spacing-medium: 0.75rem;
+$spacing-large: 2rem;
+
+// Layout
+$max-width: 1000px;
+$border-radius: 4px;
+$gap-base: 1rem;
+$gap-small: 0.5rem;
+$gap-smallest: 0.25rem;
+
+// Components
+$icon-size: 1.5rem;
+$transition-duration: 0.3s;
+
+// Colors
+$color-text-secondary: var(--text-secondary);
+$color-link: var(--link-color);
+$color-link-hover: var(--link-color-red);
+
+// Breakpoints
+$breakpoint-mobile: 320px;
+$breakpoint-tablet: 768px;
+
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+// Layout Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Interaction Mixins
+@mixin hover-effect {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin focus-visible {
+  &:focus-visible {
+    border-radius: $border-radius;
+    outline: 2px solid currentcolor;
+    outline-offset: 2px;
+  }
+}
+
+@mixin mobile-active {
+  @media (hover: none) {
+    &:active {
+      opacity: 0.8;
+      transform: scale(0.97);
+    }
+  }
+}
+
+// Responsive Mixins
+@mixin responsive-font {
+  font-size: $font-size-base;
+  line-height: $line-height;
+
+  @media (width <= $breakpoint-tablet) {
+    font-size: $font-size-mobile;
+  }
+}
+
+// Media Query Mixins
+@mixin mobile {
+  @media (width <= $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (width > $breakpoint-mobile) and (width <= $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (width > $breakpoint-tablet) {
+    @content;
+  }
+}
+
+// ==========================================================================
+// Base Styles
+// ==========================================================================
+
+.blogLayout {
+  width: 100%;
+  max-width: $max-width;
+  padding: 0 $spacing-base;
+  margin: 0 auto;
+
+  // Typography styles similar to main page
+  h1 {
+    max-width: 728px;
+    margin: 0 0 .75rem;
+    font-size: 2.75rem;
+    font-weight: 600;
+    line-height: 1.25;
+
+    @include mobile {
+      font-size: 2.5rem;
+    }
+  }
+
+  h2 {
+    max-width: 728px;
+    margin: 0 0 .75rem;
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  h3 {
+    max-width: 728px;
+    margin: 0 0 .75rem;
+    font-size: 1.375rem;
+    font-weight: 500;
+    line-height: 1.125;
+  }
+
+  p {
+    width: 100%;
+    max-width: 728px;
+    margin: 0 0 .5rem;
+    line-height: 1.5;
+  }
+
+  // Links with main page styling
+  a {
+    position: relative;
+    outline: none;
+    color: $color-link;
+    text-decoration: underline;
+    text-decoration-color: var(--link-underline-color);
+    text-decoration-thickness: .035em;
+    text-underline-offset: .275em;
+    transition: all .25s linear;
+
+    @include focus-visible;
+
+    @include hover-effect {
+      color: $color-link-hover;
+      text-decoration-color: $color-link-hover;
+      text-decoration-thickness: .0475em;
+    }
+  }
+
+  // Navigation styles
+  .blogNav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: $spacing-large 0;
+    gap: $gap-base;
+    list-style: none;
+
+    @include responsive-font;
+
+    a {
+      @include flex-center;
+      position: relative;
+      padding: $spacing-small $spacing-base;
+      border-radius: $border-radius;
+      color: $color-text-secondary;
+      text-decoration: none;
+      transition: all $transition-duration ease;
+
+      @include focus-visible;
+      @include mobile-active;
+
+      @include hover-effect {
+        color: $color-link-hover;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      // Активное состояние с минималистичным подчеркиванием
+      &[aria-current="page"] {
+        color: $color-link;
+        background-color: transparent;
+        font-weight: 500;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0.1rem;
+          left: $spacing-base;
+          right: $spacing-base;
+          height: 1.5px;
+          background-color: $color-link;
+          border-radius: 1px;
+        }
+      }
+    }
+  }
+
+  // Section styles similar to main page
+  .section {
+    width: 100%;
+    max-width: $max-width;
+    padding: 0 $spacing-base;
+    margin-bottom: $spacing-large + 0.25rem;
+
+    @include tablet {
+      margin-bottom: $spacing-large;
+    }
+
+    p {
+      width: 100%;
+      margin-bottom: $spacing-base + .25rem;
+
+      @include responsive-font;
+
+      @include tablet {
+        margin-bottom: $spacing-base;
+      }
+    }
+  }
+}

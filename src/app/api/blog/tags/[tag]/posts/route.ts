@@ -1,22 +1,41 @@
-import { NextResponse } from 'next/server';
-import { getPostsByTag } from '@/lib/blog';
+import { NextRequest, NextResponse } from 'next/server';
+import { getPostsByTagPaginated } from '@/lib/blog';
 
 export async function GET(
-  request: Request,
+  request: NextRequest,
   { params }: { params: { tag: string } },
 ) {
   try {
     const tag = decodeURIComponent(params.tag);
-    const posts = getPostsByTag(tag);
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get('page') || '1', 10);
+    const limit = parseInt(searchParams.get('limit') || '6', 10);
+
+    // Validate parameters
+    if (page < 1 || limit < 1 || limit > 50) {
+      return NextResponse.json(
+        { error: 'Invalid pagination parameters' },
+        { status: 400 },
+      );
+    }
+
+    const result = getPostsByTagPaginated(tag, page, limit);
 
     return NextResponse.json({
-      posts,
+      posts: result.posts,
       tag,
-      count: posts.length,
+      pagination: {
+        currentPage: result.currentPage,
+        totalPages: result.totalPages,
+        totalPosts: result.totalPosts,
+        hasNextPage: result.hasNextPage,
+        hasPrevPage: result.hasPrevPage,
+        limit,
+      },
     });
   } catch (error) {
     return NextResponse.json(
-      { error: 'Failed to fetch posts' },
+      { error: 'Failed to fetch posts by tag' },
       { status: 500 },
     );
   }

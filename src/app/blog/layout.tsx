@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { METADATA } from '@/constants/base';
+import css from './layout.module.scss';
 
 export const metadata: Metadata = {
   title: `${METADATA.TITLE}. Блог`,
@@ -30,5 +31,9 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return (
+    <div className={css.blogLayout}>
+      {children}
+    </div>
+  );
 }

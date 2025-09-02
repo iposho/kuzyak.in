@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { Post, PostSummary } from '@/lib/blog';
 import { ShareButtons } from '@/components/blog/ShareButtons';
+import { Loader } from '@/components/ui/Loader';
 import css from './page.module.scss';
 
 export default function PostPage() {
@@ -67,7 +68,10 @@ export default function PostPage() {
   if (loading) {
     return (
       <div className={css.postPage}>
-        <div className={css.loading}>Загрузка поста...</div>
+        <Link href="/blog" className={css.backLink}>
+          ← Назад к блогу
+        </Link>
+        <Loader size="large" text="Загрузка поста..." />
       </div>
     );
   }
