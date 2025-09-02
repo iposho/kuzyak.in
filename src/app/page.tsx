@@ -11,6 +11,8 @@ import { getExperienceYears } from '@/utils/getExperienceYears';
 import css from './page.module.scss';
 
 export default function Home() {
+  const isProduction = process.env.NODE_ENV === 'production';
+
   return (
     <>
       <section className={css.section}>
@@ -35,14 +37,16 @@ export default function Home() {
           Люблю создавать сложные веб-сайты и&nbsp;приложения; руководить командами,
           нанимать, обучать и&nbsp;развивать людей.
         </p>
-        <p>
-          Иногда пишу в
-          {' '}
-          <a href="/blog">
-            блоге
-          </a>
-          .
-        </p>
+        {!isProduction && (
+          <p>
+            Иногда пишу в
+            {' '}
+            <a href="/blog">
+              блоге
+            </a>
+            .
+          </p>
+        )}
       </section>
 
       <section className={css.section}>
