@@ -1,3 +1,8 @@
+## [5.22.0] – 2025-09-03
+
+### Changed
+- Serve post images from their own directories for faster local loading
+
 ## [5.21.0] – 2025-09-02
 
 ### Added
