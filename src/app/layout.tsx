@@ -30,19 +30,58 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: METADATA.TITLE,
+  title: {
+    default: METADATA.TITLE,
+    template: '%s | Павел Кузякин',
+  },
   description: METADATA.DESCRIPTION,
   keywords: METADATA.KEYWORDS,
+  authors: [{ name: 'Павел Кузякин', url: 'https://kuzyak.in' }],
+  creator: 'Павел Кузякин',
+  publisher: 'Павел Кузякин',
   metadataBase: METADATA.BASE,
   alternates: {
+    canonical: '/',
     types: {
-      'application/rss+xml': '/blog/rss.xml',
+      'application/rss+xml': '/blog/rss.xml/',
     },
   },
   openGraph: {
+    type: 'website',
+    locale: 'ru_RU',
     url: METADATA.BASE,
     siteName: METADATA.TITLE,
-    type: 'website',
+    title: METADATA.TITLE,
+    description: METADATA.DESCRIPTION,
+    images: [
+      {
+        url: '/images/face-with-correct-shadow.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Павел Кузякин - Фронтенд разработчик',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: METADATA.TITLE,
+    description: METADATA.DESCRIPTION,
+    images: ['/images/face-with-correct-shadow.webp'],
+    creator: '@iposho',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
 };
 

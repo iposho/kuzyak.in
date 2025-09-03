@@ -40,14 +40,8 @@
   background-color: transparent;
   color: var(--link-color);
   font-size: 1.75rem;
-  font-weight: 400;
+  font-weight: 500;
   transition: all 0.2s ease;
-
-  svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    flex-shrink: 0;
-  }
 
   // &:hover {
   //   background-color: rgba(0, 0, 0, 0.05);

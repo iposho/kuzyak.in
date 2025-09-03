@@ -7,6 +7,48 @@ import remarkGfm from 'remark-gfm';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
+// Кэш для оптимизации производительности
+const cache = new Map<string, any>();
+const CACHE_TTL = 5 * 60 * 1000; // 5 минут
+
+// Функция для получения данных из кэша или файловой системы
+function getCachedData<T>(key: string, fetcher: () => T): T {
+  const cached = cache.get(key);
+  const now = Date.now();
+
+  if (cached && (now - cached.timestamp) < CACHE_TTL) {
+    return cached.data;
+  }
+
+  const data = fetcher();
+  cache.set(key, { data, timestamp: now });
+  return data;
+}
+
+// Очистка кэша при изменении файлов
+// function clearCache() {
+//   cache.clear();
+// }
+
+// Расчет времени чтения поста
+function calculateReadingTime(content: string): number {
+  // Средняя скорость чтения: 200-250 слов в минуту
+  // Используем 200 слов в минуту для более точной оценки
+  const wordsPerMinute = 200;
+
+  // Убираем HTML теги и считаем только текст
+  const textContent = content.replace(/<[^>]*>/g, '');
+
+  // Считаем слова (разделители: пробелы, переносы строк, табы)
+  const wordCount = textContent.trim().split(/\s+/).filter((word) => word.length > 0).length;
+
+  // Рассчитываем время чтения в минутах
+  const readingTime = Math.ceil(wordCount / wordsPerMinute);
+
+  // Минимум 1 минута
+  return Math.max(1, readingTime);
+}
+
 export interface PostMetadata {
   title: string;
   date: string;
@@ -16,6 +58,7 @@ export interface PostMetadata {
   featured_image?: string;
   author?: string;
   draft?: boolean;
+  readingTime?: number; // в минутах
 }
 
 export interface Post {
@@ -39,95 +82,107 @@ export function ensurePostsDirectory() {
 
 // Get all post slugs
 export function getAllPostSlugs(): string[] {
-  ensurePostsDirectory();
+  return getCachedData('allPostSlugs', () => {
+    ensurePostsDirectory();
 
-  try {
-    const items = fs.readdirSync(postsDirectory);
-    return items
-      .filter((item) => {
-        const itemPath = path.join(postsDirectory, item);
-        return fs.statSync(itemPath).isDirectory()
-               && fs.existsSync(path.join(itemPath, 'index.md'));
-      });
-  } catch (error) {
-    return [];
-  }
+    try {
+      const items = fs.readdirSync(postsDirectory);
+      return items
+        .filter((item) => {
+          const itemPath = path.join(postsDirectory, item);
+          return fs.statSync(itemPath).isDirectory()
+                 && fs.existsSync(path.join(itemPath, 'index.md'));
+        });
+    } catch (error) {
+      return [];
+    }
+  });
 }
 
 // Get post by slug
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  try {
-    ensurePostsDirectory();
-    const fullPath = path.join(postsDirectory, slug, 'index.md');
+  return getCachedData(`post-${slug}`, async () => {
+    try {
+      ensurePostsDirectory();
+      const fullPath = path.join(postsDirectory, slug, 'index.md');
 
-    if (!fs.existsSync(fullPath)) {
+      if (!fs.existsSync(fullPath)) {
+        return null;
+      }
+
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
+
+      // Skip draft posts in production
+      if (data.draft && process.env.NODE_ENV === 'production') {
+        return null;
+      }
+
+      // Process markdown to HTML
+      const processedContent = await remark()
+        .use(remarkGfm)
+        .use(html)
+        .process(content);
+
+      const htmlContent = processedContent.toString();
+
+      // Рассчитываем время чтения
+      const readingTime = calculateReadingTime(htmlContent);
+
+      return {
+        slug,
+        metadata: {
+          ...data as PostMetadata,
+          readingTime,
+        },
+        content,
+        htmlContent,
+      };
+    } catch (error) {
       return null;
     }
-
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
-
-    // Skip draft posts in production
-    if (data.draft && process.env.NODE_ENV === 'production') {
-      return null;
-    }
-
-    // Process markdown to HTML
-    const processedContent = await remark()
-      .use(remarkGfm)
-      .use(html)
-      .process(content);
-
-    const htmlContent = processedContent.toString();
-
-    return {
-      slug,
-      metadata: data as PostMetadata,
-      content,
-      htmlContent,
-    };
-  } catch (error) {
-    return null;
-  }
+  });
 }
 
 // Get all posts with metadata only
 export function getAllPosts(): PostSummary[] {
-  ensurePostsDirectory();
+  return getCachedData('allPosts', () => {
+    ensurePostsDirectory();
 
-  try {
-    const slugs = getAllPostSlugs();
-    const posts = slugs
-      .map((slug) => {
-        try {
-          const fullPath = path.join(postsDirectory, slug, 'index.md');
-          const fileContents = fs.readFileSync(fullPath, 'utf8');
-          const { data } = matter(fileContents);
+    try {
+      const slugs = getAllPostSlugs();
+      const posts = slugs
+        .map((slug) => {
+          try {
+            const fullPath = path.join(postsDirectory, slug, 'index.md');
+            const fileContents = fs.readFileSync(fullPath, 'utf8');
+            const { data } = matter(fileContents);
 
-          // Skip draft posts in production
-          if (data.draft && process.env.NODE_ENV === 'production') {
+            // Skip draft posts in production
+            if (data.draft && process.env.NODE_ENV === 'production') {
+              return null;
+            }
+
+            return {
+              slug,
+              metadata: data as PostMetadata,
+            };
+          } catch (error) {
             return null;
           }
+        })
+        .filter((post): post is PostSummary => post !== null)
+        .sort((a, b) => {
+          const dateA = new Date(a.metadata.date);
+          const dateB = new Date(b.metadata.date);
+          return dateB.getTime() - dateA.getTime();
+        });
 
-          return {
-            slug,
-            metadata: data as PostMetadata,
-          };
-        } catch (error) {
-          return null;
-        }
-      })
-      .filter((post): post is PostSummary => post !== null)
-      .sort((a, b) => {
-        const dateA = new Date(a.metadata.date);
-        const dateB = new Date(b.metadata.date);
-        return dateB.getTime() - dateA.getTime();
-      });
-
-    return posts;
-  } catch (error) {
-    return [];
-  }
+      return posts;
+    } catch (error) {
+      return [];
+    }
+  });
 }
 
 // Get posts with pagination
@@ -222,28 +277,32 @@ export function getPostsByCategoryPaginated(category: string, page: number = 1, 
 
 // Get all unique tags
 export function getAllTags(): string[] {
-  const allPosts = getAllPosts();
-  const tags = new Set<string>();
+  return getCachedData('allTags', () => {
+    const allPosts = getAllPosts();
+    const tags = new Set<string>();
 
-  allPosts.forEach((post) => {
-    post.metadata.tags?.forEach((tag) => tags.add(tag));
+    allPosts.forEach((post) => {
+      post.metadata.tags?.forEach((tag) => tags.add(tag));
+    });
+
+    return Array.from(tags).sort();
   });
-
-  return Array.from(tags).sort();
 }
 
 // Get all unique categories
 export function getAllCategories(): string[] {
-  const allPosts = getAllPosts();
-  const categories = new Set<string>();
+  return getCachedData('allCategories', () => {
+    const allPosts = getAllPosts();
+    const categories = new Set<string>();
 
-  allPosts.forEach((post) => {
-    if (post.metadata.category) {
-      categories.add(post.metadata.category);
-    }
+    allPosts.forEach((post) => {
+      if (post.metadata.category) {
+        categories.add(post.metadata.category);
+      }
+    });
+
+    return Array.from(categories).sort();
   });
-
-  return Array.from(categories).sort();
 }
 
 // Get post navigation (previous/next)
@@ -262,6 +321,44 @@ export function getPostNavigation(currentSlug: string): {
     previous: currentIndex > 0 ? allPosts[currentIndex - 1] : null,
     next: currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null,
   };
+}
+
+// Get related posts based on tags and category
+export function getRelatedPosts(currentSlug: string, limit: number = 3): PostSummary[] {
+  const allPosts = getAllPosts();
+  const currentPost = allPosts.find((post) => post.slug === currentSlug);
+
+  if (!currentPost) {
+    return [];
+  }
+
+  const { tags, category } = currentPost.metadata;
+
+  // Считаем "вес" каждого поста на основе общих тегов и категории
+  const scoredPosts = allPosts
+    .filter((post) => post.slug !== currentSlug)
+    .map((post) => {
+      let score = 0;
+
+      // Бонус за общую категорию
+      if (category && post.metadata.category === category) {
+        score += 3;
+      }
+
+      // Бонус за общие теги
+      if (tags && post.metadata.tags) {
+        const commonTags = tags.filter((tag) => post.metadata.tags?.includes(tag));
+        score += commonTags.length * 2;
+      }
+
+      return { post, score };
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((item) => item.post);
+
+  return scoredPosts;
 }
 
 // Generate slug from title

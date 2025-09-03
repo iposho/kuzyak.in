@@ -1,58 +1,68 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useParams, useSearchParams } from 'next/navigation';
+import { Metadata } from 'next';
 import Link from 'next/link';
-import { PostSummary } from '@/lib/blog';
-import { PostSkeleton } from '@/components/ui/PostSkeleton';
+import { notFound } from 'next/navigation';
+import { getAllTags, getPostsByTagPaginated } from '@/lib/blog';
 import { Pagination } from '@/components/ui/Pagination';
+
 import css from '../../page.module.scss';
 
-export default function TagPage() {
-  const params = useParams();
-  const searchParams = useSearchParams();
-  const tag = decodeURIComponent(params.tag as string);
+interface TagPageProps {
+  params: {
+    tag: string;
+  };
+  searchParams: {
+    page?: string;
+  };
+}
 
-  const [posts, setPosts] = useState<PostSummary[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [pagination, setPagination] = useState({
-    currentPage: 1,
-    totalPages: 1,
-    totalPosts: 0,
-    hasNextPage: false,
-    hasPrevPage: false,
-  });
+// Генерируем статические параметры для всех тегов
+export async function generateStaticParams() {
+  const tags = getAllTags();
 
-  useEffect(() => {
-    const fetchPostsByTag = async () => {
-      try {
-        setLoading(true);
-        setError(null);
+  return tags.map((tag) => ({
+    tag: encodeURIComponent(tag),
+  }));
+}
 
-        const currentPage = parseInt(searchParams.get('page') || '1', 10);
-        const limit = 6;
+// Генерируем метаданные для SEO
+export async function generateMetadata({ params }: TagPageProps): Promise<Metadata> {
+  const tag = decodeURIComponent(params.tag);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kuzyak.in';
+  const tagUrl = `${siteUrl}/blog/tag/${params.tag}`;
 
-        const response = await fetch(`/api/blog/tags/${encodeURIComponent(tag)}/posts?page=${currentPage}&limit=${limit}`);
+  return {
+    title: `Посты с тегом #${tag} | Блог Павла Кузякина`,
+    description: `Все статьи с тегом #${tag} на блоге Павла Кузякина. Читайте интересные материалы о разработке и технологиях.`,
+    keywords: `${tag}, блог, разработка, программирование, технологии`,
+    openGraph: {
+      title: `Посты с тегом #${tag}`,
+      description: `Все статьи с тегом #${tag} на блоге Павла Кузякина.`,
+      url: tagUrl,
+      siteName: 'kuzyak.in',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `Посты с тегом #${tag}`,
+      description: `Все статьи с тегом #${tag} на блоге Павла Кузякина.`,
+    },
+    alternates: {
+      canonical: tagUrl,
+    },
+  };
+}
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch posts');
-        }
+export default async function TagPage({ params, searchParams }: TagPageProps) {
+  const tag = decodeURIComponent(params.tag);
+  const currentPage = parseInt(searchParams.page || '1', 10);
+  const limit = 6;
 
-        const data = await response.json();
-        setPosts(data.posts);
-        setPagination(data.pagination);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки постов');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const { posts, totalPages } = getPostsByTagPaginated(tag, currentPage, limit);
 
-    if (tag) {
-      fetchPostsByTag();
-    }
-  }, [tag, searchParams]);
+  // Если постов с этим тегом нет, показываем 404
+  if (posts.length === 0 && currentPage === 1) {
+    notFound();
+  }
 
   const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString('ru-RU', {
     year: 'numeric',
@@ -60,27 +70,9 @@ export default function TagPage() {
     day: 'numeric',
   });
 
-  if (loading) {
-    return (
-      <div className={css.blogPage}>
-        <div className={css.header}>
-          <h1>
-            Тег:
-            {tag}
-          </h1>
-          <p>Загрузка постов...</p>
-        </div>
-        <PostSkeleton count={6} />
-      </div>
-    );
-  }
-
   return (
     <div className={css.blogPage}>
       <div className={css.header}>
-        <Link href="/blog" className={css.backLink}>
-          ← Назад к блогу
-        </Link>
         <h1>
           Посты с тегом #
           {tag}
@@ -90,8 +82,6 @@ export default function TagPage() {
           {posts.length}
         </p>
       </div>
-
-      {error && <div className={css.error}>{error}</div>}
 
       {posts.length === 0 ? (
         <div className={css.emptyState}>
@@ -107,6 +97,7 @@ export default function TagPage() {
                   <img
                     src={post.metadata.featured_image}
                     alt={post.metadata.title}
+                    loading="lazy"
                   />
                 </div>
               )}
@@ -160,10 +151,10 @@ export default function TagPage() {
         </div>
       )}
 
-      {pagination.totalPages > 1 && (
+      {totalPages > 1 && (
         <Pagination
-          currentPage={pagination.currentPage}
-          totalPages={pagination.totalPages}
+          currentPage={currentPage}
+          totalPages={totalPages}
           baseUrl={`/blog/tag/${encodeURIComponent(tag)}`}
         />
       )}
