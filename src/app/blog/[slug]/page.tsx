@@ -1,63 +1,85 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { Post, PostSummary } from '@/lib/blog';
+import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
+import {
+  getPostBySlug, getPostNavigation, getAllPostSlugs,
+} from '@/lib/blog';
 import { ShareButtons } from '@/components/blog/ShareButtons';
-import { Loader } from '@/components/ui/Loader';
+import { NewsletterSignup } from '@/components/blog/NewsletterSignup';
 import css from './page.module.scss';
 
-export default function PostPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+interface PostPageProps {
+  params: {
+    slug: string;
+  };
+}
 
-  const [post, setPost] = useState<Post | null>(null);
-  const [navigation, setNavigation] = useState<{
-    previous: PostSummary | null;
-    next: PostSummary | null;
-  }>({ previous: null, next: null });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+// Генерируем статические параметры для всех постов
+export async function generateStaticParams() {
+  const slugs = getAllPostSlugs();
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      if (!slug) return;
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
 
-      try {
-        setLoading(true);
-        setError(null);
+// Генерируем метаданные для SEO
+export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+  const post = await getPostBySlug(params.slug);
 
-        const [postRes, navRes] = await Promise.all([
-          fetch(`/api/blog/posts/${slug}`),
-          fetch(`/api/blog/posts/${slug}/navigation`),
-        ]);
-
-        if (!postRes.ok) {
-          if (postRes.status === 404) {
-            setError('Пост не найден');
-          } else {
-            throw new Error('Failed to fetch post');
-          }
-          return;
-        }
-
-        const postData = await postRes.json();
-        setPost(postData.post);
-
-        if (navRes.ok) {
-          const navData = await navRes.json();
-          setNavigation(navData);
-        }
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки поста');
-      } finally {
-        setLoading(false);
-      }
+  if (!post) {
+    return {
+      title: 'Пост не найден',
     };
+  }
 
-    fetchPost();
-  }, [slug]);
+  const { metadata } = post;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kuzyak.in';
+  const postUrl = `${siteUrl}/blog/${params.slug}`;
+
+  return {
+    title: metadata.title,
+    description: metadata.excerpt || `Читайте пост "${metadata.title}" на блоге Павла Кузякина`,
+    keywords: metadata.tags?.join(', ') || '',
+    authors: metadata.author ? [{ name: metadata.author }] : undefined,
+    openGraph: {
+      title: metadata.title,
+      description: metadata.excerpt || `Читайте пост "${metadata.title}" на блоге Павла Кузякина`,
+      url: postUrl,
+      siteName: 'kuzyak.in',
+      type: 'article',
+      publishedTime: metadata.date,
+      authors: metadata.author ? [metadata.author] : undefined,
+      tags: metadata.tags,
+      images: metadata.featured_image ? [
+        {
+          url: metadata.featured_image,
+          width: 1200,
+          height: 630,
+          alt: metadata.title,
+        },
+      ] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: metadata.title,
+      description: metadata.excerpt || `Читайте пост "${metadata.title}" на блоге Павла Кузякина`,
+      images: metadata.featured_image ? [metadata.featured_image] : undefined,
+    },
+    alternates: {
+      canonical: postUrl,
+    },
+  };
+}
+
+export default async function PostPage({ params }: PostPageProps) {
+  const post = await getPostBySlug(params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const navigation = getPostNavigation(params.slug);
 
   const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString('ru-RU', {
     year: 'numeric',
@@ -65,52 +87,8 @@ export default function PostPage() {
     day: 'numeric',
   });
 
-  if (loading) {
-    return (
-      <div className={css.postPage}>
-        <Link href="/blog" className={css.backLink}>
-          ← Назад к блогу
-        </Link>
-        <Loader size="large" text="Загрузка поста..." />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className={css.postPage}>
-        <Link href="/blog" className={css.backLink}>
-          ← Назад к блогу
-        </Link>
-        {error === 'Пост не найден' ? (
-          <div className={css.notFound}>
-            <h2>Пост не найден</h2>
-            <p>Возможно, пост был удален или перемещен</p>
-          </div>
-        ) : (
-          <div className={css.error}>{error}</div>
-        )}
-      </div>
-    );
-  }
-
-  if (!post) {
-    return (
-      <div className={css.postPage}>
-        <div className={css.notFound}>
-          <h2>Пост не найден</h2>
-          <p>Возможно, пост был удален или перемещен</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={css.postPage}>
-      <Link href="/blog" className={css.backLink}>
-        ← Назад к блогу
-      </Link>
-
       <article>
         <header className={css.postHeader}>
           {post.metadata.featured_image && (
@@ -118,6 +96,7 @@ export default function PostPage() {
               <img
                 src={post.metadata.featured_image}
                 alt={post.metadata.title}
+                loading="eager"
               />
             </div>
           )}
@@ -130,6 +109,15 @@ export default function PostPage() {
               {' '}
               {formatDate(post.metadata.date)}
             </div>
+            {post.metadata.readingTime && (
+              <div className={css.readingTime}>
+                ⏱️
+                {' '}
+                {post.metadata.readingTime}
+                {' '}
+                мин чтения
+              </div>
+            )}
             {post.metadata.author && (
               <div className={css.author}>
                 👤
@@ -168,6 +156,8 @@ export default function PostPage() {
 
       <ShareButtons title={post.metadata.title} />
 
+      <NewsletterSignup />
+
       {(navigation.previous || navigation.next) && (
         <nav className={css.postNavigation}>
           <div className={css.navLinks}>
@@ -175,6 +165,7 @@ export default function PostPage() {
               <Link
                 href={`/blog/${navigation.previous.slug}`}
                 className={`${css.navLink} ${css.previous}`}
+                prefetch={false}
               >
                 <span className={css.navDirection}>← Предыдущий пост</span>
                 <span className={css.navTitle}>{navigation.previous.metadata.title}</span>
@@ -184,6 +175,7 @@ export default function PostPage() {
               <Link
                 href={`/blog/${navigation.next.slug}`}
                 className={`${css.navLink} ${css.next}`}
+                prefetch={false}
               >
                 <span className={css.navDirection}>Следующий пост →</span>
                 <span className={css.navTitle}>{navigation.next.metadata.title}</span>
