@@ -35,7 +35,7 @@ date: "2024-01-15"
 excerpt: "Краткое описание поста"
 tags: ["tag1", "tag2"]
 category: "Категория"
-featured_image: "/images/post-image.webp"
+featured_image: "./preview.webp"
 author: "Павел Кузякин"
 draft: false
 ---
@@ -52,10 +52,12 @@ draft: false
 content/posts/
 ├── my-post/
 │   ├── index.md          # Основной файл поста
-│   └── preview.png       # Превью изображение (опционально)
+│   └── preview.webp      # Превью изображение (опционально)
 └── another-post/
     └── index.md
 ```
+
+Все изображения, расположенные рядом с `index.md`, автоматически копируются в `/public/blog/<slug>/` и доступны на сайте по пути `/blog/<slug>/<filename>`.
 
 ## Настройки Vercel
 

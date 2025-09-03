@@ -7,9 +7,12 @@
 ```
 content/
 └── posts/
-    ├── welcome-to-my-blog.md
-    ├── frontend-trends-2025.md
-    └── typescript-tips.md
+    ├── welcome-to-my-blog/
+    │   ├── index.md
+    │   └── featured.webp
+    └── another-post/
+        ├── index.md
+        └── screenshot.png
 ```
 
 ## Формат поста
@@ -24,7 +27,7 @@ excerpt: "Краткое описание поста"
 tags: ["тег1", "тег2", "тег3"]
 category: "Категория"
 author: "Автор"
-featured_image: "https://example.com/image.jpg"
+featured_image: "./featured.webp"
 draft: false
 ---
 ```
@@ -37,15 +40,17 @@ draft: false
 - **tags** - массив тегов
 - **category** - категория поста
 - **author** - автор поста
-- **featured_image** - URL изображения для поста
+- **featured_image** - путь к изображению поста относительно папки поста
 - **draft** - если true, пост не будет показан в продакшене
 
 ## Создание нового поста
 
-1. Создайте новый .md файл в папке `content/posts/`
-2. Добавьте frontmatter блок с метаданными
-3. Напишите контент в формате Markdown
-4. Сохраните файл
+1. Создайте новую папку в `content/posts/` с названием поста
+2. Добавьте в неё файл `index.md`
+3. Сохраните изображения рядом с `index.md`
+4. Используйте относительные пути для изображений, например `![Alt](./image.png)`
+5. Напишите контент в формате Markdown
+6. Сохраните файл
 
 Пост автоматически появится в блоге после перезагрузки страницы.
 

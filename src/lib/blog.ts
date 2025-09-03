@@ -49,6 +49,56 @@ function calculateReadingTime(content: string): number {
   return Math.max(1, readingTime);
 }
 
+/**
+ * Copy media files from a post directory to the public blog folder.
+ *
+ * @param slug - Post slug
+ */
+function copyPostAssets(slug: string) {
+  const sourceDir = path.join(postsDirectory, slug);
+  const targetDir = path.join(process.cwd(), 'public', 'blog', slug);
+  fs.mkdirSync(targetDir, { recursive: true });
+  const items = fs.readdirSync(sourceDir);
+  items.forEach((item) => {
+    if (item === 'index.md') return;
+    const srcPath = path.join(sourceDir, item);
+    const destPath = path.join(targetDir, item);
+    const stat = fs.statSync(srcPath);
+    if (stat.isDirectory()) {
+      fs.cpSync(srcPath, destPath, { recursive: true });
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  });
+}
+
+/**
+ * Convert a relative featured image path to the public blog URL.
+ *
+ * @param slug - Post slug
+ * @param image - Original image path
+ */
+function normalizeFeaturedImage(slug: string, image?: string): string | undefined {
+  if (!image || /^https?:\/\//i.test(image)) {
+    return image;
+  }
+
+  return `/blog/${slug}/${image.replace(/^\.\//, '')}`;
+}
+
+/**
+ * Rewrite relative image paths in generated HTML so they point to public URLs.
+ *
+ * @param htmlContent - HTML content of the post
+ * @param slug - Post slug
+ */
+function rewriteRelativeImagePaths(htmlContent: string, slug: string): string {
+  return htmlContent.replace(
+    /(<img[^>]+src=["'])(?!https?:|data:|\/)(\.\/)?([^"']+)/g,
+    `$1/blog/${slug}/$3`,
+  );
+}
+
 export interface PostMetadata {
   title: string;
   date: string;
@@ -104,11 +154,14 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   return getCachedData(`post-${slug}`, async () => {
     try {
       ensurePostsDirectory();
-      const fullPath = path.join(postsDirectory, slug, 'index.md');
+      const postDir = path.join(postsDirectory, slug);
+      const fullPath = path.join(postDir, 'index.md');
 
       if (!fs.existsSync(fullPath)) {
         return null;
       }
+
+      copyPostAssets(slug);
 
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
@@ -124,15 +177,19 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
         .use(html)
         .process(content);
 
-      const htmlContent = processedContent.toString();
+      let htmlContent = processedContent.toString();
+      htmlContent = rewriteRelativeImagePaths(htmlContent, slug);
 
       // Рассчитываем время чтения
       const readingTime = calculateReadingTime(htmlContent);
 
+      const featuredImage = normalizeFeaturedImage(slug, (data as PostMetadata).featured_image);
+
       return {
         slug,
         metadata: {
-          ...data as PostMetadata,
+          ...(data as PostMetadata),
+          featured_image: featuredImage,
           readingTime,
         },
         content,
@@ -163,9 +220,12 @@ export function getAllPosts(): PostSummary[] {
               return null;
             }
 
+            copyPostAssets(slug);
+            const featuredImage = normalizeFeaturedImage(slug, (data as PostMetadata).featured_image);
+
             return {
               slug,
-              metadata: data as PostMetadata,
+              metadata: { ...(data as PostMetadata), featured_image: featuredImage },
             };
           } catch (error) {
             return null;
