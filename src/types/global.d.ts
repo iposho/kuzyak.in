@@ -4,12 +4,4 @@ declare global {
   }
 }
 
-// Feature Toggle типы
-export interface FeatureToggleConfig {
-  navigation: boolean;
-  debug: boolean;
-}
-
-export type FeatureToggleKey = keyof FeatureToggleConfig;
-
 export {};

@@ -1,18 +1,12 @@
 'use client';
 
 import { SOCIAL_LINKS } from '@/constants/social';
-import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
-
-import { TbLocation } from 'react-icons/tb';
-// import { CurrentTrack } from '@/components/ui/CurrentTrack/CurrentTrack';
 
 import { getExperienceYears } from '@/utils/getExperienceYears';
 
 import css from './page.module.scss';
 
 export default function Home() {
-  const isProduction = process.env.NODE_ENV === 'production';
-
   return (
     <>
       <section className={css.section}>
@@ -37,16 +31,6 @@ export default function Home() {
           Люблю создавать сложные веб-сайты и&nbsp;приложения; руководить командами,
           нанимать, обучать и&nbsp;развивать людей.
         </p>
-        {!isProduction && (
-          <p>
-            Иногда пишу в
-            {' '}
-            <a href="/blog">
-              блоге
-            </a>
-            .
-          </p>
-        )}
       </section>
 
       <section className={css.section}>
@@ -80,23 +64,6 @@ export default function Home() {
         </ul>
       </section>
 
-      <section className={css.section}>
-        <div id="location" className={css.location}>
-          <div className={css.locationInfo}>
-            <TbLocation
-              className={css.locationIcon}
-            />
-            <div>Ереван, Армения</div>
-          </div>
-          <div className={css.timeInfo}>
-            <TimeInYerevan />
-          </div>
-        </div>
-      </section>
-
-      {/* <section className={css.section}> */}
-      {/*   <CurrentTrack /> */}
-      {/* </section> */}
     </>
   );
 }

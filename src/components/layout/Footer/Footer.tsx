@@ -58,19 +58,6 @@ export const Footer: FC = () => {
           </p>
         </div>
 
-        {/* <a */}
-        {/*   href="https://web.archive.org/web/20010406054522/http://mir.glasnet.ru/~awicon/" */}
-        {/*   target="_blank" */}
-        {/*   rel="noreferrer" */}
-        {/* > */}
-        {/*   <Image */}
-        {/*     src="/images/awicons/temafree.webp" */}
-        {/*     alt="Tema Lebedev Free Website" */}
-        {/*     className={css.banner} */}
-        {/*     width={100} */}
-        {/*     height={12} */}
-        {/*   /> */}
-        {/* </a> */}
       </div>
     </footer>
   );
