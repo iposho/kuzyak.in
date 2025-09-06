@@ -27,7 +27,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))",
+      "source": "/static/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -39,14 +39,14 @@
   "redirects": [
     {
       "source": "/blog/rss.xml",
-      "destination": "/blog/rss.xml/",
+      "destination": "/blog/rss.xml",
       "permanent": true
     }
   ],
   "rewrites": [
     {
       "source": "/blog/rss.xml",
-      "destination": "/blog/rss.xml/"
+      "destination": "/blog/rss.xml"
     }
   ]
 }
