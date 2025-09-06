@@ -5,10 +5,8 @@ date: "2024-12-19"
 tags: ["moscow", "urban-legends", "mystery", "folklore", "russia"]
 author: "Pavel Kuzyakin"
 coverImage: "/images/blog/nextjs-blog.jpg"
-slug: "/blog/moscow-urban-legends"
+slug: "/moscow-urban-legends"
 ---
-
-# Городские легенды Москвы и Подмосковья
 
 Москва — город с богатой историей, полной тайн и загадок. За многовековую историю столицы накопилось множество мистических историй, аномальных мест и городских легенд, которые передаются из уст в уста и обрастают новыми деталями.
 

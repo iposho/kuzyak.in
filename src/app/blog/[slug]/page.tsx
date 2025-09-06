@@ -65,6 +65,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 src={post.coverImage}
                 alt={post.title}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 56rem"
               />
             </div>
           )}

@@ -38,12 +38,12 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
           <h1 className={styles.title}>Блог</h1>
         </div>
 
-        {tags.length > 0 && (
+        {/* {tags.length > 0 && (
           <div className={styles.tagsSection}>
             <h2 className={styles.tagsTitle}>Теги</h2>
             <TagList tags={tags.map((tag) => tag.name)} />
           </div>
-        )}
+        )} */}
 
         {paginatedPosts.length > 0 ? (
           <>

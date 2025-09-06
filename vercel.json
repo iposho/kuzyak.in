@@ -1,7 +1,7 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "out",
   "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
   "functions": {
     "src/app/api/**/*.ts": {
       "maxDuration": 30
@@ -36,17 +36,10 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/blog/rss.xml",
-      "destination": "/blog/rss.xml",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     {
-      "source": "/blog/rss.xml",
-      "destination": "/blog/rss.xml"
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug"
     }
   ]
 }

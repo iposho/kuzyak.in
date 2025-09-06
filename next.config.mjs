@@ -21,6 +21,14 @@ const nextConfig = {
   },
   
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  
+  // Настройки для правильной работы с Vercel
+  experimental: {
+    mdxRs: false,
+  },
+  
+  // Убеждаемся, что статическая генерация работает правильно
+  output: 'standalone',
 };
 
 const withMDX = createMDX({
