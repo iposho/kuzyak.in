@@ -1,34 +1,13 @@
-type TimeOfDay = {
-  icon: string;
-  text: string;
-};
-
-export const getTimeOfDay = (date: Date): TimeOfDay => {
-  const hours = date.getHours();
-
-  if (hours >= 5 && hours < 12) {
-    return {
-      icon: '🌅',
-      text: 'утром',
-    };
+export function getTimeOfDay(): { icon: string; text: string } {
+  const hour = new Date().getHours();
+  
+  if (hour >= 5 && hour < 12) {
+    return { icon: '🌅', text: 'утром' };
+  } else if (hour >= 12 && hour < 17) {
+    return { icon: '☀️', text: 'днем' };
+  } else if (hour >= 17 && hour < 21) {
+    return { icon: '🌆', text: 'вечером' };
+  } else {
+    return { icon: '🌙', text: 'ночью' };
   }
-
-  if (hours >= 12 && hours < 17) {
-    return {
-      icon: '☀️',
-      text: 'днём',
-    };
-  }
-
-  if (hours >= 17 && hours < 22) {
-    return {
-      icon: '🌆',
-      text: 'вечером',
-    };
-  }
-
-  return {
-    icon: '🌘',
-    text: 'ночью',
-  };
-};
+}

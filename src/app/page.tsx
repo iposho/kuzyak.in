@@ -1,21 +1,20 @@
 'use client';
 
 import { SOCIAL_LINKS } from '@/constants/social';
-import { TimeInYerevan } from '@/components/ui/TimeInYerevan';
-
-import { TbLocation } from 'react-icons/tb';
-// import { CurrentTrack } from '@/components/ui/CurrentTrack/CurrentTrack';
+import { GraphLogicIcon } from '@/components/ui/GraphLogicIcon';
+import { useBodyClass } from '@/hooks/useBodyClass';
 
 import { getExperienceYears } from '@/utils/getExperienceYears';
 
-import css from './page.module.scss';
+import styles from './page.module.scss';
 
 export default function Home() {
-  const isProduction = process.env.NODE_ENV === 'production';
+  // Добавляем класс для показа фонового изображения только на главной странице
+  useBodyClass('home-page');
 
   return (
     <>
-      <section className={css.section}>
+      <section className={styles.section}>
         <h1>
           Привет, меня&nbsp;зовут Паша&nbsp;Кузякин.
         </h1>
@@ -28,8 +27,9 @@ export default function Home() {
         <p>
           Работаю в
           {' '}
-          <a href="https://graphlogic.ai">
+          <a href="https://graphlogic.ai" className={styles.externalLink}>
             Графлоджике
+            <GraphLogicIcon />
           </a>
           .
         </p>
@@ -37,28 +37,18 @@ export default function Home() {
           Люблю создавать сложные веб-сайты и&nbsp;приложения; руководить командами,
           нанимать, обучать и&nbsp;развивать людей.
         </p>
-        {!isProduction && (
-          <p>
-            Иногда пишу в
-            {' '}
-            <a href="/blog">
-              блоге
-            </a>
-            .
-          </p>
-        )}
       </section>
 
-      <section className={css.section}>
+      <section className={styles.section}>
         <h2 id="technologies">Технологии, с которыми дружу</h2>
         <p>
           React, TypeScript, Next.js, Tailwind, GraphQL, Supabase, Docker, Node.js
         </p>
       </section>
 
-      <section className={css.section}>
+      <section className={styles.section}>
         <h2 id="contacts">На связи</h2>
-        <ul className={css.list}>
+        <ul className={styles.list}>
           {SOCIAL_LINKS.map(({
             id,
             link,
@@ -70,7 +60,7 @@ export default function Home() {
                 href={link}
                 target={label === 'Почта' ? undefined : '_blank'}
                 rel={label === 'Почта' ? undefined : 'noreferrer'}
-                className={css.socialLink}
+                className={styles.socialLink}
               >
                 <Icon />
                 {label}
@@ -80,23 +70,6 @@ export default function Home() {
         </ul>
       </section>
 
-      <section className={css.section}>
-        <div id="location" className={css.location}>
-          <div className={css.locationInfo}>
-            <TbLocation
-              className={css.locationIcon}
-            />
-            <div>Ереван, Армения</div>
-          </div>
-          <div className={css.timeInfo}>
-            <TimeInYerevan />
-          </div>
-        </div>
-      </section>
-
-      {/* <section className={css.section}> */}
-      {/*   <CurrentTrack /> */}
-      {/* </section> */}
     </>
   );
 }

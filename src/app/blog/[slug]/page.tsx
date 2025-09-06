@@ -1,190 +1,125 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { getAllPostSlugs, getPostBySlug } from '@/lib/posts';
+import { TagList, MDXContent } from '@/components/blog';
 import Link from 'next/link';
-import { Post, PostSummary } from '@/lib/blog';
-import css from './page.module.scss';
+import Image from 'next/image';
+import styles from './page.module.scss';
 
-export default function PostPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+interface BlogPostPageProps {
+  params: {
+    slug: string;
+  };
+}
 
-  const [post, setPost] = useState<Post | null>(null);
-  const [navigation, setNavigation] = useState<{
-    previous: PostSummary | null;
-    next: PostSummary | null;
-  }>({ previous: null, next: null });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+export async function generateStaticParams() {
+  const slugs = getAllPostSlugs();
+  return slugs.map((slug) => ({
+    slug,
+  }));
+}
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      if (!slug) return;
-
-      try {
-        setLoading(true);
-        setError(null);
-
-        const [postRes, navRes] = await Promise.all([
-          fetch(`/api/blog/posts/${slug}`),
-          fetch(`/api/blog/posts/${slug}/navigation`),
-        ]);
-
-        if (!postRes.ok) {
-          if (postRes.status === 404) {
-            setError('Пост не найден');
-          } else {
-            throw new Error('Failed to fetch post');
-          }
-          return;
-        }
-
-        const postData = await postRes.json();
-        setPost(postData.post);
-
-        if (navRes.ok) {
-          const navData = await navRes.json();
-          setNavigation(navData);
-        }
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Ошибка загрузки поста');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPost();
-  }, [slug]);
-
-  const formatDate = (dateString: string) => new Date(dateString).toLocaleDateString('ru-RU', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
-  if (loading) {
-    return (
-      <div className={css.postPage}>
-        <div className={css.loading}>Загрузка поста...</div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className={css.postPage}>
-        <Link href="/blog" className={css.backLink}>
-          ← Назад к блогу
-        </Link>
-        {error === 'Пост не найден' ? (
-          <div className={css.notFound}>
-            <h2>Пост не найден</h2>
-            <p>Возможно, пост был удален или перемещен</p>
-          </div>
-        ) : (
-          <div className={css.error}>{error}</div>
-        )}
-      </div>
-    );
-  }
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
-    return (
-      <div className={css.postPage}>
-        <div className={css.notFound}>
-          <h2>Пост не найден</h2>
-          <p>Возможно, пост был удален или перемещен</p>
-        </div>
-      </div>
-    );
+    return {
+      title: 'Пост не найден',
+    };
+  }
+
+  return {
+    title: `${post.title} | kuzyak.in`,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: post.tags,
+      images: post.coverImage ? [post.coverImage] : [],
+    },
+  };
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
+  // Проверяем включен ли блог
+  if (process.env.NEXT_PUBLIC_ENABLE_BLOG !== 'true') {
+    notFound();
+  }
+
+  const post = getPostBySlug(params.slug);
+
+  if (!post) {
+    notFound();
   }
 
   return (
-    <div className={css.postPage}>
-      <Link href="/blog" className={css.backLink}>
-        ← Назад к блогу
-      </Link>
-
-      <article>
-        <header className={css.postHeader}>
-          {post.metadata.featured_image && (
-            <div className={css.featuredImage}>
-              <img
-                src={post.metadata.featured_image}
-                alt={post.metadata.title}
+    <div className={styles.postPage}>
+      <div className={styles.container}>
+        <div className={styles.postCard}>
+          {post.coverImage && (
+            <div className={styles.coverImage}>
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 56rem"
               />
             </div>
           )}
 
-          <h1 className={css.postTitle}>{post.metadata.title}</h1>
-
-          <div className={css.postMeta}>
-            <div className={css.publishDate}>
-              📅
-              {' '}
-              {formatDate(post.metadata.date)}
-            </div>
-            {post.metadata.author && (
-              <div className={css.author}>
-                👤
+          <div className={styles.content}>
+            <div className={styles.meta}>
+              <time dateTime={post.date}>
+                {new Date(post.date).toLocaleDateString('ru-RU', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+              <span className={styles.separator}>•</span>
+              <span>
+                {post.readingTime}
                 {' '}
-                {post.metadata.author}
-              </div>
-            )}
-            {post.metadata.category && (
-              <span className={css.category}>
-                {post.metadata.category}
+                мин чтения
               </span>
-            )}
-          </div>
-
-          {post.metadata.tags && post.metadata.tags.length > 0 && (
-            <div className={css.postTags}>
-              {post.metadata.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  href={`/blog/tag/${encodeURIComponent(tag)}`}
-                  className={css.tag}
-                >
-                  #
-                  {tag}
-                </Link>
-              ))}
+              <span className={styles.separator}>•</span>
+              <span>
+                Автор:
+                {' '}
+                {post.author}
+              </span>
             </div>
-          )}
-        </header>
 
-        <div
-          className={css.postContent}
-          dangerouslySetInnerHTML={{ __html: post.htmlContent }}
-        />
-      </article>
+            <h1 className={styles.title}>
+              {post.title}
+            </h1>
 
-      {(navigation.previous || navigation.next) && (
-        <nav className={css.postNavigation}>
-          <div className={css.navLinks}>
-            {navigation.previous && (
+            <p className={styles.description}>
+              {post.description}
+            </p>
+
+            <div className={styles.tagsWrapper}>
+              <TagList tags={post.tags} />
+            </div>
+
+            <div className={styles.content}>
+              <MDXContent content={post.content} />
+            </div>
+
+            <div className={styles.backLinkWrapper}>
               <Link
-                href={`/blog/${navigation.previous.slug}`}
-                className={`${css.navLink} ${css.previous}`}
+                href="/blog"
+                className={styles.backLink}
               >
-                <span className={css.navDirection}>← Предыдущий пост</span>
-                <span className={css.navTitle}>{navigation.previous.metadata.title}</span>
+                ← Вернуться к блогу
               </Link>
-            )}
-            {navigation.next && (
-              <Link
-                href={`/blog/${navigation.next.slug}`}
-                className={`${css.navLink} ${css.next}`}
-              >
-                <span className={css.navDirection}>Следующий пост →</span>
-                <span className={css.navTitle}>{navigation.next.metadata.title}</span>
-              </Link>
-            )}
+            </div>
           </div>
-        </nav>
-      )}
+        </div>
+      </div>
     </div>
   );
 }

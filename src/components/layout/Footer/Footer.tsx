@@ -7,7 +7,7 @@ import {
   LAST_UPDATE_DATE,
 } from '@/constants/base';
 
-import css from './Footer.module.scss';
+import styles from './Footer.module.scss';
 
 const FOOTER_CONSTANTS = {
   COPYRIGHT: `© 2004...${new Date().getFullYear()}`,
@@ -31,46 +31,33 @@ const FOOTER_CONSTANTS = {
 
 export const Footer: FC = () => {
   useEffect(() => {
-    // eslint-disable-next-line no-console
+     
     console.log(FOOTER_CONSTANTS.VERSION_LOG, FOOTER_CONSTANTS.VERSION_LOG_STYLE);
-    // eslint-disable-next-line no-console
+     
     console.log(FOOTER_CONSTANTS.BUILD_DATE, FOOTER_CONSTANTS.BUILD_DATE_STYLE);
-    // eslint-disable-next-line no-console
+     
     console.log(
       `${FOOTER_CONSTANTS.LOAD_TIME}${(performance.now() / 1000).toFixed(2)}s`,
       FOOTER_CONSTANTS.LOAD_TIME_STYLE,
     );
-    // eslint-disable-next-line no-console
+     
     console.log('');
-    // eslint-disable-next-line no-console
+     
     console.log(FOOTER_CONSTANTS.SIGNATURE, FOOTER_CONSTANTS.SIGNATURE_STYLE);
   }, []);
 
   return (
-    <footer className={css.footer}>
-      <div className={css.column}>
-        <div className={css.copyright}>
+    <footer className={styles.footer}>
+      <div className={styles.column}>
+        <div className={styles.copyright}>
           <p>
             {FOOTER_CONSTANTS.COPYRIGHT}
           </p>
-          <p className={css.status}>
+          <p className={styles.status}>
             {FOOTER_CONSTANTS.STATUS_MESSAGE}
           </p>
         </div>
 
-        {/* <a */}
-        {/*   href="https://web.archive.org/web/20010406054522/http://mir.glasnet.ru/~awicon/" */}
-        {/*   target="_blank" */}
-        {/*   rel="noreferrer" */}
-        {/* > */}
-        {/*   <Image */}
-        {/*     src="/images/awicons/temafree.webp" */}
-        {/*     alt="Tema Lebedev Free Website" */}
-        {/*     className={css.banner} */}
-        {/*     width={100} */}
-        {/*     height={12} */}
-        {/*   /> */}
-        {/* </a> */}
       </div>
     </footer>
   );

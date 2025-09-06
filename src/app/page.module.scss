@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity, no-invalid-position-declaration */
 // ==========================================================================
 // Variables
 // ==========================================================================
@@ -14,7 +15,7 @@ $spacing-medium: 0.75rem;
 $spacing-large: 2rem;
 
 // Layout
-$max-width: 1000px;
+$max-width: 1200px;
 $border-radius: 4px;
 $gap-base: 1rem;
 $gap-small: 0.5rem;
@@ -85,26 +86,26 @@ $breakpoint-tablet: 768px;
   font-size: $font-size-base;
   line-height: $line-height;
 
-  @media (width <= $breakpoint-tablet) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: $font-size-mobile;
   }
 }
 
 // Media Query Mixins
 @mixin mobile {
-  @media (width <= $breakpoint-mobile) {
+  @media (max-width: $breakpoint-mobile) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (width > $breakpoint-mobile) and (width <= $breakpoint-tablet) {
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (width > $breakpoint-tablet) {
+  @media (min-width: $breakpoint-tablet) {
     @content;
   }
 }
@@ -115,7 +116,7 @@ $breakpoint-tablet: 768px;
 
 .section {
   width: 100%;
-  max-width: $max-width;
+  max-width: calc($max-width - 8.75rem);
   padding: 0 $spacing-base;
   margin-bottom: $spacing-large + 0.25rem;
 
@@ -152,6 +153,30 @@ $breakpoint-tablet: 768px;
 
     @include hover-effect {
       text-decoration-style: solid;
+    }
+  }
+
+  .externalLink {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.125em;
+    vertical-align: baseline;
+
+    svg {
+      width: 0.75em;
+      height: 0.75em;
+      flex-shrink: 0;
+      border-radius: 0.25em;
+      color: #000;
+      transition: all $transition-duration ease;
+      vertical-align: bottom;
+    }
+
+    @include hover-effect {
+      svg {
+        opacity: 1;
+        transform: scale(1.05);
+      }
     }
   }
 

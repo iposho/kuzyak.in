@@ -2,25 +2,30 @@
 
 import { ReactElement } from 'react';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
-import css from './Logo.module.scss';
+import styles from './Logo.module.scss';
 
 interface CircleProps {
   className?: string;
   'aria-label'?: string;
   role?: string;
+  children?: React.ReactNode;
 }
 
 const Circle = ({
   className,
   'aria-label': ariaLabel,
   role,
-} : CircleProps): ReactElement => (
+  children,
+}: CircleProps): ReactElement => (
   <div
     className={className}
     aria-label={ariaLabel}
     role={role}
-  />
+  >
+    {children}
+  </div>
 );
 
 export const Logo = (): ReactElement => {
@@ -30,7 +35,7 @@ export const Logo = (): ReactElement => {
   if (isMainPage) {
     return (
       <Circle
-        className={css.logo}
+        className={styles.logo}
         aria-label="Color changing circle"
         role="button"
       />
@@ -39,11 +44,19 @@ export const Logo = (): ReactElement => {
 
   return (
     <a
-      className={css.link}
+      className={styles.link}
       href="/"
       aria-label="Go to homepage"
     >
-      <Circle className={css.logo} />
+      <Circle className={styles.logo}>
+        <Image
+          src="/images/face.webp"
+          alt="Pavel Kuzyakin"
+          width={40}
+          height={40}
+          className={styles.faceImage}
+        />
+      </Circle>
     </a>
   );
 };

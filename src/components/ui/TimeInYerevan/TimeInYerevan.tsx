@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-import css from './TimeInYerevan.module.scss';
+import styles from './TimeInYerevan.module.scss';
 
 function TimeInYerevan() {
   const [time, setTime] = useState<string>('');
@@ -40,7 +40,7 @@ function TimeInYerevan() {
   }, []);
 
   return (
-    <div className={css.time}>
+    <div className={styles.time}>
       {timeDiff && (
         <>
           <span>
@@ -50,7 +50,7 @@ function TimeInYerevan() {
             {' '}
             (GMT+4)
           </span>
-          <span className={css.timeDiff}>
+          <span className={styles.timeDiff}>
             (
             {timeDiff}
             )

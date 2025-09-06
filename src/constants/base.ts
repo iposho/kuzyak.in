@@ -36,8 +36,3 @@ export const LAST_UPDATE_DATE: Date = (() => {
  * Contact email
  */
 export const CONTACT_EMAIL = 'pavel@kuzyak.in';
-
-// Unused
-// export const REPOSITORY_URL = packageJson?.repository?.url;
-// export const COPYRIGHT_START_YEAR = 2014;
-// export const CURRENT_YEAR = new Date().getFullYear();
