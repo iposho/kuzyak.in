@@ -36,9 +36,6 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
       <div className={styles.container}>
         <div className={styles.header}>
           <h1 className={styles.title}>Блог</h1>
-          <p className={styles.description}>
-            Мои мысли о разработке, технологиях и жизни
-          </p>
         </div>
 
         {tags.length > 0 && (

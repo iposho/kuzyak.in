@@ -31,18 +31,18 @@ const FOOTER_CONSTANTS = {
 
 export const Footer: FC = () => {
   useEffect(() => {
-    // eslint-disable-next-line no-console
+     
     console.log(FOOTER_CONSTANTS.VERSION_LOG, FOOTER_CONSTANTS.VERSION_LOG_STYLE);
-    // eslint-disable-next-line no-console
+     
     console.log(FOOTER_CONSTANTS.BUILD_DATE, FOOTER_CONSTANTS.BUILD_DATE_STYLE);
-    // eslint-disable-next-line no-console
+     
     console.log(
       `${FOOTER_CONSTANTS.LOAD_TIME}${(performance.now() / 1000).toFixed(2)}s`,
       FOOTER_CONSTANTS.LOAD_TIME_STYLE,
     );
-    // eslint-disable-next-line no-console
+     
     console.log('');
-    // eslint-disable-next-line no-console
+     
     console.log(FOOTER_CONSTANTS.SIGNATURE, FOOTER_CONSTANTS.SIGNATURE_STYLE);
   }, []);
 

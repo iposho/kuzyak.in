@@ -17,7 +17,7 @@ export const CookieConsent: FC = () => {
       const shouldShow = !consent && typeof window !== 'undefined';
       setIsVisible(shouldShow);
     } catch (error) {
-      // eslint-disable-next-line no-console
+       
       console.error('Error checking cookie consent:', error);
       setHasError(true);
     }
@@ -32,13 +32,13 @@ export const CookieConsent: FC = () => {
           localStorage.setItem('cookieConsent', 'true');
           setIsVisible(false);
         } catch (error) {
-          // eslint-disable-next-line no-console
+           
           console.error('Error saving cookie consent:', error);
           setHasError(true);
         }
       }, 300); // Match animation duration
     } catch (error) {
-      // eslint-disable-next-line no-console
+       
       console.error('Error in handleAccept:', error);
       setHasError(true);
     }

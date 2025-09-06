@@ -5,7 +5,7 @@ date: "2024-12-19"
 tags: ["moscow", "urban-legends", "mystery", "folklore", "russia"]
 author: "Pavel Kuzyakin"
 coverImage: "/images/blog/nextjs-blog.jpg"
-permalink: "/blog/moscow-urban-legends"
+slug: "/blog/moscow-urban-legends"
 ---
 
 # Городские легенды Москвы и Подмосковья

@@ -1,4 +1,4 @@
-/* stylelint-disable no-descending-specificity */
+/* stylelint-disable no-descending-specificity, no-invalid-position-declaration */
 // ==========================================================================
 // Variables
 // ==========================================================================
@@ -58,14 +58,14 @@ $breakpoint-tablet: 768px;
 // Interaction Mixins
 @mixin hover-effect {
   @media (hover: hover) {
-    &:hover {
+    :hover {
       @content;
     }
   }
 }
 
 @mixin focus-visible {
-  &:focus-visible {
+  :focus-visible {
     border-radius: $border-radius;
     outline: 2px solid currentcolor;
     outline-offset: 2px;
@@ -74,7 +74,7 @@ $breakpoint-tablet: 768px;
 
 @mixin mobile-active {
   @media (hover: none) {
-    &:active {
+    :active {
       opacity: 0.8;
       transform: scale(0.97);
     }
@@ -86,26 +86,26 @@ $breakpoint-tablet: 768px;
   font-size: $font-size-base;
   line-height: $line-height;
 
-  @media (width <= $breakpoint-tablet) {
+  @media (max-width: $breakpoint-tablet) {
     font-size: $font-size-mobile;
   }
 }
 
 // Media Query Mixins
 @mixin mobile {
-  @media (width <= $breakpoint-mobile) {
+  @media (max-width: $breakpoint-mobile) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (width > $breakpoint-mobile) and (width <= $breakpoint-tablet) {
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (width > $breakpoint-tablet) {
+  @media (min-width: $breakpoint-tablet) {
     @content;
   }
 }
