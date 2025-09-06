@@ -63,7 +63,7 @@ export function markdownToHtmlSync(markdown: string): string {
   try {
     // Простое преобразование Markdown в HTML с помощью регулярных выражений
     // Это временное решение для синхронного использования
-    let html = markdown
+    const html = markdown
       // Заголовки
       .replace(/^# (.*$)/gim, '<h1>$1</h1>')
       .replace(/^## (.*$)/gim, '<h2>$1</h2>')

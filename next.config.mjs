@@ -27,8 +27,7 @@ const nextConfig = {
     mdxRs: false,
   },
   
-  // Убеждаемся, что статическая генерация работает правильно
-  output: 'standalone',
+  // Стандартный режим Next.js
 };
 
 const withMDX = createMDX({

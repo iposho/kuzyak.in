@@ -1,15 +1,12 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getAllTagSlugs, getPostsByTag } from '@/lib/posts';
-import { PostCard, Pagination } from '@/components/blog';
+import { PostCard } from '@/components/blog';
 import styles from './page.module.scss';
 
 interface TagPageProps {
   params: {
     tag: string;
-  };
-  searchParams: {
-    page?: string;
   };
 }
 
@@ -29,7 +26,7 @@ export async function generateMetadata({ params }: TagPageProps): Promise<Metada
   };
 }
 
-export default function TagPage({ params, searchParams }: TagPageProps) {
+export default function TagPage({ params }: TagPageProps) {
   // Проверяем включен ли блог
   if (process.env.NEXT_PUBLIC_ENABLE_BLOG !== 'true') {
     notFound();
@@ -37,13 +34,6 @@ export default function TagPage({ params, searchParams }: TagPageProps) {
 
   const tag = decodeURIComponent(params.tag);
   const posts = getPostsByTag(tag);
-  const currentPage = parseInt(searchParams.page || '1', 10);
-  const postsPerPage = 6;
-  const totalPages = Math.ceil(posts.length / postsPerPage);
-
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
-  const paginatedPosts = posts.slice(startIndex, endIndex);
 
   return (
     <div className={styles.tagPage}>
@@ -69,20 +59,12 @@ export default function TagPage({ params, searchParams }: TagPageProps) {
           </p>
         </div>
 
-        {paginatedPosts.length > 0 ? (
-          <>
-            <div className={styles.postsGrid}>
-              {paginatedPosts.map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              basePath={`/blog/tags/${encodeURIComponent(tag)}`}
-            />
-          </>
+        {posts.length > 0 ? (
+          <div className={styles.postsGrid}>
+            {posts.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
         ) : (
           <div className={styles.emptyState}>
             <p className={styles.message}>Нет постов с этим тегом</p>

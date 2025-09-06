@@ -8,7 +8,7 @@ const counterId = process.env.YANDEX_METRIKA_ID;
 export function Metrika() {
   useEffect(() => {
     if (typeof window !== 'undefined' && typeof window?.ym === 'function' && !!counterId) {
-      window?.ym(counterId, 'hit', window.location.href);
+      window?.ym(counterId, 'hit', { url: window.location.href });
     }
   }, []);
 

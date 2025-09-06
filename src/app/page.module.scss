@@ -58,14 +58,14 @@ $breakpoint-tablet: 768px;
 // Interaction Mixins
 @mixin hover-effect {
   @media (hover: hover) {
-    :hover {
+    &:hover {
       @content;
     }
   }
 }
 
 @mixin focus-visible {
-  :focus-visible {
+  &:focus-visible {
     border-radius: $border-radius;
     outline: 2px solid currentcolor;
     outline-offset: 2px;
@@ -74,7 +74,7 @@ $breakpoint-tablet: 768px;
 
 @mixin mobile-active {
   @media (hover: none) {
-    :active {
+    &:active {
       opacity: 0.8;
       transform: scale(0.97);
     }

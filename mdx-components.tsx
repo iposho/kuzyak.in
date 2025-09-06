@@ -113,7 +113,7 @@ const components: MDXComponents = {
       width={800}
       height={400}
       style={{ maxWidth: '100%', height: 'auto', borderRadius: '0.5rem', marginBottom: '1rem' }}
-      {...(props as any)}
+      {...(props as Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'width' | 'height'>)}
     />
   ),
 };
