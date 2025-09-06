@@ -5,11 +5,6 @@ import { IBM_Plex_Sans } from 'next/font/google';
 
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { EasterEgg } from '@/components/layout/EasterEgg';
-import { CookieConsent } from '@/components/layout/CookieConsent';
-
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/react';
 
 // IMPORTANT: Do not change the import order! React may throw Error 425 if
 // client components imports ('use client') appear after server component imports.
@@ -97,16 +92,11 @@ export default function RootLayout({
       <body className={ibmPlexSans.className}>
         {
           isProduction && (
-            <>
-              <Scripts />
-              <SpeedInsights />
-              <Analytics />
-            </>
+            <Scripts />
           )
         }
         <div className={styles.layout}>
           <Header />
-          {/* <CurrentTrack /> */}
           <main
             className="main"
             data-isproduction={isProduction}
@@ -114,8 +104,6 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <EasterEgg />
-          <CookieConsent />
         </div>
       </body>
     </html>

@@ -1,65 +1,47 @@
-import { CONTACT_EMAIL } from '@/constants/base';
-
 import {
-  TbMail,
-  TbBrandTelegram,
-  TbBrandLinkedin,
-  TbBrandFacebook,
   TbBrandTwitter,
   TbBrandGithub,
+  TbBrandLinkedin,
+  TbMail,
 } from 'react-icons/tb';
 
 export enum SocialPlatform {
   Email = 'Почта',
-  Facebook = 'Фейсбук',
-  Linkedin = 'Линкедин',
   Twitter = 'Твиттер',
-  Github = 'Гитхаб',
-  Telegram = 'Телеграм',
+  GitHub = 'GitHub',
+  LinkedIn = 'LinkedIn',
 }
 
-export interface ISocialLink {
-  id: number;
+export interface SocialLink {
+  id: string;
   link: string;
   label: SocialPlatform;
-  icon: typeof TbBrandGithub;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
-export const SOCIAL_LINKS: ISocialLink[] = [
+export const SOCIAL_LINKS: SocialLink[] = [
   {
-    id: 0,
-    link: `mailto:${CONTACT_EMAIL}`,
+    id: 'email',
+    link: 'mailto:pavel@kuzyak.in',
     label: SocialPlatform.Email,
     icon: TbMail,
   },
   {
-    id: 1,
-    link: 'https://telegram.me/mrposho',
-    label: SocialPlatform.Telegram,
-    icon: TbBrandTelegram,
-  },
-  {
-    id: 2,
-    link: 'https://www.linkedin.com/in/pavelkuzyakin',
-    label: SocialPlatform.Linkedin,
-    icon: TbBrandLinkedin,
-  },
-  {
-    id: 3,
-    link: 'https://facebook.com/pashakuzyakin',
-    label: SocialPlatform.Facebook,
-    icon: TbBrandFacebook,
-  },
-  {
-    id: 4,
-    link: 'https://twitter.com/pavelkuzyakin',
+    id: 'twitter',
+    link: 'https://twitter.com/iposho',
     label: SocialPlatform.Twitter,
     icon: TbBrandTwitter,
   },
   {
-    id: 5,
+    id: 'github',
     link: 'https://github.com/iposho',
-    label: SocialPlatform.Github,
+    label: SocialPlatform.GitHub,
     icon: TbBrandGithub,
+  },
+  {
+    id: 'linkedin',
+    link: 'https://linkedin.com/in/iposho',
+    label: SocialPlatform.LinkedIn,
+    icon: TbBrandLinkedin,
   },
 ];

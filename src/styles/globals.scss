@@ -96,7 +96,8 @@ body {
 
 // Links
 a {
-  color: var(--link-color);
+  // color: var(--link-color);
+  color: #0060a0;
   text-decoration: underline;
   text-decoration-color: var(--link-underline-color);
   text-decoration-thickness: .035em;
