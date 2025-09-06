@@ -6,7 +6,7 @@ import { useBodyClass } from '@/hooks/useBodyClass';
 
 import { getExperienceYears } from '@/utils/getExperienceYears';
 
-import css from './page.module.scss';
+import styles from './page.module.scss';
 
 export default function Home() {
   // Добавляем класс для показа фонового изображения только на главной странице
@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <section className={css.section}>
+      <section className={styles.section}>
         <h1>
           Привет, меня&nbsp;зовут Паша&nbsp;Кузякин.
         </h1>
@@ -27,7 +27,7 @@ export default function Home() {
         <p>
           Работаю в
           {' '}
-          <a href="https://graphlogic.ai" className={css.externalLink}>
+          <a href="https://graphlogic.ai" className={styles.externalLink}>
             Графлоджике
             <GraphLogicIcon />
           </a>
@@ -39,16 +39,16 @@ export default function Home() {
         </p>
       </section>
 
-      <section className={css.section}>
+      <section className={styles.section}>
         <h2 id="technologies">Технологии, с которыми дружу</h2>
         <p>
           React, TypeScript, Next.js, Tailwind, GraphQL, Supabase, Docker, Node.js
         </p>
       </section>
 
-      <section className={css.section}>
+      <section className={styles.section}>
         <h2 id="contacts">На связи</h2>
-        <ul className={css.list}>
+        <ul className={styles.list}>
           {SOCIAL_LINKS.map(({
             id,
             link,
@@ -60,7 +60,7 @@ export default function Home() {
                 href={link}
                 target={label === 'Почта' ? undefined : '_blank'}
                 rel={label === 'Почта' ? undefined : 'noreferrer'}
-                className={css.socialLink}
+                className={styles.socialLink}
               >
                 <Icon />
                 {label}

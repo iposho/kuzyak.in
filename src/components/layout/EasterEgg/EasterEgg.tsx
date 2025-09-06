@@ -1,5 +1,3 @@
-// @ts-ignore
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -8,7 +6,7 @@ import { LAST_UPDATE_DATE } from '@/constants/base';
 
 import { getTimeOfDay } from '@/utils/time';
 
-import css from './EasterEgg.module.scss';
+import styles from './EasterEgg.module.scss';
 
 /**
  * EasterEgg component - shows a hidden message when pressing 'n' or 'т' key
@@ -43,13 +41,13 @@ export function EasterEgg() {
     minute: '2-digit',
   });
 
-  const timeOfDay = getTimeOfDay(new Date());
+  const timeOfDay = getTimeOfDay();
 
   return (
     <button
       onClick={() => setShowMessage(false)}
       type="button"
-      className={css.easterEgg}
+      className={styles.easterEgg}
       title="Нажмите 'n', 'т' или 'Esc' чтобы закрыть"
     >
       {`${timeOfDay.icon} Паша хуячит этот сайт ${timeOfDay.text} ${formattedDate}`}

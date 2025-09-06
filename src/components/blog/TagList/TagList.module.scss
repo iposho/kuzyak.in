@@ -1,0 +1,20 @@
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background-color: #f3f4f6;
+    color: #374151;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #e5e7eb;
+    }
+  }
+}

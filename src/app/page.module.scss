@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 // ==========================================================================
 // Variables
 // ==========================================================================
@@ -165,16 +166,16 @@ $breakpoint-tablet: 768px;
       width: 0.75em;
       height: 0.75em;
       flex-shrink: 0;
+      border-radius: 0.25em;
       color: #000;
       transition: all $transition-duration ease;
       vertical-align: bottom;
-      border-radius: 0.25em;
     }
 
     @include hover-effect {
       svg {
-        transform: scale(1.05);
         opacity: 1;
+        transform: scale(1.05);
       }
     }
   }

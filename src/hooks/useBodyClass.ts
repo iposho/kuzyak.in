@@ -7,7 +7,7 @@ import { useEffect } from 'react';
  * @param className - класс для добавления/удаления
  * @param condition - условие для применения класса
  */
-export const useBodyClass = (className: string, condition: boolean = true) => {
+export const useBodyClass = (className: string, condition = true) => {
   useEffect(() => {
     if (condition) {
       document.body.classList.add(className);

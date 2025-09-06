@@ -7,7 +7,7 @@ import {
   LAST_UPDATE_DATE,
 } from '@/constants/base';
 
-import css from './Footer.module.scss';
+import styles from './Footer.module.scss';
 
 const FOOTER_CONSTANTS = {
   COPYRIGHT: `© 2004...${new Date().getFullYear()}`,
@@ -47,13 +47,13 @@ export const Footer: FC = () => {
   }, []);
 
   return (
-    <footer className={css.footer}>
-      <div className={css.column}>
-        <div className={css.copyright}>
+    <footer className={styles.footer}>
+      <div className={styles.column}>
+        <div className={styles.copyright}>
           <p>
             {FOOTER_CONSTANTS.COPYRIGHT}
           </p>
-          <p className={css.status}>
+          <p className={styles.status}>
             {FOOTER_CONSTANTS.STATUS_MESSAGE}
           </p>
         </div>

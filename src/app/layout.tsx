@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 import { Metadata } from 'next';
 
 import { IBM_Plex_Sans } from 'next/font/google';
@@ -96,7 +96,9 @@ export default function RootLayout({
           )
         }
         <div className={styles.layout}>
-          <Header />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Header />
+          </Suspense>
           <main
             className="main"
             data-isproduction={isProduction}

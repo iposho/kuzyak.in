@@ -45,6 +45,8 @@
 }
 
 html {
+  padding: 0;
+  margin: 0;
   font-size: 16px;
 }
 
@@ -177,10 +179,19 @@ p {
 // Placeholder pages (stub pages)
 .placeholderPage {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
   padding: 2rem;
   text-align: center;
+}
+
+
+/* Стили для CV страницы */
+body[data-page="cv"] {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background: #f5f7fa;
 }

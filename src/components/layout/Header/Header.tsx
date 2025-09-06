@@ -5,7 +5,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 
 import { Logo } from '@/components/ui/Logo';
 
-import css from './Header.module.scss';
+import styles from './Header.module.scss';
 
 export const Header = () => {
   const pathname = usePathname();
@@ -14,29 +14,29 @@ export const Header = () => {
   const showMenu = isProduction ? searchParams.get('menu') === 'true' : true;
 
   return (
-    <header className={css.header}>
+    <header className={styles.header}>
       <Logo />
       {showMenu && (
-        <nav className={css.navigation}>
+        <nav className={styles.navigation}>
           {/* Основная навигация */}
-          <div className={css.mainNav}>
+          <div className={styles.mainNav}>
             <Link
               href="/cv"
-              className={css.navLink}
+              className={styles.navLink}
               aria-current={pathname === '/cv' ? 'page' : undefined}
             >
               Резюме
             </Link>
             <Link
               href="/blog"
-              className={css.navLink}
+              className={styles.navLink}
               aria-current={pathname.startsWith('/blog') ? 'page' : undefined}
             >
               Блог
             </Link>
             <Link
               href="/bookmarks"
-              className={css.navLink}
+              className={styles.navLink}
               aria-current={pathname === '/bookmarks' ? 'page' : undefined}
             >
               Закладки

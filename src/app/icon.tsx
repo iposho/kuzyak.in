@@ -13,7 +13,13 @@ export default async function Icon() {
     (res) => res.arrayBuffer(),
   );
 
-  const dataUrl = `data:${contentType};base64,${Buffer.from(image).toString('base64')}`;
+  const uint8Array = new Uint8Array(image);
+  let binary = '';
+  // eslint-disable-next-line @typescript-eslint/prefer-for-of
+  for (let i = 0; i < uint8Array.length; i++) {
+    binary += String.fromCharCode(uint8Array[i]);
+  }
+  const dataUrl = `data:${contentType};base64,${btoa(binary)}`;
 
   return new ImageResponse(
     (
@@ -29,7 +35,6 @@ export default async function Icon() {
           color: 'transparent',
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           alt=""
           src={dataUrl}
