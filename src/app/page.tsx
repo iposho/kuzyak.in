@@ -1,12 +1,17 @@
 'use client';
 
 import { SOCIAL_LINKS } from '@/constants/social';
+import { GraphLogicIcon } from '@/components/ui/GraphLogicIcon';
+import { useBodyClass } from '@/hooks/useBodyClass';
 
 import { getExperienceYears } from '@/utils/getExperienceYears';
 
 import css from './page.module.scss';
 
 export default function Home() {
+  // Добавляем класс для показа фонового изображения только на главной странице
+  useBodyClass('home-page');
+
   return (
     <>
       <section className={css.section}>
@@ -22,8 +27,9 @@ export default function Home() {
         <p>
           Работаю в
           {' '}
-          <a href="https://graphlogic.ai">
+          <a href="https://graphlogic.ai" className={css.externalLink}>
             Графлоджике
+            <GraphLogicIcon />
           </a>
           .
         </p>

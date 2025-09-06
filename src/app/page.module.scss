@@ -115,7 +115,7 @@ $breakpoint-tablet: 768px;
 
 .section {
   width: 100%;
-  max-width: calc($max-width - 8rem);
+  max-width: calc($max-width - 8.75rem);
   padding: 0 $spacing-base;
   margin-bottom: $spacing-large + 0.25rem;
 
@@ -152,6 +152,30 @@ $breakpoint-tablet: 768px;
 
     @include hover-effect {
       text-decoration-style: solid;
+    }
+  }
+
+  .externalLink {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.125em;
+    vertical-align: baseline;
+
+    svg {
+      width: 0.75em;
+      height: 0.75em;
+      flex-shrink: 0;
+      color: #000;
+      transition: all $transition-duration ease;
+      vertical-align: bottom;
+      border-radius: 0.25em;
+    }
+
+    @include hover-effect {
+      svg {
+        transform: scale(1.05);
+        opacity: 1;
+      }
     }
   }
 

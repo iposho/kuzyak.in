@@ -1,0 +1,1 @@
+export { GraphLogicIcon } from './GraphLogicIcon';
