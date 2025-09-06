@@ -1,6 +1,6 @@
 export default function BlogPage() {
   return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
+    <div className="placeholderPage">
       <h1>Блог</h1>
       <p>Страница находится в разработке</p>
     </div>
