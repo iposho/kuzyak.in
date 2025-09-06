@@ -2,6 +2,7 @@
 
 import { ReactElement } from 'react';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 import css from './Logo.module.scss';
 
@@ -9,18 +10,22 @@ interface CircleProps {
   className?: string;
   'aria-label'?: string;
   role?: string;
+  children?: React.ReactNode;
 }
 
 const Circle = ({
   className,
   'aria-label': ariaLabel,
   role,
+  children,
 } : CircleProps): ReactElement => (
   <div
     className={className}
     aria-label={ariaLabel}
     role={role}
-  />
+  >
+    {children}
+  </div>
 );
 
 export const Logo = (): ReactElement => {
@@ -43,7 +48,15 @@ export const Logo = (): ReactElement => {
       href="/"
       aria-label="Go to homepage"
     >
-      <Circle className={css.logo} />
+      <Circle className={css.logo}>
+        <Image
+          src="/images/face.webp"
+          alt="Pavel Kuzyakin"
+          width={40}
+          height={40}
+          className={css.faceImage}
+        />
+      </Circle>
     </a>
   );
 };
